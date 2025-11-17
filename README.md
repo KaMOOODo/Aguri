@@ -1,1 +1,1 @@
-https://KaMOOODo.github.io/Aguri/index.html
+https://KaMOOODo.github.io/Aguri/dist/index.html
