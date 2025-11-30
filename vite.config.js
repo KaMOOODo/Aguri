@@ -14,6 +14,7 @@ export default defineConfig({
               input: {
                   main: resolve(__dirname, 'src/main.js'),
                   style: resolve(__dirname, 'src/style.css'),
+                  flowbite: resolve(__dirname, 'node_modules/flowbite/dist/flowbite.min.js')
               },
               output: {
                   entryFileNames: 'assets/main.js',
