@@ -1,0 +1,19 @@
+#bottomMobileMenuItems {
+  padding-bottom: 45px;
+}
+
+& {
+  overscroll-behavior: none;
+  touch-action: pan-y;
+
+  &:has(.abs-header-mobile-menu) {
+    .abs-capsule-purchase {
+      bottom: 0 !important;
+      padding-bottom: 45px;
+    }
+  }
+}
+
+.abs-capsule-purchase {
+  bottom: 110px;
+}

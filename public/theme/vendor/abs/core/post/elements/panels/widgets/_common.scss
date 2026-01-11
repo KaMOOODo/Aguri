@@ -1,0 +1,103 @@
+.widget-view {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+
+  .panel-body {
+    padding: 15px;
+  }
+
+  .btn {
+    padding: 2px 10px;
+  }
+
+  .w-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  .w-section {
+    position: relative;
+  }
+
+  .w-label {
+    font-size: small;
+    min-width: 200px;
+  }
+
+  .links {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+  }
+
+  .abs-empty-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+
+    p {
+      color: $gray-light;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    .icon {
+      &:before {
+        Font: normal normal 600 40px/1 'Font Awesome 6 Free';
+        content: "\f03a";
+        opacity: 0.1;
+      }
+    }
+  }
+}
+
+.abs-sidebar {
+  .abs-empty-widget {
+    scale: 0.8;
+  }
+}
+
+@include abs-active-on-desktop-width {
+  .abs-sidebar {
+    .order-history .abs-grid {
+
+      .abs-grid-row-header {
+        display: none;
+      }
+
+      .abs-grid-row {
+        display: flex;
+        flex-direction: column;
+
+        & > .abs-grid-col {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: space-between !important;
+          width: 100%;
+
+          .cell-label {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+

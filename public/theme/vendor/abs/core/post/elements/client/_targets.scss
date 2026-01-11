@@ -1,0 +1,128 @@
+$target-desc-presentation-mode: collapse !default; // vs. tooltip, static
+
+@if ($target-desc-presentation-mode == 'tooltip') {
+
+  .target-details-panel {
+    display: none;
+  }
+
+} @else if($target-desc-presentation-mode == 'collapse') {
+
+  .target-details-panel {
+
+    .btn {
+
+      font-size: 0.8em;
+
+      &:before {
+        font-family: 'Glyphicons Halflings';
+        content: " \e113 ";
+        float: right;
+        transition: all 0.5s;
+        padding: 0 3px;
+      }
+
+      &.collapsed:before {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+
+    & + div {
+      position: absolute;
+      bottom: 45px;
+      background-color: $panel-bg;
+      border: 1px solid $gray-light;
+      padding: 6px 15px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      box-shadow: 0 7px 13px -7px #000;
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
+    }
+  }
+} @else { // static
+  .target-label .abs-icon-info {
+    display: none !important;
+  }
+  .target-details-panel {
+
+    .btn {
+      display: none!important;
+    }
+    & + div.collapse {
+      display: block!important;
+      font-size: 1em;
+      padding: 5px 15px;
+      opacity: 1;
+      text-align: justify;
+      line-height: 1.4;
+    }
+  }
+}
+
+.abs-target-calculation {
+  .balance-info {
+    .balance-info-details {
+      span {
+        &:last-child {
+          font-size: 1.0em;
+        }
+      }
+    }
+  }
+
+  .abs-knobs .abs-knob-container {
+    justify-content: center;
+    margin: 30px 0;
+    padding: 10px 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .abs-target-calculations-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .abs-knobs {
+      width: 100%;
+    }
+
+    .abs-target-calculation-container {
+      flex: 33%;
+
+      .abs-knob-title {
+        opacity: 1;
+
+        .target-label {
+
+        }
+      }
+
+      .target-contractor {
+        opacity: 0.8;
+        font-size: 0.8em;
+      }
+
+      .target-period-label {
+        opacity: 0.5;
+        font-size: 0.8em;
+      }
+
+      .abs-knob-subtitle {
+        font-size: 0.9em
+      }
+    }
+  }
+
+  .abs-icon-info {
+    color: $brand-primary;
+    display: inline;
+  }
+}
+

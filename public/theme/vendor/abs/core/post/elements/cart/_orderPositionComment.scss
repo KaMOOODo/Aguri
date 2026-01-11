@@ -1,0 +1,16 @@
+.order-position-comment .order-position-comment-btn {
+  margin-left: 10px;
+
+  &:before {
+    font: normal normal normal 14px/1 'Font Awesome 6 Free';
+    content: "\f075";
+    font-size: 0.9em;
+    font-weight: normal !important;
+  }
+}
+
+.order-position-comment-modal {
+  .btn-danger {
+    float: left;
+  }
+}

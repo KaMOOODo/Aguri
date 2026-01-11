@@ -1,0 +1,20 @@
+.modal-content {
+  &.abs-scrollable {
+    .modal-body {
+      overflow: auto;
+    }
+  }
+}
+
+.cart-import-result-skipped-items {
+  margin-top: $abs-default-margin-bottom;
+
+  .determinants {
+    font-weight: bold;
+  }
+}
+
+.product-details-energy-class-modal .modal-body {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,150 @@
+#makeupCalculatorModal {
+  .markup-calculator-content {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .markup-calculator-product-details {
+    padding: 10px;
+
+    .abs-product-header-img {
+      display: flex;
+      justify-content: center;
+    }
+
+    flex: 1 0 40%;
+
+    @media #{$media-active-on-phone}  {
+      justify-content: space-around;
+      .abs-product-name {
+        font-size: 16px;
+      }
+      #markup-calculator-product-photo {
+        max-height: 120px;
+      }
+    }
+  }
+
+  .markup-calculator-values {
+    padding: 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    @media #{$media-active-on-mobile}  {
+      justify-content: space-around;
+    }
+
+    .abs-elem-input {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    input {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: $brand-primary;
+      text-align: center;
+
+      &::placeholder {
+        font-weight: normal;
+        font-size: 13px;
+      }
+    }
+
+    > div {
+
+      @media #{$media-active-on-desktop} {
+        padding: 10px;
+      }
+
+      &.markup-calculator-price-presentation {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-bottom: 30px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $gray-lighter;
+
+        @media #{$media-active-on-mobile} {
+          justify-content: space-around;
+          margin-bottom: 0px;
+          flex-direction: column;
+          padding-bottom: 0px;
+          min-height: 150px;
+        }
+      }
+    }
+
+    .markup-calculator-buttons{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      padding: 10px 40px;
+
+      button{
+        flex: 1 1 auto;
+        @media #{$media-active-on-mobile} {
+          flex: 0 1 150px;
+        }
+
+        &.active{
+          background-color: $btn-primary-bg;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .markup-calculator-value {
+
+    .markup-calculator-label {
+      @media #{$media-active-on-desktop} {
+        font-size: 0.8em;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  .markup-calculator-markup {
+
+    label {
+      white-space: nowrap;
+    }
+
+  }
+
+  .markup-calculator-selling-price {
+
+  }
+
+  #markup-calculator-product-photo {
+    max-height: 260px;
+    padding: 20px 0 0;
+  }
+
+  .abs-form-hint-invalid {
+    font-size: 1.5em;
+    position: absolute;
+    right: 15px;
+    color: #000;
+    opacity: 0.15;
+  }
+}
+
+.abs-calculator .markup-calculator-btn {
+  margin-left: 10px;
+  &:before {
+    font: normal normal 900 20px/1 'Font Awesome 6 Free';
+    content: "\f1ec";
+    font-size: 0.75em;
+  }
+}

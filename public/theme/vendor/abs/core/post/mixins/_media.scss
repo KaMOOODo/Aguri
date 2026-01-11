@@ -1,0 +1,143 @@
+@mixin abs-make-media-one-column($media) {
+  @at-root {
+    @media ($media) {
+      .abs-layout-site-one-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-media-one-column-desktop {
+  @at-root {
+    @media #{$media-active-on-desktop} {
+      .abs-layout-site-one-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-media-two-column($media) {
+  @at-root {
+    @media ($media) {
+      .abs-layout-site-two-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-media-two-column-desktop {
+  @at-root {
+    @media #{$media-active-on-desktop} {
+      .abs-layout-site-two-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-media-three-column($media) {
+  @at-root {
+    @media ($media) {
+      .abs-layout-site-three-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-media-three-column-desktop {
+  @at-root {
+    @media #{$media-active-on-desktop} {
+      .abs-layout-site-three-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-for-columns($one: false, $two: false, $three: false) {
+  @at-root {
+    @if ($one) {
+      .abs-layout-site-one-column {
+        @content;
+      }
+    }
+    @if ($two) {
+      .abs-layout-site-two-column {
+        @content;
+      }
+    }
+    @if ($three) {
+      .abs-layout-site-three-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-make-for-two-column() {
+  @at-root {
+    .abs-layout-site-two-column {
+      @content;
+    }
+  }
+}
+
+@mixin abs-make-for-three-column() {
+  @at-root {
+    .abs-layout-site-three-column {
+      @content;
+    }
+  }
+}
+
+@mixin abs-active-on-desktop-width {
+  @at-root {
+    @media #{$media-active-on-desktop} {
+      .abs-layout-site-one-column {
+        @content;
+      }
+    }
+    @media (min-width: #{$screen-lg-min}) {
+      .abs-layout-site-two-column {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin abs-active-on-phone-width {
+
+  @at-root {
+    @media #{$media-active-on-desktop} {
+      .abs-layout-site-three-column {
+        @content;
+      }
+    }
+    @media #{$media-active-on-phone} {
+      @content;
+    }
+  }
+}
+
+@mixin abs-active-on-mobile-width {
+
+  @at-root {
+    @media #{$media-active-on-desktop} {
+      .abs-layout-site-three-column {
+        @content;
+      }
+    }
+    @media (max-width: $screen-md-max) {
+      .abs-layout-site-two-column {
+        @content;
+      }
+    }
+    @media #{$media-active-on-mobile} {
+      @content;
+    }
+  }
+}

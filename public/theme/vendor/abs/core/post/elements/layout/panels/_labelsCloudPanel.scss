@@ -1,0 +1,28 @@
+ul.labels-cloud {
+
+  height: auto;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 170%;
+  font-size: $font-size-base;
+  overflow: hidden;
+
+  li {
+    display: inline;
+
+    &[data-weight='1'] { font-size: 85%; opacity: 0.50; }
+    &[data-weight='2'] { font-size: 100%; opacity: 0.55; }
+    &[data-weight='3'] { font-size: 125%; opacity: 0.60; }
+    &[data-weight='4'] { font-size: 145%; opacity: 0.65; }
+    &[data-weight='5'] { font-size: 175%; opacity: 0.70; }
+    &[data-weight='6'] { font-size: 190%; opacity: 0.75; }
+    &[data-weight='7'] { font-size: 220%; opacity: 0.80; }
+    &[data-weight='8'] { font-size: 250%; opacity: 0.85; }
+    &[data-weight='9'] { font-size: 300%; opacity: 0.90; }
+    &[data-weight='10'] { font-size: 350%; opacity: 1; }
+
+  }
+
+}

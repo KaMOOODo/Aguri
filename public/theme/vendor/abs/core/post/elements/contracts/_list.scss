@@ -1,0 +1,51 @@
+@include abs-active-on-desktop-width {
+
+  .enum-contractstatus-new, .enum-contractstatus-signed {
+    span:last-child {
+      font-size: 0;
+    }
+  }
+
+  .contract-list {
+    @include abs-grid-fix-columns-width((1:220, 3:190, 4:190, 5: 120, 6:120), 6);
+    @include abs-grid-fix-columns-align((1:left, 2:left, 3:left, 4:left, 5:center, 6:center));
+  }
+}
+
+@include abs-active-on-mobile-width {
+
+  .contract-list {
+    @include abs-grid-wrap-mode(true, false, false);
+  }
+
+  .contract-list {
+
+  }
+
+}
+
+.contract-list {
+  .abs-search-filters-attributes > .abs-panel-search-attribute,
+  .abs-search-filters-attributes > .abs-panel-search-attribute:first-child {
+    flex-basis: 220px;
+  }
+}
+
+.enum-contractstatus-new, .enum-contractstatus-signed {
+
+  span:last-child::before {
+    font-family: 'Font Awesome 6 Free';
+    font-size: 25px;
+    font-weight: 100;
+    color: $gray-lighter;
+    content: '\f0f6';
+  }
+}
+
+.enum-contractstatus-signed {
+  span:last-child::before {
+    content: '\f00c';
+    font-weight: 900;
+    color: $brand-success;
+  }
+}

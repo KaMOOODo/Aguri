@@ -1,0 +1,88 @@
+.abs-offer-labels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+
+  & > .caption {
+    &::after {
+      content: ': ';
+    }
+  }
+
+  & > .label {
+    padding: 4px 6px 4px 6px;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 3px;
+
+    & > .badge {
+      background-color: white;
+      color: black;
+      padding: 2px;
+      border-radius: 2px;
+      position: relative;
+      right: -2px;
+      font-size: 90%;
+
+      &:not(:has(*)) {
+        display: none;
+      }
+    }
+
+    & > span {
+
+      padding-left: 3px;
+
+      &::before {
+        content: '';
+        width: 0;
+        height: 0;
+        display: inline;
+        position: absolute;
+        border: 12px solid transparent;
+        border-left: 6px solid rgb(255, 255, 255);
+        margin-left: -8px;
+        margin-top: -6px;
+        top: 4px;
+        left: 8px;
+      }
+    }
+
+    .name, [class^="icon-"] {
+      line-height: normal;
+    }
+
+    &.offer-default .name {
+      display: none;
+    }
+
+    .icon-default {
+      @extend .glyphicon;
+      @extend .glyphicon-th-list;
+    }
+
+  }
+}
+
+.view-kind-record .abs-offer-labels {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.view-kind-box {
+}
+
+.view-kind-b2b {
+
+  .abs-offer-labels {
+    padding-top: 15px;
+  }
+
+}

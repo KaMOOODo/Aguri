@@ -1,0 +1,9 @@
+@mixin abs-make-ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin abs-word-wrap() {
+  word-wrap: break-word;
+}

@@ -1,0 +1,22 @@
+$abs-filters-active-indicator-color: $brand-primary!default;
+
+.nouislider-widget {
+
+  margin: 0 18px;
+  top: 7px;
+
+  .noUi-connect {
+    background: $abs-filters-active-indicator-color;
+  }
+
+  .noUi-tooltip {
+    display: none;
+  }
+
+  .noUi-active .noUi-tooltip {
+    display: block;
+  }
+
+}
+
+

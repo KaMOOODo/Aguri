@@ -1,0 +1,195 @@
+// bottom notifications
+
+#message-div-out,
+#message-div-out-ajax {
+  z-index: 99999;
+  position: relative;
+}
+
+.message-div-class {
+  position: fixed;
+  bottom: 0 !important;
+  left: 0;
+  width: 100%;
+  //z-index: 1200 !important;
+  display: none;
+
+  @media #{$media-active-on-desktop} {
+
+    &.growl-style {
+      bottom: auto !important;
+      left: inherit;
+      top: 75px;
+      right: 75px;
+      width: 350px;
+
+      & > div {
+        margin-bottom: 10px;
+      }
+
+    }
+  }
+
+  &.growl-style {
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+      & > i {
+        flex: 0 0 40px;
+        padding: 0;
+      }
+
+      & > div {
+        flex: 0 0 calc(100% - 40px);
+      }
+
+      & > a.btn {
+        margin: 10px 0 0 40px;
+        float: none;
+        position: static;
+      }
+    }
+  }
+}
+
+.message-div-class ul, .no-list-style {
+  list-style: none;
+}
+
+div.notify li {
+  display: flex;
+  align-items: center;
+}
+
+div.notify {
+  cursor: default;
+  background-color: $btn-success-bg;
+  color: $btn-success-color;
+  border-top: 1px solid $btn-success-border;
+  padding: $padding-large-horizontal;
+  margin: 0 0 20px;
+  border-radius: $border-radius-base;
+  position: relative;
+
+  .abs-icon-remove, .abs-icon-close, .abs-icon-refresh {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: 0.7;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.unsuitable-positions-info {
+
+  &:hover {
+    .unsuitable-positions-remove-btn {
+      @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+    }
+  }
+
+  .unsuitable-positions-remove-btn {
+    border-radius: 5px;
+    padding: 2px;
+    @include alert-variant($alert-danger-text, $alert-danger-text, $alert-danger-bg);
+  }
+
+}
+
+div.notify_info {
+  .abs-icon-info + div b {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+div.notify_info li {
+
+}
+
+div.notify.notify_warn {
+  background-color: $btn-warning-bg;
+  color: $btn-warning-color;
+  border-top-color: $btn-warning-border;
+}
+
+div.notify.notify_fail {
+  background-color: $btn-danger-bg;
+  color: $btn-danger-color;
+  border-top-color: $btn-danger-border;
+}
+
+div.notify > div {
+  margin: auto;
+  max-width: 1280px;
+}
+
+div.notify > h2 {
+  font-size: x-large;
+  padding-bottom: $padding-base-vertical * 2;
+}
+
+div.notify ul {
+  margin-bottom: 2px;
+  padding: 0 2px;
+}
+
+div.notify li i {
+  font-size: 25px;
+  line-height: 0;
+  padding-right: 20px;
+  position: relative;
+  top: 7px;
+  line-height: 100%;
+  margin-bottom: 12px;
+}
+
+div.notify li span {
+  font-weight: normal;
+  opacity: 0.75;
+}
+
+.abs-floating-msg-outer {
+
+  width: 100%;
+  height: 32px;
+
+  .abs-floating-msg-inner {
+    position: fixed;
+    border-radius: 0;
+    text-align: center;
+    width: 100%;
+    height: 32px;
+    padding: 5px 5px 0;
+    cursor: pointer;
+    z-index: 1100;
+    line-height: 11px;
+
+  }
+
+}
+
+@include abs-active-on-phone-width {
+  .abs-floating-msg-outer .abs-floating-msg-inner {
+    font-size: smaller;
+    padding-top: 3px;
+  }
+}
+
+
+._loadingoverlay {
+
+  background-color: transparent !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+
+}

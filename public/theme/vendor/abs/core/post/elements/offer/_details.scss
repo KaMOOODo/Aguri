@@ -1,0 +1,50 @@
+.abs-offer-details-panel {
+
+  > div {
+    text-align: center;
+    border-bottom: 1px solid $gray-lighter;
+    padding-bottom: $padding-base-vertical;
+    margin-bottom: $abs-default-margin-bottom;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+}
+
+.abs-panel-main > .panel-heading.abs-offer-details-panel-heading {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: first baseline;
+
+  & > .abs-offer-details-tag {
+    display: none;
+    float: right;
+    padding: 1px 6px;
+    border-radius: 2px;
+    background-color: $brand-primary;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-left: 15px;
+  }
+
+  @media #{$media-active-on-phone} {
+    padding: 10px 10px 0 10px;
+  }
+
+}
+
+.offer-add-to-cart {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+}
+
+#offerExtraData .offer-add-to-cart {
+  align-items: flex-end;
+}

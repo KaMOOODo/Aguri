@@ -1,0 +1,103 @@
+.abs-product-list {
+  .abs-filters {
+    margin-bottom: $abs-grid-padding;
+  }
+
+}
+
+.abs-add-to-cart {
+  .input-group {
+    max-width: 200px;
+  }
+}
+
+.absHoverZoomContainer div {
+
+  background-color: $popover-bg;
+  border: 1px solid $popover-fallback-border-color;
+  border-radius: $border-radius-base;
+  margin-left: 10px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+  position: relative;
+
+  &::after, &::before {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &::after {
+    border-color: transparent;
+    border-right-color: $popover-bg;
+    border-width: 15px;
+    margin-top: -15px;
+  }
+  &::before {
+    border-color: transparent;
+    border-right-color: $popover-fallback-border-color;
+    border-width: 16px;
+    margin-top: -16px;
+  }
+}
+
+.abs-layout-purchase .abs-item-price-box {
+  padding-bottom: 10px;
+}
+
+@import "../../../functions/svg-uri";
+$_dot1: lighten($brand-primary, 10%) !default;
+$_dot2: lighten($_dot1, 15%) !default;
+
+$loaderStyleMap: (
+        flickr: '<svg width="46px" height="46px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-flickr" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><circle cy="50" cx="30" fill="#{$_dot2}" r="20"><animate attributeName="cx" calcMode="linear" values="30;70;30" keyTimes="0;0.5;1" dur="1.4" begin="-0.7s" repeatCount="indefinite"></animate></circle><circle cy="50" cx="70" fill="#{$_dot1}" r="20"><animate attributeName="cx" calcMode="linear" values="30;70;30" keyTimes="0;0.5;1" dur="1.4" begin="0s" repeatCount="indefinite"></animate></circle><circle cy="50" cx="30" fill="#{$_dot2}" r="20"><animate attributeName="cx" calcMode="linear" values="30;70;30" keyTimes="0;0.5;1" dur="1.4" begin="-0.7s" repeatCount="indefinite"></animate><animate attributeName="fill-opacity" values="0;0;1;1" calcMode="discrete" keyTimes="0;0.499;0.5;1" repeatCount="indefinite" dur="1.4s"></animate></circle></svg>',
+        eclipse: '<svg width="49px" height="49px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-eclipse" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><path stroke="none" d="M10 50A40 40 0 0 0 90 50A40 43 0 0 1 10 50" fill="#{$_dot1}"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51.5;360 50 51.5" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path></svg>',
+        ring: '<svg width="49px" height="49px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-double-ring" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><circle cx="50" cy="50" fill="none" stroke-linecap="round" r="40" stroke-width="4" stroke="#{$_dot1}" stroke-dasharray="62.83185307179586 62.83185307179586"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle><circle cx="50" cy="50" fill="none" stroke-linecap="round" r="35" stroke-width="4" stroke="#{$_dot2}" stroke-dasharray="54.97787143782138 54.97787143782138" stroke-dashoffset="54.97787143782138"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;-360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>',
+        wedges: '<svg width="49px"  height="49px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-wedges" style="background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;"><g transform="translate(50,50)"><g transform="scale(0.7)"><g transform="translate(-50,-50)"><g><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="0.75s" begin="0s" repeatCount="indefinite"></animateTransform><path d="M50 50L50 0A50 50 0 0 1 100 50Z" fill-opacity="0.8" fill="#{$_dot1}"></path></g><g><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform><path d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(90 50 50)" fill-opacity="0.8" fill="#{$_dot2}"></path></g><g><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1.5s" begin="0s" repeatCount="indefinite"></animateTransform><path d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(180 50 50)" fill-opacity="0.8" fill="#{$_dot1}"></path></g><g><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="3s" begin="0s" repeatCount="indefinite"></animateTransform><path d="M50 50L50 0A50 50 0 0 1 100 50Z" transform="rotate(270 50 50)" fill-opacity="0.8" fill="#{$_dot2}"></path></g></g></g></g></svg>'
+);
+
+$loaderStyle: flickr !default;
+
+@if ($loaderStyle != 'none') {
+
+  .abs-img-wrapper, .abs-subcategory-img {
+    position: relative;
+    background-size: 50px auto;
+    background-image: svg-uri(map-get($loaderStyleMap, $loaderStyle));
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  img[data-src] {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      display: none;
+    }
+  }
+
+}
+
+img[ci-src]:not(.ci-image-loaded):not([ci-not-lazy='true']) {
+  padding: 50% !important;
+  overflow: hidden;
+  background: url('//static.abstore.pl/design/graphics/common/loaders/imageloading.gif') center;
+  background-size: cover;
+  font-size: 0;
+  opacity: 0.25;
+
+  .slick-slider & {
+    padding: 0!important;
+    background: transparent;
+    opacity: 1;
+  }
+}
+
+
+@import "productList/_partial";

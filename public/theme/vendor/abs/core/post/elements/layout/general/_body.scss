@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding: 0!important;
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  > .abs-content {
+    flex: 1 0 auto;
+  }
+
+  &[data-module="main"] > .abs-content {
+    overflow: hidden;
+  }
+
+}

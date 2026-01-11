@@ -1,0 +1,23 @@
+.abs-invoice-address-checkbox + .abs-invoice-address-box {
+  margin-top: $abs-grid-padding;
+}
+
+.abs-invoice-address-checkbox {
+  margin-bottom: 0;
+}
+
+
+.radio .abs-address-edit-disallowed {
+
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  a.btn {
+    font-style: italic;
+    opacity: 0.7;
+    color: $text-color;
+    font-size: 0.9em;
+    padding: 0;
+  }
+}

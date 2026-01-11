@@ -1,0 +1,22 @@
+.abs-slider-divider {
+  margin-top: $abs-slider-separator-padding;
+  margin-bottom: $abs-slider-separator-padding;
+}
+
+.carousel-arrows {
+  display: none;
+}
+
+@if ($abs-slider-arrows-navigation) {
+
+  .carousel-arrows {
+    display: block;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .carousel-inner-nav, .slick-dotted.slick-slider.carousel-inner-nav {
+    margin: 0;
+  }
+
+}

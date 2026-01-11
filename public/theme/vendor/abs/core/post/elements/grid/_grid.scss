@@ -1,0 +1,198 @@
+/*
+ *
+ *  * Copyright (c) Asseco Business Solutions S.A. All rights reserved.
+ *
+ */
+
+// filters
+
+.box-type-c {
+  box-shadow: 0 8px 10px -11px rgba(0, 0, 0, 0.6);
+  margin-bottom: 15px;
+
+  ul.nav-pills.nav-stacked {
+    padding-bottom: 15px;
+  }
+}
+
+.box-toggle-closed {
+
+  .box-toggleable-body-inner {
+    transition: max-height 0.3s ease-out 0s;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .filter-actions {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+}
+
+.box-toggle-opened {
+
+  .box-toggleable-body-inner {
+
+    max-height: inherit;
+
+    @media (min-width: $screen-sm-min) {
+      transition: max-height 2.5s ease-out 0s;
+      max-height: 500px;
+    }
+  }
+
+  .filter-actions {
+    max-height: 150px;
+    opacity: 1;
+  }
+}
+
+.filter-attribute .form-cell label {
+  font-weight: normal;
+}
+
+#attributeFilterValues .box-toggleable-body-inner {
+  @media (min-width: $screen-sm-min) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.attribute-value-container-col {
+
+  padding: 10px 15px;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 33%;
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    flex-basis: calc(33% - 30px);
+  }
+
+  @media (min-width: $screen-sm-min) {
+
+    border-right: 1px solid $gray-lighter;
+
+    &:nth-child(3n) {
+      border: 0;
+    }
+
+  }
+
+  .picker__holder {
+    min-width: 250px;
+  }
+
+  .attribute-value-container-row-of-4 &, .attribute-value-container-row-of-8 & {
+
+    flex-basis: 25%;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      flex-basis: calc(25% - 30px);
+    }
+
+    @media (min-width: $screen-sm-min) {
+
+      border-right: 1px solid $gray-lighter;
+
+      &:nth-child(4n) {
+        border: 0;
+      }
+
+    }
+  }
+
+}
+
+.horizontal-label {
+
+  color: $brand-primary;
+  padding: 5px 0;
+  margin-bottom: 10px;
+
+  h4 {
+    margin: 0;
+  }
+}
+
+
+
+.filter-actions {
+  @include make-md-column(3);
+  text-align: right;
+
+  @media (max-width: $screen-xs-max) {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+
+
+
+#listSortCombo > span:nth-child(2) {
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+/* = Paginator ========================================================================= */
+.paginator {
+  @include make-row();
+}
+
+.paginator-body {
+  @include make-xs-column(12);
+}
+
+.paginator-body .pages {
+  float: left;
+  border-left: 1px solid $gray-lighter;
+  border-right: 1px solid $gray-lighter;
+}
+
+.paginator .paginator-epp {
+  float: left;
+}
+
+.paginator .paginator-steps {
+  float: right;
+}
+
+.paginator-part {
+  float: left;
+}
+
+.paginator-part .paginator-body-content {
+  padding: 0;
+}
+
+.paginator-body-content {
+  padding: 20px 0 8px;
+
+  label {
+    font-weight: normal;
+  }
+
+  & > * {
+    display: inline;
+  }
+
+}
+
+.paginator-body .pages span a {
+  padding: 2px 6px;
+}
+
+.paginator-body .pages a.current-page:link, .paginator-body .pages a.current-page:visited, .paginator-body .pages a.current-page:hover {
+  border-radius: 3px;
+}
+
+.paginator .paginator-steps a:link, .paginator-steps a:visited {
+  //#font($paginator-link-font-family,$paginator-link-font-size,$paginator-link-font-weight,"",$paginator-link-font-color)
+}
+
+.paginator .paginator-steps a:hover {
+  //$utils.ifNotEmpty("color",$paginator-link-hover-font-color)
+}
+

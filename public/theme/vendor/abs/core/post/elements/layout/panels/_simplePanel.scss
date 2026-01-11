@@ -1,0 +1,44 @@
+.panel-heading {
+  a {
+    text-decoration: none;
+  }
+}
+
+
+.abs-simple-panel {
+
+  margin-bottom: 15px;
+
+}
+
+.abs-simple-panel-header {
+
+  .abs-simple-panel-icon {
+    @include abs-make-icon;
+    @extend .abs-icon-bullet;
+
+    color: $brand-primary;
+    padding-right: 5px;
+
+  }
+
+  > * {
+    font-weight: bold;
+    border-bottom: 1px solid $panel-default-border;
+    margin-bottom: 5px;
+  }
+
+}
+
+.abs-simple-panel-body {
+
+  p {
+
+    margin: 0;
+
+    span {
+      white-space: nowrap;
+    }
+  }
+}
+

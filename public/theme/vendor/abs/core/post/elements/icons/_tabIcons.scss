@@ -1,0 +1,45 @@
+.abs-icon-tab {
+  pointer-events: none;
+  @include abs-make-icon;
+  @extend .glyphicon-triangle-bottom;
+
+  &.abs-icon-tabattachments {
+    @extend .glyphicon-paperclip;
+  }
+
+  &.abs-icon-tabcommondescription {
+    @extend .glyphicon-file;
+  }
+
+  &.abs-icon-tabseealso {
+    @extend .glyphicon-plus-sign;
+  }
+
+  &.abs-icon-tabproductfeatures {
+    @extend .glyphicon-list;
+  }
+
+  &.abs-icon-tabproductask {
+    @extend .glyphicon-comment;
+  }
+
+  &.abs-icon-tabwithsamelabels {
+    @extend .glyphicon-link;
+  }
+
+  &.abs-icon-tabvariants {
+    @extend .glyphicon-duplicate;
+  }
+
+  &.abs-icon-detailsproductdelivery {
+    @extend .glyphicon-transfer;
+  }
+
+  &.abs-icon-offerlist {
+    @extend .glyphicon-briefcase;
+  }
+
+  &.abs-icon-storelist {
+    @extend .glyphicon-oil;
+  }
+}

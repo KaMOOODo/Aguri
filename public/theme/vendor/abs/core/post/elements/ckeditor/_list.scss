@@ -1,0 +1,19 @@
+.preserveFormatting ol {
+  list-style-type: decimal;
+}
+
+.preserveFormatting ol ol {
+  list-style-type: lower-latin;
+}
+
+.preserveFormatting ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.preserveFormatting ol ol ol ol {
+  list-style-type: upper-latin;
+}
+
+.preserveFormatting ol ol ol ol ol {
+  list-style-type: upper-roman;
+}

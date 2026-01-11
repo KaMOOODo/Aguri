@@ -1,0 +1,19 @@
+.abs-form-hint {
+  display: block;
+  font-size: $font-size-small;
+  color: $text-muted;
+}
+
+.abs-form-hint-invalid {
+  display: block;
+  font-size: $font-size-small;
+  color: $brand-danger;
+}
+
+.abs-inline-hint-valid {
+  color: $text-muted;
+}
+
+.abs-password-hint-invalid {
+  display: none;
+}

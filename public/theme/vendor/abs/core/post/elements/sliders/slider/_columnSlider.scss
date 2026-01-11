@@ -1,0 +1,254 @@
+.side-slideshow {
+  .carousel-indicators {
+    width: 100%;
+    left: auto;
+    margin: auto;
+  }
+}
+
+.abs-slider-col-right {
+  padding-right: 33.3333%;
+
+  .abs-slide-list {
+    right: 0;
+  }
+}
+
+.abs-slider-col-left {
+  padding-left: 33.3333%;
+
+  .abs-slide-list {
+    left: 0;
+  }
+}
+
+.abs-slider-column {
+  @media (max-width: $screen-sm-max) {
+    padding: 0;
+    .abs-slide-list {
+      display: none;
+    }
+  }
+
+  .abs-layout-product-slide {
+    .abs-col-content {
+      .abs-col-img {
+        @include abs-make-aspect-correct-img($size: $abs-slider-img-width-xs, $full-width-xs: true);
+        max-width: $abs-slider-column-img-width-xs + $abs-grid-padding;
+        min-width: $abs-slider-column-img-width-xs + $abs-grid-padding;
+      }
+    }
+  }
+
+  .abs-slide-list {
+    width: calc(33.3333% - #{$abs-grid-padding});
+    position: absolute;
+    top: 0;
+
+    align-items: baseline;
+    border-radius: 0px;
+    cursor: pointer;
+
+    max-height: 100%;
+    overflow-y: hidden;
+
+    .list-group-item {
+      display: flex;
+      align-items: center;
+
+      > .abs-col-img {
+        padding-right: $abs-grid-padding;
+      }
+    }
+
+    .abs-img-wrapper {
+      width: 50px;
+      height: 50px;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .abs-img-unavailable {
+      margin: 15px 0;
+
+      span::before {
+        margin-top: 0;
+        font-size: 40px;
+        left: calc(50% - 20px);
+        background-color: transparent;
+      }
+    }
+  }
+
+
+}
+
+// Hide slide list on three column layout
+.abs-layout-site-three-column {
+  .abs-slider-column {
+    padding: 0;
+
+    .abs-slide-list {
+      display: none;
+    }
+
+    .abs-layout-product-slide {
+      .abs-col-content {
+        .abs-col-img {
+          max-width: 100%;
+          min-width: 100%;
+
+          .abs-img-wrapper {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hide indicators above medium width (one/two column layout)
+@media (min-width: $screen-md-min) {
+  .abs-abs-layout-site-one-column,
+  .abs-abs-layout-site-two-column {
+    .abs-slider-column {
+      .carousel-inner {
+        margin-bottom: 0;
+      }
+
+      .carousel-indicators {
+        display: none;
+      }
+    }
+  }
+}
+
+// Alternate image size for medium screen (one column layout)
+@include abs-make-media-one-column('min-width: #{$screen-md-min}') {
+  .abs-slider-column {
+    .abs-layout-product-slide {
+      .abs-col-content {
+        .abs-col-img {
+          max-width: $abs-slider-column-img-width-md + $abs-grid-padding;
+          min-width: $abs-slider-column-img-width-md + $abs-grid-padding;
+
+          .abs-img-wrapper,
+          .abs-no-img {
+            width: $abs-slider-column-img-width-md;
+            height: $abs-slider-column-img-width-md;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Alternate image size for large screen (one column layout)
+@include abs-make-media-one-column('min-width: #{$screen-lg-min}') {
+  .abs-slider-column {
+    .abs-layout-product-slide {
+      .abs-col-content {
+        .abs-col-img {
+          max-width: $abs-slider-column-img-width-lg + $abs-grid-padding;
+          min-width: $abs-slider-column-img-width-lg + $abs-grid-padding;
+
+          .abs-img-wrapper,
+          .abs-no-img {
+            width: $abs-slider-column-img-width-lg;
+            height: $abs-slider-column-img-width-lg;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hide slide list below certain screen size (two column layout)
+@include abs-make-media-two-column('max-width:' + $abs-slider-column-size-cutoff-two-column) {
+  .abs-slider-column {
+    padding: 0;
+
+    .abs-slide-list {
+      display: none;
+    }
+
+    .abs-layout-product-slide {
+      .abs-col-content {
+        .abs-col-img {
+          max-width: 100%;
+          min-width: 100%;
+
+          .abs-img-wrapper {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Alternate image size above certain size (two column)
+@include abs-make-media-two-column('min-width: #{$screen-md-min}') {
+  .abs-slider-column {
+    .abs-layout-product-slide {
+      .abs-col-content {
+        .abs-col-img {
+          max-width: $abs-slider-column-img-width-md + $abs-grid-padding;
+          min-width: $abs-slider-column-img-width-md + $abs-grid-padding;
+
+          .abs-img-wrapper {
+            width: $abs-slider-column-img-width-md;
+            height: $abs-slider-column-img-width-md;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Alternate Carousel Indicators with titles
+.slick-slider:has(.with-titles) {
+  padding-bottom: 20px;
+}
+
+.carousel-indicators.with-titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin-left: 0;
+  gap: 10px;
+
+  li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex: 1 0 auto;
+    text-indent: 0;
+
+
+    span {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-top: 15px;
+      height: 46px;
+      width: 100%;
+      line-height: 15px;
+    }
+
+    &.active span {
+      font-weight: bold;
+    }
+  }
+}

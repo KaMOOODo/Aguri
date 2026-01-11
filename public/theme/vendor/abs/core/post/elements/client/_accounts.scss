@@ -1,0 +1,45 @@
+#clientAccountsList {
+
+  .abs-grid-of-cols-4 {
+    .abs-grid-row-header, .abs-grid-row {
+
+      > .abs-grid-col {
+        width: calc((100% - 150px) / 3);
+      }
+    }
+  }
+
+  .abs-grid-of-cols-5 {
+    .abs-grid-row-header, .abs-grid-row {
+
+      > .abs-grid-col {
+        width: calc((100% - 150px) / 4);
+      }
+    }
+  }
+
+  .abs-grid {
+    .abs-grid-row-header, .abs-grid-row {
+
+      > .abs-grid-col:last-child {
+        width: 150px;
+      }
+    }
+  }
+}
+
+@include abs-active-on-mobile-width {
+
+  #clientAccountsList {
+
+    @include abs-grid-wrap-mode(true, false, false);
+
+    .abs-grid-row-header, .abs-grid-row {
+
+      > .abs-grid-col:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+}

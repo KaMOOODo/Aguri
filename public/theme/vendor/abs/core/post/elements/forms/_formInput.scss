@@ -1,0 +1,131 @@
+textarea {
+  resize: vertical;
+}
+
+form {
+  .abs-elem-label {
+    .control-label {
+      text-align: left;
+      margin-bottom: $padding-small-vertical;
+      padding: 0;
+    }
+  }
+
+  .abs-elem-input {
+    flex: 1 1 auto;
+    min-width: 1px;
+    height: 100%;
+
+    .attribute-checkbox {
+      width: initial;
+      display: initial;
+      box-shadow: none;
+      vertical-align: middle;
+    }
+  }
+}
+
+#complaintForm{
+  .panel-attributes{
+    .abs-elem-input{
+      min-width: auto !important;
+    }
+  }
+}
+
+.abs-form-panel {
+  max-width: $abs-form-panel-width;
+  margin: $padding-base-horizontal auto;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.abs-form-container {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  //margin-left: -$padding-base-horizontal;
+
+  .abs-form-panel {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: $abs-form-double-panel-width;
+    max-width: none;
+    margin-left: $padding-base-horizontal;
+    margin-right: 0;
+    margin-top: $padding-base-horizontal;
+  }
+
+}
+
+.abs-form-input {
+
+  width: 100%;
+  //height: 100%;
+
+  //margin-left: -$abs-grid-padding /2;
+  margin-bottom: $line-height-computed;
+
+  input, button, .progress, .multiselect, textarea,
+  .abs-elem-input > span, .input-group {
+    max-width: $abs-form-input-max-width;
+  }
+
+  .input-group {
+    width: 100%;
+
+    input {
+      border-right: 0px;
+    }
+  }
+
+  .progress {
+    margin-top: $abs-default-margin-bottom;
+    margin-bottom: $abs-default-margin-bottom;
+    height: 8px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  > *:not(:empty) {
+    //margin-left: $abs-grid-padding /2;
+    //height: 100%;
+  }
+
+  > .abs-elem-label {
+    //flex: 1 0 $abs-form-label-width;
+    //text-align: right;
+    //margin-right: $abs-grid-padding /2;
+
+    label {
+      display: block;
+    }
+  }
+
+}
+
+.input-group-btn:not(.with-filters) {
+  width: 1%;
+}
+
+.multiselect-container .input-group {
+  width: calc(100% - 10px);
+}
+
+.easypack-widget .input-group-btn:not(.with-filters) {
+  width: auto;
+}
+
+
+.radio-group .radio-inline {
+  &.collapse.in, &.collapsing {
+    display: inline-block;
+    margin: 0;
+    width: auto;
+  }
+}

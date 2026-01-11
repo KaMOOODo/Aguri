@@ -1,0 +1,151 @@
+ul.abs-list {
+  li {
+    border: none;
+    padding: 3px;
+    padding-left: 0;
+    background-color: transparent;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &.list-group-item {
+      padding: 0;
+      margin: 0;
+      border: 0;
+
+      .abs-icon-bullet {
+        color: $brand-primary;
+        font-size: .5em;
+        position: relative;
+        top: -1px;
+
+        & + .abs-list-label {
+          padding-left: 5px;
+        }
+      }
+
+      .abs-list-label {
+        color: $text-muted;
+      }
+    }
+
+    ul.abs-list {
+      padding: $padding-base-vertical $padding-base-horizontal;
+    }
+
+  }
+
+  &.abs-list-strong-bullets {
+    li {
+
+      .abs-icon-bullet + span {
+        font-weight: bold;
+        font-size: 1.15em;
+      }
+
+    }
+  }
+
+  &.abs-list-centered {
+
+    li {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .abs-list-label {
+        text-align: right;
+        padding-right: 15px;
+        flex: 0 0 50%;
+      }
+
+      .abs-list-value {
+        flex: 0 0 50%;
+      }
+
+    }
+
+  }
+
+  &.abs-list-zebra {
+
+    li {
+      padding: $abs-attribute-table-margin / 2;
+    }
+
+    li:nth-of-type(odd) {
+      background-color: $table-bg-accent;
+    }
+  }
+
+}
+
+ul.abs-list + ul.abs-list {
+  border-top: 1px solid $table-border-color;
+  padding-top: 20px;
+}
+
+.abs-list-caption {
+  @extend caption;
+  color: $brand-primary;
+}
+
+.abs-list-caption-centered {
+  text-align: center;
+}
+
+ul.abs-list-bullets {
+  list-style: square outside none;
+  -webkit-padding-start: 20px;
+  margin-bottom: $abs-grid-padding;
+  padding-left: 15px;
+
+  li {
+    color: $brand-primary;
+    margin-bottom: $abs-grid-padding;
+
+    span {
+      color: $text-color;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul.abs-list-value {
+  display: inline;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  > li {
+
+    display: inline;
+
+    &::after {
+      content: ", ";
+      display: inline;
+      margin-left: -2px;
+    }
+
+    &:last-of-type::after {
+      display: none;
+    }
+
+    .see-more {
+      display: inline;
+      margin: 0 2px;
+    }
+  }
+}

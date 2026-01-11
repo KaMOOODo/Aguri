@@ -1,0 +1,22 @@
+//== Sliders
+//
+//##
+$abs-slider-indicator-active-color: $brand-primary!default;
+$abs-slider-indicator-color: $gray!default;
+$abs-slider-indicator-bottom-offset: -25px!default;
+$abs-slider-indicator-bottom-margin: 0px!default;
+$abs-slider-inner-bottom-offset: 15px!default;
+$abs-slider-separator-padding: $padding-large-vertical!default;
+
+$default-min-row-width: 250px!default;
+$abs-slider-img-width-lg: $abs-img-size-m!default; //400px;
+$abs-slider-img-width-md: 300px!default;
+$abs-slider-img-width-xs: 200px!default;
+
+$abs-slider-column-img-width-lg: 300px!default;
+$abs-slider-column-img-width-md: 150px!default;
+$abs-slider-column-img-width-xs: $abs-slider-img-width-xs!default;
+
+$abs-slider-column-size-cutoff-two-column: $screen-md-max!default;
+
+$abs-slider-arrows-navigation: false!default;

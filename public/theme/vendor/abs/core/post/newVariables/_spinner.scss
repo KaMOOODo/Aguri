@@ -1,0 +1,32 @@
+$abs-spinner-font-size:     22px!default;
+$abs-spinner-line-height:     32px!default;
+$abs-spinner-border-radius: inherit!default;
+$abs-spinner-side-size: inherit!default;
+$abs-spinner-padding: inherit!default;
+
+$abs-spinner-bg-color: $btn-default-bg!default;
+$abs-spinner-color: $btn-default-color!default;
+$abs-spinner-border: $btn-default-border!default;
+
+%_spinner-button {
+
+  @include button-variant($abs-spinner-color, $abs-spinner-bg-color, $abs-spinner-border);
+
+  font-family: 'Times New Roman', serif;
+  font-size: $abs-spinner-font-size;
+  line-height: $abs-spinner-line-height;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+
+  @if ($abs-spinner-border-radius != 'inherit') {
+    border-radius: $abs-spinner-border-radius;
+  }
+  @if ($abs-spinner-side-size != 'inherit') {
+    width: $abs-spinner-side-size;
+    height: $abs-spinner-side-size;
+  }
+  @if ($abs-spinner-padding != 'inherit') {
+    padding: $abs-spinner-padding;
+  }
+}

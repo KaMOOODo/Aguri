@@ -1,0 +1,90 @@
+$abs-attributes-panel-column-count: 2 !default;
+
+.abs-attributes-values-panel {
+  .attribute-product-presentation-grouped-mode {
+    display: block;
+
+    ul.abs-attributes-values-list {
+      columns: auto 1;
+    }
+  }
+}
+
+
+.attribute-product-presentation-default-mode, .attribute-product-presentation-pager-mode {
+  .abs-attributes-values-list {
+    display: flex;
+    gap: 20px;
+
+    li {
+      height: 70px;
+    }
+
+    a {
+      height: 100%;
+    }
+
+    &.abs-attributes-colors-list {
+
+      justify-content: space-between;
+
+      li {
+        flex-basis: 55px;
+        height: 55px;
+      }
+    }
+  }
+}
+
+.abs-attributes-values-list {
+
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li {
+    flex-grow: 0;
+    flex-basis: calc(100% / #{$abs-attributes-panel-column-count});
+  }
+
+  a {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &.abs-att-val-txt {
+      font-size: 1.2em;
+      text-decoration: none;
+
+    }
+
+    .abs-att-val-desc {
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    &:focus, &:hover, &:active {
+      transform: scale(1.1);
+      transition: all 300ms ease;
+    }
+  }
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+
+}
+
+.abs-list-value[data-attr-eid="DEPOSIT"] img {
+  width: 6em;
+  padding: 0px;
+}
+
+.abs-attributes-values-page ul[data-attr-eid="DEPOSIT"] img {
+  width: 100%;
+}

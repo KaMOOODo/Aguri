@@ -1,0 +1,17 @@
+li.icon-flag {
+  background-position: 15px 50%;
+  background-repeat: no-repeat;
+  padding-left: 45px;
+
+  > a {
+    padding-left: 3px;
+  }
+}
+
+$flags: ad, ae, af, ag, ai, am, an, ao, ar, as, at, au, aw, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, co, cr, cu, cv, cy, cs, de, dj, da, dm, do, dz, ec, eg, eh, el, en, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gh, gi, gm, gn, gp, gq, gt, gu, gw, gy, hk, hn, hr, ht, hu, hy, in, ie, il, hi, iq, ir, is, it, ja, jm, jo, jp, ka, ke, kg, kh, ki, km, knko, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, mg, mh, mk, ml, mm, mn, mo, mq, mr, ms, mt, mu, mv, mw, mx, mz, na, nc, ne, nf, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, ps, pt, pw, py, qa, ro, ru, rw, sa, sb, sc, sd, sg, sh, sl, sk, sm, sn, so, sr, sq, st, sv, sw, sy, sz, tc, td, tg, th, tj, tk, tm, tn, to, tp, tr, tt, tv, tw, tz, uk, ug, us, uy, uz, va, vc, ve, vg, vi, vu, wf, ws, ye, yu, za, zh, zm, zw;
+
+@each $flag in ($flags) {
+  .icon-flag-#{$flag} {
+    background-image: url('//static.connector-b2b.com/design/graphics/common/icons/flags/#{$flag}.png');
+  }
+}

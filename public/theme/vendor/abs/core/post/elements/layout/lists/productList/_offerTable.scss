@@ -1,0 +1,258 @@
+// Important for proper alignment of table within page
+.abs-offer-table-wrapper {
+  position: relative;
+}
+
+.abs-offer-table-with-cart-wrapper {
+  border: $abs-border;
+  border-width: 0 $abs-border-width 0 0;
+  position: relative;
+}
+
+.reverse-offer-checkout {
+  #offerTable[data-columns-order] {
+    visibility: visible;
+  }
+
+  .reverse-offer-desc {
+    padding-bottom: 15px;
+  }
+
+  .abs-col-img, .abs-th-img {
+    display: none;
+  }
+
+}
+
+@include abs-active-on-mobile-width {
+  .reverse-offer-checkout .abs-offer-table table {
+    .abs-col-availability, .abs-th-availability, tr>td:not(.non-idx) {
+      display: none;
+    }
+  }
+}
+
+.abs-offer-table {
+
+  overflow-x: auto;
+  overflow-y: visible;
+
+  .abs-brief-product-data {
+    display: flex;
+    align-items: center;
+  }
+
+  &.abs-offer-table-with-cart.abs-offer-table-frozen-cart {
+    @include abs-make-offer-table-frozen-column-right($col-name: 'quantity', $col-width: $abs-offer-table-quantity-col-width);
+
+    .touch-qnt {
+      align-items: flex-end;
+    }
+
+    .touch-qnt-input {
+      min-width: 115px;
+      width: 115px;
+      margin: 0;
+    }
+  }
+
+  .abs-layout-vertical .touch-qnt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 120px;
+    margin: 0 auto;
+
+    .touch-qnt-input {
+      min-width: 124px;
+      width: 124px;
+    }
+  }
+
+  .abs-locked-sale-info {
+    max-width: 120px;
+    margin: auto;
+  }
+
+  .abs-item-price-box .abs-item-price-breakdown {
+    white-space: normal;
+    line-height: 1.4em;
+  }
+
+  .abs-column-header {
+    display: none;
+  }
+
+  .abs-col-quantity {
+    .btn.btn-sm {
+      max-width: $abs-offer-table-quantity-col-width - 20px;
+      white-space: normal;
+    }
+
+    > div {
+      text-align: center;
+    }
+
+    .abs-item-price-box {
+      display: none;
+    }
+
+    &[data-cart-type="MANUAL"] {
+      .touch-qnt {
+        align-items: center;
+      }
+    }
+  }
+
+  table {
+    @include abs-make-offer-table-border();
+    width: 100%;
+    font-size: $font-size-base;
+
+    td {
+      height: $abs-offer-table-row-height;
+    }
+
+    tr {
+
+      td, th {
+        padding: $abs-grid-padding;
+        max-width: 400px;
+
+        & > * {
+          overflow-wrap: break-word;
+        }
+      }
+
+      td.abs-col-stocks-summary, td.abs-col-availability {
+        .stock-info .abs-avail-label {
+          display: none;
+        }
+      }
+
+      td.abs-col-availability.withTotalStock {
+        .stock-info .abs-avail-label {
+          display: block !important;
+          &:empty {
+            display: none !important;
+          }
+        }
+      }
+
+      &:last-of-type .touch-qnt-unit .dropdown-menu {
+        top: auto;
+        bottom: 100%;
+      }
+    }
+
+    .abs-col-name {
+      h2, span {
+        line-height: 1;
+      }
+
+      h2 {
+        margin-bottom: 5px;
+      }
+    }
+
+    .abs-col-img {
+
+      $_tdWidth: $abs-offer-table-img-size + 2 * $abs-grid-padding;
+      min-width: $_tdWidth;
+      width: $_tdWidth;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .abs-img-wrapper {
+        max-height: $abs-offer-table-row-height;
+        height: 80%;
+        @include abs-centered-image-wrapper;
+      }
+    }
+
+    .abs-col-digest, .abs-th-digest {
+      display: none;
+
+      > div {
+        height: auto;
+
+        .abs-item-price-box {
+          flex-direction: row;
+          align-items: baseline;
+
+          .abs-item-price-final {
+            order: -1;
+            font-weight: bold;
+          }
+
+          .abs-item-price-base {
+            padding-left: 5px;
+          }
+
+          .abs-item-price-breakdown {
+            display: none;
+            padding-left: 5px;
+
+            &::before {
+              content: '(';
+            }
+
+            &::after {
+              content: ')';
+            }
+          }
+        }
+
+      }
+
+    }
+
+    .abs-col-digest {
+      .abs-brief-product-img {
+        @include abs-centered-image-wrapper();
+        width: 50px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .product-header {
+    line-height: 1em;
+  }
+
+  .btn.abs-offer-product-link {
+    float: right;
+  }
+
+}
+
+@include abs-active-on-mobile-width {
+  .abs-offer-table table {
+
+    .abs-col-digest, .abs-th-digest {
+      display: table-cell;
+    }
+
+  }
+}
+
+span[class^='abs-icon-sort-'] {
+  font-size: 75%;
+  padding-left: 5px;
+}
+
+body[data-controller="reverselist"] #offerTable {
+  .abs-col-img, .abs-th-img {
+    display: none;
+  }
+}
+
+#offerTable {
+  .abs-labels {
+    margin-bottom: 5px;
+
+    .product-label {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.widget-view.division-attr {
+
+  .attributes-list .attribute {
+
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-content: center;
+    align-items: baseline;
+    justify-content: flex-start;
+
+    p {
+      font-weight: bold;
+
+      &:after {
+        content: ': ';
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+
+
+}

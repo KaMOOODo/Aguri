@@ -1,0 +1,30 @@
+.abs-data-combo {
+  border: 1px solid $gray-light;
+  padding: $abs-default-margin-bottom $abs-default-margin-bottom #{$abs-default-margin-bottom - 2};
+  margin-bottom: $abs-default-margin-bottom;
+
+  > :first-child {
+
+    position: relative;
+    margin-right: #{$abs-default-margin-bottom * 2};
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+
+    & > :last-child {
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    &::after {
+      content: '▼';
+      position: absolute;
+      right: -#{$abs-default-margin-bottom * 2};
+      font-size: 10px;
+      line-height: 20px;
+      opacity: 0.75;
+    }
+  }
+}
+

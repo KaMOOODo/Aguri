@@ -1,0 +1,24 @@
+.abs-layout-breadcrumbs {
+  @include abs-make-container;
+  //margin-bottom: $abs-default-margin-bottom;
+
+  @media(max-width: $screen-sm-max) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media #{$media-active-on-mobile} {
+    .breadcrumb {
+      text-align: center;
+    }
+  }
+
+  .breadcrumb > li {
+    display: inline;
+    overflow-wrap: break-word;
+  }
+}
+
+.abs-last-breadcrumb h1 {
+  font-size: inherit;
+}

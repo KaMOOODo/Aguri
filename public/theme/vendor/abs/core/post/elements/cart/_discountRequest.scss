@@ -1,0 +1,18 @@
+.abs-icon-piggy-bank {
+  @include abs-make-icon;
+  @extend .glyphicon-piggy-bank;
+}
+
+.discount-request-btn {
+
+  &.percentage::after {
+    content: "%";
+  }
+
+}
+
+.discount-request-modal {
+  .btn-danger {
+    float: left;
+  }
+}

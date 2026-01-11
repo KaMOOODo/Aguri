@@ -1,0 +1,10 @@
+/**
+  Nasza wersja jest skompilowana do wartości 1.42857 przez co te 3 miejsca po przecinku powodują,
+  że Przyciski obok inputa nie sa równe. Na głównej stronie bootstrapa jest wartość 1.42857143
+   przez co jest rozbieżność.
+
+   @see http://getbootstrap.com/components/#input-groups-buttons
+ */
+.btn {
+  line-height: 1.42857143;
+}

@@ -1,0 +1,223 @@
+.abs-discount-suggestion {
+  text-align: left;
+  margin: $abs-grid-padding 0;
+
+  .abs-main-text {
+    font-size: $font-size-h3;
+  }
+
+  .abs-value {
+    //font-weight: bold;
+    white-space: normal;
+    //color: $brand-success;
+  }
+
+  @media #{$media-active-on-phone} {
+    text-align: center;
+    .abs-main-text {
+      font-size: $font-size-h3 * 0.8;
+    }
+  }
+
+  .discount-hint {
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 10px;
+  }
+
+  .abs-price-type {
+    text-transform: lowercase;
+
+    &:before {
+      content: '(';
+    }
+
+    &:after {
+      content: ')';
+    }
+  }
+
+}
+
+#discount-suggestion {
+  .abs-value {
+    @include abs-make-sleek-label();
+    color: $text-color;
+    background-color: $brand-success;
+  }
+}
+
+.free-delivery, .free-delivery-missing-price {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  //color: $brand-success;
+}
+
+.free-delivery {
+  li {
+    display: inline;
+
+    & + li.delivery-name::before {
+      content: ', ';
+      display: inline;
+    }
+
+    &:not(.delivery-name) .abs-value {
+      color: $brand-success;
+    }
+  }
+}
+
+.free-delivery-missing-price {
+  li span.abs-value {
+    color: $brand-success;
+  }
+}
+
+.abs-cart-preview-summary {
+
+  .abs-free-delivery-price-hint {
+
+    margin-top: 10px;
+
+    .abs-main-text {
+      margin: 0;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+    .free-delivery-missing-price {
+      .abs-value {
+        font-weight: bold;
+        opacity: 0.56;
+        white-space: normal;
+      }
+
+    }
+
+  }
+}
+
+.discount-popover {
+
+  .well {
+    padding: 10px 10px 15px 10px;
+    margin-bottom: 15px;
+  }
+
+  @mixin info {
+    @extend %_glyphicon;
+    content: '\e086';
+    color: $brand-primary;
+  }
+
+
+  .popover-title {
+    display: none;
+  }
+
+  .discount-popover-close {
+    padding: 0 6px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+  }
+
+  .popover-content {
+    max-height: calc(100vh * 0.4);
+    width: 485px;
+    max-width: var(--window-width);
+    overflow-y: auto;
+  }
+
+  .discount-threshold-desc {
+    font-size: 0.9em;
+    padding: 0 0 10px 5px;
+
+    &::before {
+      @include info;
+    }
+  }
+
+  .discount-threshold {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    & > div:first-child {
+      display: flex;
+      align-items: center;
+      font-size: 1.15em;
+
+      & > div:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .extra-info {
+    position: relative;
+    align-self: flex-end;
+
+    &::before {
+      @include info;
+      float: right;
+      font-size: 0.9em;
+      position: absolute;
+      right: -6px;
+      top: -10px;
+    }
+  }
+
+  .product-name {
+    font-weight: bold;
+  }
+
+  .discount-name {
+    color: $brand-primary;
+    line-height: 1.25em;
+    font-weight: bold;
+  }
+
+  .discount-breakdown {
+    font-size: 0.75em;
+    font-weight: normal;
+    color: $text-muted;
+  }
+
+  .discounted-price > .abs-item-price-box {
+    align-items: center;
+    padding: 5px;
+  }
+
+  .applied-discounts {
+    display: flex;
+    justify-content: center;
+    column-gap: 5%;
+    padding: 15px 0 0 0;
+
+    .discount-info-box {
+      display: flex;
+      flex-direction: column;
+      padding: 5px 10px;
+      border: 1px dotted $text-muted;
+      border-radius: 7px;
+      background-color: darken($body-bg, 0.3%);
+    }
+
+    .box-separator {
+      @extend .abs-icon-bullet;
+      color: $brand-primary;
+      align-self: center;
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+//== Overrides
+//
+//##
+$abs-btn-toolbar-margin: $padding-large-vertical;
+
+.nav{
+  &.navbar-nav {
+    li {
+      border-bottom: none;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+$abs-tabs-border-color: $brand-primary !default;
+
+.abs-special-tabs-panel {
+  background-color: $gray-lighter;
+  border-top: 1px solid $gray-light;
+  margin-bottom: $padding-base-vertical;
+
+  .nav-tabs {
+    border-bottom: 1px solid $abs-tabs-border-color;
+
+    > li {
+      border-bottom: 1px solid $abs-tabs-border-color;
+
+      > a {
+        color: $gray-light;
+        font-size: .75em;
+        position: relative;
+        padding: 15px;
+
+        &:hover {
+          background-color: lighten($gray-lighter, 5%);
+        }
+      }
+
+      &.active > a {
+        color: $brand-primary;
+        background-color: transparent;
+
+        &:hover {
+          background-color: $gray-lighter;
+        }
+
+        &::after {
+          position: absolute;
+          content: '';
+          width: 20px;
+          height: 20px;
+          border-left: 1px solid $abs-tabs-border-color;
+          border-top: 1px solid $abs-tabs-border-color;
+          background: $panel-bg;
+          transform: rotate(45deg);
+          bottom: -11px;
+          left: calc(50% - 10px);
+        }
+      }
+    }
+  }
+}

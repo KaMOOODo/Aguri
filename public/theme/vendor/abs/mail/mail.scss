@@ -1,0 +1,143 @@
+// Core variables and mixins
+@import "../../bootstrap/bootstrap/_variables";
+@import "../../bootstrap/bootstrap/_mixins";
+@import "../../bootstrap/bootstrap/_normalize";
+@import "../../bootstrap/bootstrap/_scaffolding";
+
+body, td, th {
+  font-family: Arial, sans-serif;
+  font-size: $font-size-base;
+  color: $text-color;
+  background-color: $body-bg;
+  background-image: none;
+}
+
+td > p {
+  margin: 15px 0;
+}
+
+#lay-body > p > a > img {
+  padding: 15px 0;
+}
+
+th.box-title {
+  background-color: $btn-primary-bg;
+  background-image: none;
+  color: $btn-primary-color;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-align: left;
+}
+
+table._positionsList {
+  border: 1px solid $gray-lighter;
+
+  td {
+    padding: 5px;
+    font-size: $font-size-small;
+    border: 1px solid $gray-lighter;
+
+    &.td-ordinal {
+      text-align: center;
+    }
+
+    &.td-thumbnail {
+      text-align: center;
+
+      img {
+        max-width: 80px;
+      }
+    }
+  }
+
+}
+
+td.about-info {
+  font-size: 11px;
+}
+
+.powered-by {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  text-align: center;
+  padding: 5px 0 0 0;
+  color: $text-muted;
+}
+
+.powered-by-link {
+  font-family: Arial, sans-serif;
+  text-decoration: underline;
+  font-size: 11px;
+  font-weight: bold;
+  color: $text-muted;
+}
+
+.red-text {
+  font-weight: bold;
+  color: #B11B00;
+}
+
+.unavailable-position {
+  color: #B11B00;
+}
+
+.price-wrapper .price {
+  font-weight: bold;
+}
+
+.price-wrapper .price-details {
+  color: gray;
+  font-size: smaller;
+}
+
+.price-wrapper .price-before {
+  text-decoration: line-through;
+}
+
+.table-td-summary,
+.table-td-savings {
+  font-weight: bold;
+}
+
+.table-td-savings {
+  color: #B11B00;
+}
+
+.td-align-right {
+  text-align: right;
+}
+
+.table-td .additional-name {
+  color: $text-muted;
+}
+
+.table-td .muted-text {
+  color: $text-muted;
+}
+
+.table-td .smaller {
+  font-size: smaller;
+}
+
+.table-td .position-comment-label {
+  font-size: smaller;
+}
+
+.table-td .position-comment {
+  color: gray;
+  font-size: smaller;
+}
+
+.make-epayment-wrapper {
+}
+
+.money-saved-wrapper {
+  text-align: right;
+  padding: 5px;
+  margin: 0;
+}
+
+ul.tracking {
+  display: inline-table;
+  list-style-type: none;
+}

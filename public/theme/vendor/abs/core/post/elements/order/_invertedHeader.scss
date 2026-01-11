@@ -1,0 +1,267 @@
+[id^=orderHeaderContainer] {
+
+  #order-type-chooser {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .order-type-option {
+      flex-grow: 1;
+      text-align: center;
+      position: relative;
+
+      &.selected {
+        font-weight: bold;
+      }
+
+    }
+
+  }
+
+  .abs-attribute-table tr#editHeaderInModalButton {
+    position: absolute;
+    right: 0;
+    border-color: transparent;
+    background-color: transparent;
+    td {
+      padding: 0;
+    }
+  }
+
+}
+
+.abs-order-header-inputs {
+
+  & > [id$=-section] {
+    margin-bottom: 22px;
+  }
+
+  .abs-form-input {
+    display: flex;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    > * {
+      flex: 0 0 50%;
+    }
+  }
+
+  .abs-elem-input {
+    min-width: 225px;
+  }
+
+  .abs-elem-label {
+    label {
+      text-align: right;
+      padding-right: 15px;
+    }
+  }
+
+  .abs-timerange-layout {
+
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .input-group {
+      width: 100px;
+    }
+  }
+}
+
+#orderHeaderContainerEdit {
+
+  margin: 40px 40px 0;
+
+  & > [id$=-section] {
+    width: 47%;
+  }
+
+  #order-type-chooser {
+    .order-type-option {
+      & > * {
+        cursor: pointer;
+      }
+    }
+  }
+
+  [id$=comment-section] {
+
+    width: 47%;
+    float: right;
+
+    @include clearfix();
+
+    .abs-elem-label {
+      flex: 1 1 1%;
+      align-self: flex-start;
+    }
+
+    .abs-elem-input {
+      flex: 1 1 65%;
+
+      textarea {
+        resize: vertical;
+        height: 142px;
+        min-height: 142px;
+        max-height: 550px;
+      }
+    }
+
+  }
+
+}
+
+#orderHeaderContainerModal .abs-order-header-inputs {
+  margin: 20px 40px;
+  display: flex;
+  flex-direction: column;
+
+  > [id$=-section],
+  > [id*="-attr-"] {
+
+    .abs-elem-label {
+      flex: 0 0 40%;
+    }
+    .abs-elem-input {
+      flex: 0 0 260px;
+    }
+
+  }
+}
+
+#orderHeaderContainerModal #comment-section {
+  & [data-target="#commentChooseModal"] {
+    display: none;
+  }
+}
+
+
+@include abs-active-on-desktop-width {
+
+  .multiselect-container {
+    max-width: 400px;
+  }
+
+}
+
+
+@include abs-active-on-mobile-width {
+
+  [id^=orderHeaderContainer] {
+    > #order-type-chooser {
+      flex-direction: column;
+      width: 90%;
+
+      .order-type-option {
+        flex-grow: 0;
+      }
+
+    }
+  }
+
+  #orderHeaderContainerEdit,
+  #orderHeaderContainerModal .abs-order-header-inputs,
+  #orderHeaderContainerReadOnly .abs-attribute-table tbody {
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    > [id$=-section],
+    > [id*="-attr-"] {
+
+      padding: 0 5%;
+      width: 100%;
+      margin: auto;
+
+      .abs-elem-label {
+        flex: 0 0 250px;
+      }
+      .abs-elem-input {
+        flex: 0 0 242px;
+      }
+
+    }
+
+    [id*=comment-section] {
+      order: 99;
+      float: none;
+    }
+
+    &::after {
+      display: none;
+    }
+
+  }
+
+}
+
+@include abs-active-on-phone-width {
+
+  [id^=orderHeaderContainer] {
+    > #order-type-chooser {
+      flex-direction: column;
+      width: 100%;
+
+      .order-type-option {
+        flex-grow: 0;
+      }
+    }
+  }
+
+  #orderHeaderContainerEdit, #orderHeaderContainerModal .abs-order-header-inputs {
+
+    margin: 40px 0;
+
+    > [id$=-section],
+    > [id*="-attr-"] {
+
+      width: 100%;
+
+      .abs-form-input {
+        flex-wrap: wrap;
+
+        .abs-elem-label {
+          height: auto;
+
+          label {
+            text-align: left;
+          }
+        }
+
+        .abs-elem-input {
+          margin-left: 0;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+}
+
+.header-actions {
+
+  > .btn {
+
+    span:first-child {
+      padding: 0 !important;
+
+    }
+    span:last-child {
+      display: none;
+    }
+
+  }
+
+  .btn:nth-of-type(1n+2) {
+    margin-left: 3px;
+  }
+
+}
+
+#comments-select {
+  font-weight: normal;
+}
+

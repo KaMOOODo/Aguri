@@ -1,0 +1,708 @@
+$web-font-path: "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700&display=swap" !default;
+@import url($web-font-path);
+
+// Navbar =====================================================================
+
+.navbar {
+  border: none;
+  font-size: 13px;
+  font-weight: 300;
+
+  .navbar-toggle:hover .icon-bar {
+    background-color: #b3b3b3;
+  }
+
+  &-collapse {
+    border-top-color: $dropdown-divider-bg;
+    @include box-shadow(none);
+  }
+
+  .btn {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  &-form {
+    margin-top: 7px;
+    margin-bottom: 5px;
+
+    .form-control {
+      height: auto;
+      padding: $padding-xs-vertical $padding-xs-horizontal;
+    }
+  }
+
+  &-text {
+    margin: 12px 15px;
+    line-height: 21px;
+  }
+
+  .dropdown {
+
+    &-menu {
+      border: none;
+
+      > li > a,
+      > li > a:focus {
+        background-color: transparent;
+        font-size: 13px;
+        font-weight: 300;
+      }
+    }
+
+    &-header {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+  }
+
+  &-default {
+
+    .dropdown-menu {
+      background-color: $navbar-default-bg;
+
+      > li > a,
+      > li > a:focus {
+        color: $navbar-default-color;
+      }
+
+      > li > a:hover,
+      > .active > a,
+      > .active > a:hover {
+        background-color: $navbar-default-link-hover-bg;
+      }
+    }
+  }
+
+  &-inverse {
+
+    .dropdown-menu {
+      background-color: $navbar-inverse-bg;
+
+      > li > a,
+      > li > a:focus {
+        color: $navbar-inverse-color;
+      }
+
+      > li > a:hover,
+      > .active > a,
+      > .active > a:hover {
+        background-color: $navbar-inverse-link-hover-bg;
+      }
+    }
+  }
+}
+
+// Buttons ====================================================================
+
+.btn {
+  padding: $padding-base-vertical $padding-base-horizontal;
+
+  &-lg {
+    padding: $padding-large-vertical $padding-large-horizontal;
+  }
+
+  &-sm {
+    padding: $padding-small-vertical $padding-small-horizontal;
+  }
+
+  &-xs {
+    padding: $padding-xs-vertical $padding-xs-horizontal;
+  }
+}
+
+.btn-group {
+
+  .btn ~ .dropdown-toggle {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .dropdown-menu {
+    border-top-width: 0;
+  }
+
+  &.dropup .dropdown-menu {
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    margin-bottom: 0;
+  }
+
+  .dropdown-toggle {
+
+    &.btn-default ~ .dropdown-menu {
+      background-color: $btn-default-bg;
+      border-color: $btn-default-border;
+
+      > li > a {
+        color: $btn-default-color;
+      }
+
+      > li > a:hover {
+        background-color: darken($btn-default-bg, 8%);
+      }
+    }
+
+    &.btn-primary ~ .dropdown-menu {
+      background-color: $btn-primary-bg;
+      border-color: $btn-primary-border;
+
+      > li > a {
+        color: $btn-primary-color;
+      }
+
+      > li > a:hover {
+        background-color: darken($btn-primary-bg, 8%);
+      }
+    }
+
+    &.btn-success ~ .dropdown-menu {
+      background-color: $btn-success-bg;
+      border-color: $btn-success-border;
+
+      > li > a {
+        color: $btn-success-color;
+      }
+
+      > li > a:hover {
+        background-color: darken($btn-success-bg, 8%);
+      }
+    }
+
+    &.btn-info ~ .dropdown-menu {
+      background-color: $btn-info-bg;
+      border-color: $btn-info-border;
+
+      > li > a {
+        color: $btn-info-color;
+      }
+
+      > li > a:hover {
+        background-color: darken($btn-info-bg, 8%);
+      }
+    }
+
+    &.btn-warning ~ .dropdown-menu {
+      background-color: $btn-warning-bg;
+      border-color: $btn-warning-border;
+
+      > li > a {
+        color: $btn-warning-color;
+      }
+
+      > li > a:hover {
+        background-color: darken($btn-warning-bg, 8%);
+      }
+    }
+
+    &.btn-danger ~ .dropdown-menu {
+      background-color: $btn-danger-bg;
+      border-color: $btn-danger-border;
+
+      > li > a {
+        color: $btn-danger-color;
+      }
+
+      > li > a:hover {
+        background-color: darken($btn-danger-bg, 8%);
+      }
+    }
+  }
+}
+
+.cart-btn {
+
+  .loyalty-button & {
+    padding: 2px 22px;
+
+    & .cart-point-btn-text {
+
+      .text {
+        display: block;
+        font-size: 0.85em;
+      }
+      .spending-points {
+        margin-top: -3px;
+        display: block;
+        text-transform: none;
+      }
+    }
+  }
+}
+
+.abs-products-panel .abs-products-media .loyalty-button .cart-btn {
+  padding: 1px 8px;
+  min-width: auto;
+}
+
+// Typography =================================================================
+
+.lead {
+  color: $gray;
+}
+
+cite {
+  font-style: italic;
+}
+
+blockquote {
+  border-left-width: 1px;
+  color: $gray;
+
+  &.pull-right {
+    border-right-width: 1px;
+  }
+
+  small {
+    font-size: $font-size-small;
+    font-weight: 300;
+  }
+}
+
+// Tables =====================================================================
+
+table {
+  font-size: $font-size-small;
+}
+
+// Forms ======================================================================
+
+label,
+.control-label,
+.help-block,
+.checkbox,
+.radio {
+  font-size: $font-size-small;
+  font-weight: normal;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-top: 1px;
+}
+
+// Navs =======================================================================
+
+.nav {
+  .open > a,
+  .open > a:hover,
+  .open > a:focus {
+    border-color: transparent;
+    color: #fff;
+  }
+}
+
+.nav-tabs {
+  .caret {
+    border-top-color: $text-color;
+    border-bottom-color: $text-color;
+  }
+}
+
+.nav-pills {
+  font-weight: 300;
+}
+
+.breadcrumb {
+  border: 1px solid $table-border-color;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.pagination {
+  font-size: $font-size-small;
+  font-weight: 300;
+  color: $gray-light;
+
+  > li {
+    > a,
+    > span {
+      margin-left: 4px;
+      color: $gray-light;
+    }
+  }
+
+  > .active {
+    > a,
+    > span {
+      color: #fff;
+    }
+  }
+
+  > li,
+  > li:first-child,
+  > li:last-child {
+    > a,
+    > span {
+      border-radius: 3px;
+    }
+  }
+
+  &-lg > li > a,
+  &-lg > li > span {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  &-sm > li > a,
+  &-sm > li > span {
+    padding: 0 5px;
+  }
+}
+
+.pager {
+  font-size: $font-size-small;
+  font-weight: 300;
+  color: $gray-light;
+}
+
+.list-group {
+  font-size: $font-size-small;
+  font-weight: 300;
+}
+
+// Indicators =================================================================
+
+.close {
+  opacity: 0.4;
+  text-decoration: none;
+  text-shadow: none;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.alert {
+  font-size: $font-size-small;
+  font-weight: 300;
+
+  .alert-link {
+    font-weight: normal;
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.label {
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 0;
+  font-weight: 300;
+
+  &-default {
+    background-color: $btn-default-bg;
+    color: $btn-default-color;
+  }
+}
+
+.badge {
+  font-weight: 300;
+}
+
+// Progress bars ==============================================================
+
+.progress {
+  height: 22px;
+  padding: 2px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  @include box-shadow(none);
+}
+
+// Containers =================================================================
+
+.dropdown {
+
+  &-menu {
+    padding: 0;
+    margin-top: 0;
+    font-size: $font-size-small;
+
+    > li > a {
+      padding: 12px 15px;
+    }
+  }
+
+  &-header {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+}
+
+.popover {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.panel {
+  &-heading,
+  &-footer {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &-default {
+    .close {
+      color: $text-color;
+    }
+  }
+}
+
+.modal {
+  .close {
+    color: $text-color;
+  }
+}
+
+// Footer =====================================================================
+
+.abs-panel-footer > .panel-body a.list-group-item, footer .abs-footer-bottom-text a {
+
+  color: rgba(255,255,255,0.8);
+
+  &:hover, &:focus, &:active {
+    color: #fff;
+  }
+}
+
+.abs-panel-footer > .panel-heading > *, .abs-panel-footer > .panel-heading > a > * {
+  color: #fff;
+}
+
+// ABS Custom -------------------------------------------------
+
+nav#mainMenu {
+  border-bottom: 1px solid $table-border-color;
+}
+
+
+.breadcrumb {
+  border: 0;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 0;
+  background-color: transparent;
+  opacity: 0.7;
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+.btn {
+  line-height: 19px;
+  text-transform: uppercase;
+
+  &:not(.btn-link) {
+    font-size: 13px;
+    min-width: 120px;
+
+    .modal-footer & {
+      min-width: 120px;
+    }
+  }
+}
+
+.input-group-btn .btn:not(.btn-link),
+.btn-group .btn:not(.btn-link),
+.btn.abs-button-checkout,
+.abs-comparison-actions .btn {
+  min-width: inherit;
+}
+
+.btn.btn-xs:not(.btn-link) {
+  min-width: inherit;
+  font-size: 0.8em;
+  padding: 1px 8px;
+}
+
+.btn.btn-sm:not(.btn-link) {
+  min-width: inherit;
+  font-size: 0.8em;
+  padding: 5px 16px;
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+  .abs-col-left-sidebar, .abs-col-right-sidebar {
+
+    .abs-products-panel .btn:not(.btn-link) {
+      min-width: inherit;
+    }
+
+  }
+}
+
+.abs-extra-btns > .btn {
+  font-size: 11px;
+}
+
+.abs-product-unavailable, .abs-product-hidden-price {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.abs-search-options-links, .abs-header-menu-top nav > ul > li > a {
+  font-size: small;
+}
+
+.abs-special-tabs-panel {
+  background-color: $gray-lighter;
+
+  .nav-tabs > li.active > a {
+    border-width: 0 0 1px 0;
+  }
+
+}
+
+.navbar-default {
+  background-color: #fff;
+
+  .navbar-nav > li > a {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .navbar-nav > .open > a, .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus, .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    background-color: transparent;
+  }
+
+  .dropdown-menu {
+    background-color: #fff;
+
+    > li > a {
+      color: #000;
+      font-size: 14px;
+      font-weight: 400;
+
+      &:hover, &:focus {
+        color: $brand-primary;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+
+  }
+}
+
+.abs-header-menu-top {
+  background-color: #262626;
+
+  .navbar-nav > li > a {
+    color: #fff;
+    font-size: 11px;
+  }
+
+  .switch-toggle {
+    span {
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .switch-container input:checked + .slider {
+      background-color: $brand-primary;
+    }
+  }
+}
+
+.abs-mega-menu-container {
+  .abs-mega-menu-header a:not(:hover) {
+    color: #000;
+    font-weight: 400;
+  }
+  > li > ul > li > a {
+    &:hover, &:active {
+      background-color: transparent;
+      color: $brand-primary;
+    }
+  }
+}
+
+.btn-success, .btn-primary {
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:not(.btn-link) {
+    &:hover, &:active {
+      background-color: $brand-primary;
+      border-color: $brand-primary;
+    }
+  }
+}
+
+.btn-default {
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover, &:focus {
+    background-color: lighten($btn-default-bg, 5%);
+  }
+
+}
+
+.abs-header-content-row .abs-header-content-buttons .abs-cart-preview-items a {
+  &:hover, &:active {
+    background-color: transparent;
+    color: $brand-primary;
+  }
+}
+
+.abs-counter-icon {
+  background-color: $brand-primary;
+}
+
+@include abs-active-on-mobile-width {
+  .breadcrumb {
+    padding: 0 10px;
+  }
+}
+
+.search-list-item .highlighted {
+  color: $brand-primary;
+}
+
+.abs-oauth-providers > a.btn-default {
+  font-size: 0.8em;
+}
+
+footer {
+  a {
+    color: $gray-light;
+  }
+}
+
+.abs-products-panel .abs-products-media .loyalty-button .cart-btn {
+  padding: 1px 8px;
+  min-width: auto;
+}
+.abs-special-tabs-panel {
+  background-color: $table-bg-accent;
+}
+
+.abs-item-price-box .abs-price-unit, .abs-item-price-box .abs-price-type, .abs-catalog-index {
+  color: $gray;
+}
+
+a span.abs-items-count {
+  opacity: 1.0;
+}
+
+.list-group-item .abs-list-label, .abs-attribute-table tr td:first-child {
+  color: $gray !important;
+}
+
+.abs-item-price-box .abs-item-price-breakdown {
+  color: $gray;
+}
+
+#cart-box-content .abs-payment-delivery-panels span.abs-item-price-amount {
+  opacity: 0.9;
+}

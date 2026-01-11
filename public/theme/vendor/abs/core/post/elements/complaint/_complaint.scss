@@ -1,0 +1,392 @@
+div[class*='enum-complaintstatus'] span[title], span[class*='enum-complaintstatus'] {
+
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  color: $badge-color;
+  line-height: $badge-line-height;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $badge-bg;
+  border-radius: $badge-border-radius;
+
+  font-size: 12px;
+  font-weight: normal;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-basis: auto !important;
+
+  &::before {
+    display: none;
+  }
+
+}
+
+div.enum-complaintstatus-open span[title], span.enum-complaintstatus-open {
+  background-color: #3997cf;
+}
+
+div.enum-complaintstatus-feedback span[title], span.enum-complaintstatus-feedback {
+  background-color: #e8a32d;
+}
+
+div.enum-complaintstatus-resolved span[title], span.enum-complaintstatus-resolved {
+  background-color: rgba(29, 125, 49, 1);
+}
+
+div.enum-complaintstatus-closed span[title], span.enum-complaintstatus-closed {
+  background-color: #000;
+}
+
+div.enum-complaintstatus-reopen span[title], span.enum-complaintstatus-reopen {
+  background-color: #3886cf;
+}
+
+div.enum-complaintstatus-in_progress span[title], span.enum-complaintstatus-in_progress {
+  background-color: #4eae8f;
+}
+
+div.enum-complaintstatus-answered span[title], span.enum-complaintstatus-answered {
+  background-color: #8dac57;
+}
+
+.files-download-panel > div > div.file-remove {
+  position: relative;
+}
+
+.btn.btn-attachment-remove {
+  display: none;
+  right: 38px;
+  position: absolute;
+  top: -42px;
+
+  a.file-download-tile:hover + div > &, &:hover {
+    display: block;
+  }
+
+}
+
+.attachment-modal {
+
+  .attachment {
+
+    padding: 10px 0;
+    position: relative;
+
+    .btn.btn-attachment-remove {
+      display: none;
+      left: auto;
+      right: 45px;
+      position: absolute;
+      top: 30px;
+      z-index: 7;
+
+      a.file-download-tile:hover + div > &, &:hover {
+        display: block;
+      }
+    }
+
+    .attachment-status {
+      left: 10px;
+      position: absolute;
+      top: 10px;
+      z-index: 7;
+      font-size: 1.5em;
+    }
+
+    .attachment-uploaded {
+      color: green;
+    }
+
+    .attachment-not-uploaded {
+      color: red;
+    }
+  }
+
+  #file-chooser {
+    font-weight: bold;
+  }
+
+  span.file-filename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .attachment-drag-and-drop-container {
+    width: 100%;
+    min-height: 100px;
+  }
+
+  .upload-container {
+    position: relative;
+    text-align: center;
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    min-height: 200px;
+
+    &-hover {
+      outline-offset: 0;
+    }
+
+    .file-download-tile {
+      width: 100px;
+      height: 100px;
+      padding: 15px 5px 0 5px;
+      font-size: 0.8em;
+      background: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dropndown-info {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      top: calc(50% - 15px);
+      opacity: 0.7;
+      cursor: pointer;
+      width: 300px;
+      background-color: #f7f7f7;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    .attachments-content {
+      padding: 25px 45px;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+
+.form-field .formInputDiv input.subject-field {
+  max-width: 100%;
+  width: 100%;
+}
+
+.form-field .formInputDiv textarea.details-field {
+  height: 300px;
+}
+
+.complaint-category-name {
+  font-size: 0.7em;
+}
+
+
+@include abs-active-on-desktop-width {
+
+  #complaint-history {
+    @include abs-grid-fix-columns-width((1:120, 3:200, 4:150, 5:150, 6:150), 6);
+  }
+
+  .abs-split-layout-attributes.abs-issue-desc-data {
+
+    div.abs-elem-input {
+      flex-basis: 100%;
+    }
+
+    body.ie & {
+      justify-content: flex-start;
+    }
+  }
+
+  /*
+  #complaint-history {
+    .abs-grid-row > .abs-grid-col:nth-child(3) {
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+  }
+  */
+
+}
+
+@include abs-active-on-mobile-width {
+
+  #complaintDetailsCard {
+    .header-actions {
+      display: none;
+    }
+
+    .abs-special-tabs-content + div.spacer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      > .btn {
+        margin: 5px;
+      }
+    }
+  }
+
+  #complaint-history {
+    @include abs-grid-wrap-mode(true, false, false);
+  }
+
+  #complaint-history {
+
+  }
+
+}
+
+@include abs-grid-allow-nowrap-mode('#complaint-history');
+
+
+//#for_complaintGroup
+#for_complaintSubGroup, #for_complaintType {
+  visibility: hidden;
+}
+
+.abs-complaint-form-fields > div {
+  margin-bottom: 20px;
+}
+
+.abs-complaint-category {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: inherit;
+}
+
+.abs-complaint-category .abs-complaint-select {
+  flex: 0 1 33.33%;
+  padding: 5px 0;
+
+  + .abs-complaint-select > div {
+    padding: 0 0 0 10px;
+  }
+}
+
+@include abs-active-on-mobile-width {
+  .abs-complaint-category .abs-complaint-select {
+    flex-basis: 100%;
+    padding-bottom: 5px;
+
+    + .abs-complaint-select > div {
+      padding: 0;
+    }
+  }
+  #for_complaintSubGroup, #for_complaintType {
+    display: none;
+  }
+}
+
+#complaint-history .panel.panel-default.abs-panel-search-attribute {
+  flex-basis: 180px;
+}
+
+.panel-attributes-readonly {
+  .abs-form-input.required {
+    .control-label:after {
+      content: unset;
+    }
+  }
+
+}
+
+#complaint-add-form-content > * {
+  margin-bottom: 20px;
+}
+
+.complaint-automatic-type-assign-panel {
+
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  section {
+    min-width: 250px;
+    flex: 0 0 calc(50% - 5px);
+  }
+}
+
+#complaint-quantity-form-input .number-spinner .touch-qnt-input {
+  width: 280px;
+  max-width: inherit;
+}
+
+#complaint-external-number-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+
+  > div {
+    margin: 0;
+  }
+
+  > div:first-child {
+    width: auto;
+    flex: 0 1 auto;
+  }
+
+  > div:last-child {
+    flex: 1 0 auto;
+  }
+
+  .radio label {
+    line-height: 23px;
+  }
+}
+
+@include abs-active-on-mobile-width {
+  .complaint-automatic-type-assign-panel section {
+    flex: 1 0 100%;
+    margin-bottom: 10px;
+  }
+  #complaint-external-number-container {
+    flex-wrap: wrap;
+
+    .radio-group {
+      margin: 10px 0;
+
+      .radio-inline:first-child {
+        padding: 0;
+      }
+    }
+  }
+}
+
+#complaint-rodo-label .panel-body {
+  text-align: center;
+}
+
+#complaint-history {
+  .abs-grid-col:last-child {
+    overflow: visible !important;
+
+    div.button-std {
+      display: flex;
+    }
+  }
+}
+
+.complaint-doc-type-content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .complaint-doc-type-input {
+    width: auto;
+
+    @media #{$media-active-on-mobile}{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.abs-complaint-class-desc {
+  margin-bottom: 15px;
+  &:empty {
+    display: none;
+  }
+}

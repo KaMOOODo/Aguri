@@ -1,0 +1,400 @@
+.abs-icon-remove {
+  @include abs-make-icon;
+  @extend .glyphicon-remove;
+}
+
+.abs-icon-trash {
+  @include abs-make-icon;
+  @extend .glyphicon-trash;
+}
+
+.abs-icon-floppy-disk {
+  @include abs-make-icon;
+  @extend .glyphicon-floppy-disk;
+}
+
+.abs-icon-cart,
+.abs-icon-menu-cart {
+  @include abs-make-icon;
+  @extend .glyphicon-shopping-cart;
+}
+
+.abs-icon-return {
+  @include abs-make-icon;
+  @extend .glyphicon-menu-left;
+}
+
+.abs-icon-go-to {
+  @include abs-make-icon;
+  @extend .glyphicon-arrow-right;
+}
+
+.abs-icon-search {
+  @include abs-make-icon;
+  @extend .glyphicon-search;
+}
+
+.abs-icon-expandable {
+  @include abs-make-icon;
+  @extend .glyphicon-chevron-down;
+}
+
+.abs-icon-voucher {
+  @include abs-make-icon;
+  @extend .glyphicon-scissors;
+}
+
+.abs-icon-collapse {
+  @include abs-make-icon;
+  @extend .glyphicon-chevron-up;
+}
+
+.abs-icon-collapse-rotated {
+  @include abs-make-icon;
+  @extend .glyphicon-chevron-left;
+}
+
+.abs-icon-bullet {
+  @include abs-make-icon;
+  @extend .glyphicon-chevron-right;
+}
+
+.abs-icon-delivery {
+  @include abs-make-icon;
+  @extend .glyphicon-transfer;
+}
+
+.abs-icon-storage {
+  @include abs-make-icon;
+  @extend .glyphicon-heart-empty;
+  //@extend .glyphicon-pushpin;
+}
+
+.abs-icon-storage-rm {
+  @include abs-make-icon;
+  @extend .glyphicon-heart;
+  //@extend .glyphicon-pushpin;
+}
+
+.abs-icon-compare {
+  @include abs-make-icon;
+  @extend .glyphicon-stats;
+  //@extend .glyphicon-bookmark;
+
+  .active > & {
+    @extend .glyphicon-remove-circle;
+  }
+}
+
+.abs-icon-home {
+  @include abs-make-icon;
+  @extend .glyphicon-home;
+}
+
+.abs-icon-menu-main {
+  @include abs-make-icon;
+  @extend .glyphicon-menu-hamburger;
+}
+
+.abs-icon-menu-top {
+  @include abs-make-icon;
+  @extend .glyphicon-cog;
+}
+
+.abs-icon-user {
+  @include abs-make-icon;
+  @extend .glyphicon-user;
+}
+
+.abs-icon-info {
+  @include abs-make-icon;
+  @extend .glyphicon-info-sign;
+}
+
+.abs-icon-zoom {
+  @include abs-make-icon;
+  @extend .glyphicon-zoom-in;
+}
+
+.abs-icon-close {
+  @include abs-make-icon;
+  @extend .glyphicon-remove;
+}
+
+.abs-icon-calendar {
+  @include abs-make-icon;
+  @extend .glyphicon-calendar;
+}
+
+.abs-icon-time {
+  @include abs-make-icon;
+  @extend .glyphicon-time;
+}
+
+.abs-icon-subscribe {
+  @include abs-make-icon;
+  @extend .glyphicon-ok;
+}
+
+.abs-icon-important, .abs-icon-fail {
+  @include abs-make-icon;
+  @extend .glyphicon-exclamation-sign;
+}
+
+.abs-icon-warning, .abs-icon-warn {
+  @include abs-make-icon;
+  @extend .glyphicon-warning-sign;
+}
+
+.abs-icon-stock-in {
+  @include abs-make-icon;
+  @extend .glyphicon-ok-sign;
+}
+
+.abs-icon-stock-mod {
+  @include abs-make-icon;
+  @extend .glyphicon-adjust;
+}
+
+.abs-icon-stock-out {
+  @include abs-make-icon;
+  @extend .glyphicon-remove-sign;
+}
+
+.abs-icon-variants {
+  @include abs-make-icon;
+  @extend .glyphicon-tags;
+}
+
+.abs-icon-offers {
+  @include abs-make-icon;
+  @extend .glyphicon-tags;
+}
+
+.abs-icon-view-full {
+  @include abs-make-icon;
+  @extend .glyphicon-th-list;
+}
+
+.abs-icon-view-list {
+  @include abs-make-icon;
+  @extend .glyphicon-list;
+}
+
+.abs-icon-view-gallery {
+  @include abs-make-icon;
+  @extend .glyphicon-th-large;
+}
+
+.abs-icon-view-table {
+  @include abs-make-icon;
+  @extend .glyphicon-menu-hamburger;
+}
+
+.abs-icon-triangle-left {
+  @include abs-make-icon;
+  @extend .glyphicon-triangle-left;
+}
+
+.abs-icon-triangle-right {
+  @include abs-make-icon;
+  @extend .glyphicon-triangle-right;
+}
+
+
+.abs-icon-backward {
+  @include abs-make-icon;
+  @extend .glyphicon-backward;
+}
+
+.abs-icon-forward {
+  @include abs-make-icon;
+  @extend .glyphicon-forward;
+}
+
+.abs-icon-fast-backward {
+  @include abs-make-icon;
+  @extend .glyphicon-fast-backward;
+}
+
+.abs-icon-fast-forward {
+  @include abs-make-icon;
+  @extend .glyphicon-fast-forward;
+}
+
+.abs-icon-step-backward {
+  @include abs-make-icon;
+  @extend .glyphicon-step-backward;
+}
+
+.abs-icon-step-forward {
+  @include abs-make-icon;
+  @extend .glyphicon-step-forward;
+}
+
+.abs-icon-left {
+  @include abs-make-icon;
+  @extend .glyphicon-chevron-left;
+}
+
+.abs-icon-right {
+  @include abs-make-icon;
+  @extend .glyphicon-chevron-right;
+}
+
+.abs-icon-sort-asc, .abs-icon-triangle-bottom {
+  @include abs-make-icon;
+  @extend .glyphicon-triangle-bottom;
+}
+
+.abs-icon-sort-desc, .abs-icon-triangle-top {
+  @include abs-make-icon;
+  @extend .glyphicon-triangle-top;
+}
+
+.abs-icon-available {
+  @include abs-make-icon;
+  @extend .glyphicon-ok-sign;
+}
+
+.abs-icon-add {
+  @include abs-make-icon;
+  @extend .glyphicon-plus;
+}
+
+
+.abs-icon-selected {
+  @include abs-make-icon;
+  @extend .glyphicon-ok;
+}
+
+.abs-icon-attachment {
+  @include abs-make-icon;
+  @extend .glyphicon-paperclip;
+}
+
+.abs-icon-mail {
+  @include abs-make-icon;
+  @extend .glyphicon-envelope;
+}
+
+.abs-icon-locked {
+  @include abs-make-icon;
+  @extend .glyphicon-ban-circle;
+}
+
+
+.abs-icon-unlocked {
+  @include abs-make-icon;
+  @extend .glyphicon-ok-circle;
+}
+
+.abs-icon-blocked {
+  @include abs-make-icon;
+  @extend .glyphicon-remove-circle;
+}
+
+.abs-icon-valid {
+  @include abs-make-icon;
+  @extend .glyphicon-ok-circle;
+}
+
+.abs-icon-invalid {
+  @include abs-make-icon;
+  @extend .glyphicon-remove-circle;
+}
+
+.abs-icon-wait {
+  @include abs-make-icon;
+  @extend .glyphicon-hourglass;
+}
+
+.abs-icon-location {
+  @include abs-make-icon;
+  @extend .glyphicon-map-marker;
+}
+
+.abs-icon-phone {
+  @include abs-make-icon;
+  @extend .glyphicon-earphone;
+}
+
+.abs-icon-file-download {
+  @include abs-make-icon;
+  @extend .glyphicon-save-file;
+}
+
+.abs-icon-link {
+  @include abs-make-icon;
+  @extend .glyphicon-link;
+}
+
+.abs-icon-split-order {
+  @include abs-make-icon;
+  @extend .glyphicon-duplicate;
+}
+
+.abs-icon-show {
+  @include abs-make-icon;
+  @extend .glyphicon-eye-open;
+}
+
+.abs-icon-hide {
+  @include abs-make-icon;
+  @extend .glyphicon-eye-close;
+}
+
+.abs-icon-edit {
+  @include abs-make-icon;
+  @extend .glyphicon-edit;
+}
+
+.abs-icon-edit-data {
+  @include abs-make-icon;
+  @extend .glyphicon-pencil;
+}
+
+.abs-icon-import {
+  @include abs-make-icon;
+  @extend .glyphicon-import;
+}
+
+.abs-icon-export {
+  @include abs-make-icon;
+  @extend .glyphicon-export;
+}
+
+.abs-icon-repeat {
+  @include abs-make-icon;
+  @extend .glyphicon-repeat;
+}
+
+.abs-icon-loyalty {
+  @include abs-make-icon;
+  @extend .glyphicon-gift;
+}
+
+.abs-icon-read-file {
+  @include abs-make-icon;
+  @extend .glyphicon-open-file;
+}
+
+.abs-icon-refresh {
+  @include abs-make-icon;
+  @extend .glyphicon-refresh;
+}
+
+.abs-icon-order-templates {
+  @include abs-make-icon;
+  @extend .glyphicon-heart-empty;
+
+  .active > & {
+    @extend .glyphicon-heart;
+    color: #BA132B;
+  }
+}
+
+.abs-icon-takeover {
+  @include abs-make-icon;
+  @extend .glyphicon-retweet;
+}

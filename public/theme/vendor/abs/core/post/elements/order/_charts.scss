@@ -1,0 +1,177 @@
+/*
+ *
+ *  * Copyright (c) Asseco Business Solutions S.A. All rights reserved.
+ *
+ */
+
+canvas.chart {
+  margin: 35px 0;
+}
+
+.abs-charts {
+
+  @include make-row();
+
+  .chart-wrapper {
+
+    @include make-sm-column(6);
+    @include make-xs-column(12);
+    padding: 20px 40px;
+
+    span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 15px 0;
+      margin: 0;
+      font-weight: bold;
+    }
+
+  }
+
+}
+
+@include abs-active-on-phone-width {
+  .chart-wrapper {
+    @include make-xs-column(12);
+  }
+}
+
+.chart-legend {
+    ul {
+      list-style-type: none;
+      margin: 15px 0;
+    }
+
+    li {
+      font-size: small;
+      padding: 2px 0;
+
+      span {
+        opacity: 0.8;
+      }
+
+      em {
+        font-style: normal;
+        opacity: 1;
+        color: $brand-primary;
+        padding: 0 5px;
+      }
+    }
+
+    .legend-icon {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 6px;
+      opacity: 1;
+    }
+}
+
+// http://colllor.com or https://coolors.co/browser may be helpful
+
+$abs-chart-fill-color-base: lighten($brand-primary, 15%) !default;
+
+.chart-fill-color { background-color: $abs-chart-fill-color-base; }
+.chart-stroke-color { background-color: #ffffff; }
+
+/*
+.chart-scale-1 {  background-color: #003D26; }
+.chart-scale-2 {  background-color: #005232; }
+.chart-scale-3 {  background-color: #00663F; }
+.chart-scale-4 {  background-color: #007A4B; }
+.chart-scale-5 {  background-color: #008F58; }
+.chart-scale-6 {  background-color: #00AA69; }
+.chart-scale-7 {  background-color: #00B871; }
+.chart-scale-8 {  background-color: #00CC7E; }
+.chart-scale-9 {  background-color: #00E08A; }
+.chart-scale-10 {  background-color: #00F597; }
+*/
+.chart-scale-1 { background-color: #006EB9; }
+.chart-scale-2 { background-color: #3FBFB0; }
+.chart-scale-3 { background-color: #FFCD34; }
+.chart-scale-4 { background-color: #F26C52; }
+.chart-scale-5 { background-color: #A22615; }
+.chart-scale-6 { background-color: #73B865; }
+.chart-scale-7 { background-color: #003046; }
+.chart-scale-8 { background-color: #AB7F19; }
+.chart-scale-9 { background-color: #007D89; }
+.chart-scale-10 {background-color: #22C0F1; }
+.chart-scale-11 {background-color: #ECE924; }
+.chart-scale-12 {background-color: #5F646A; }
+.chart-scale-13 {background-color: #D5C9C9; }
+.chart-scale-14 {background-color: #F5F1F1; }
+
+
+$base-palette: (
+  'base': #E1DDEC,
+  'colors':
+    #E1DDEC
+    #CBC2DD
+    #B6AAD0
+    #A393C0
+    #927FB6
+    #836EA9
+    #765D9F
+    #684C96
+    #5B3C8C
+    #4E2A84
+    #472476
+) !default;
+
+@function color-diff($a, $b) {
+  $sat: saturation($a) - saturation($b);
+  $lig: lightness($a) - lightness($b);
+  $fn-sat: if($sat > 0, 'desaturate', 'saturate');
+  $fn-lig: if($lig > 0, 'darken', 'lighten');
+
+  @return (
+          adjust-hue: -(hue($a) - hue($b)),
+          #{$fn-sat}: abs($sat),
+          #{$fn-lig}: abs($lig)
+  );
+}
+
+@function palette-diff($palette) {
+  $base: map-get($palette, 'base');
+  $colors: map-get($palette, 'colors');
+  $diffs: ();
+
+  @each $color in $colors {
+    $diffs: append($diffs, color-diff($base, $color));
+  }
+
+  @return $diffs;
+}
+
+$palette-diff: palette-diff($base-palette);
+
+@function apply-diff($color, $diff) {
+  @each $function, $value in $diff {
+    $color: call(get-function($function), $color, $value);
+  }
+
+  @return $color;
+}
+
+@function create-palette($base-color) {
+  $palette: ();
+
+  @each $diff in $palette-diff {
+    $palette: append($palette, apply-diff($base-color, $diff));
+  }
+
+  @return $palette;
+}
+
+$green-palette: create-palette($abs-chart-fill-color-base);
+
+@for $i from 1 through 11 {
+  .chart-scale-#{$i} { background-color: nth($green-palette, ($i)); }
+}
+
+input.knob.readonly {
+  &:hover {
+    cursor: inherit;
+  }
+}

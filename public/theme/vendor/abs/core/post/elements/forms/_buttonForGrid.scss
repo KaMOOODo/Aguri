@@ -1,0 +1,175 @@
+.btn-default {
+
+  &:hover {
+    background-color: $btn-default-bg;
+    box-shadow: 0 0 7px -4px #000
+  }
+
+  .btn-group & + .btn-default, .cell-edit & + .btn-default {
+    margin-left: -1px;
+  }
+
+  &.disabled {
+    color: desaturate($btn-default-color, 100%);
+    opacity: 0.4;
+  }
+}
+
+.btn-default, .btn-danger, .btn-info, .btn-success, .btn-info {
+  &.btn-lg:not(.btn-link) {
+    font-size: 20px;
+    padding: 4px 7px 1px;
+    min-width: inherit;
+  }
+}
+
+.btn-default, .btn-primary, .btn-success, .tooltip-wrapper {
+
+  & + .btn-default, & + .btn-primary, & + .btn-success, & + .tooltip-wrapper {
+    margin-left: 5px;
+  }
+
+}
+
+.btn.abs-offer-product-link:not(.btn-link) {
+  min-width: inherit;
+}
+
+.button-std input {
+  @extend %_btn;
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+
+.button-std.non-default-action input {
+  @extend %_btn-link;
+}
+
+.button-std-floated.float-left {
+  float: left;
+}
+
+.button-std-floated.float-right {
+  float: right;
+}
+
+#orderDetailsCard {
+  position: relative;
+}
+
+.header-actions {
+
+  background-color: #fff;
+  position: static;
+  float: right;
+
+  & + .abs-order-header-wrapper {
+    clear: both;
+  }
+
+  .panel-body > & {
+    right: $panel-body-padding;
+  }
+
+  &.btn-group {
+
+    > .btn {
+
+      span {
+        //font-size: 1.25em;
+        //line-height: 1.25em;
+      }
+
+      span.btn-label {
+        display: none;
+      }
+
+      span.caret {
+        margin-left: 4px;
+        margin-top: -4px;
+      }
+
+    }
+  }
+
+}
+
+@include abs-active-on-mobile-width {
+  .panel-body .header-actions {
+    position: static;
+    padding: 0 0 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+%_btn-icon {
+  @extend %_glyphicon;
+  padding-right: 4px;
+}
+
+.btn.btn-reopen span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-repeat;
+}
+
+.btn.btn-edit span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-pencil;
+}
+
+.btn.btn-bulk span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-link;
+}
+
+.btn.btn-complaint span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-tasks;
+}
+
+.btn.btn-parent_canceled span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-remove;
+
+}
+
+.btn.btn-received span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-thumbs-up;
+}
+
+.btn.btn-attachment span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-paperclip;
+}
+
+.btn.btn-comment span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-comment;
+}
+
+.btn-status-feedback span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-bullhorn;
+}
+
+.btn-status-reopen span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-repeat;
+}
+
+.btn-status-resolved span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-check;
+}
+
+.btn-status-closed span:first-child {
+  @extend %_btn-icon;
+  @extend .glyphicon-saved;
+}
+
+.advices-ajax-button {
+  cursor: pointer
+}

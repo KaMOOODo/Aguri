@@ -1,0 +1,212 @@
+.touch-qnt {
+
+  margin-bottom: $abs-grid-padding;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  .abs-panel-search-attribute & {
+    align-items: center;
+  }
+
+  #registerOrder-additionalParams & {
+    align-items: flex-start;
+  }
+
+  .touch-qnt-input {
+    min-width: 140px;
+    width: 140px;
+
+    td.abs-col-quantity & {
+      margin: auto;
+    }
+
+  /*
+   * > input.touch-spin:not(.ready) + span {
+
+      display: block;
+      position: relative;
+      pointer-events: none;
+
+      &::before, &::after {
+        @extend %_spinner-button;
+        content: '–';
+        display: block;
+        position: absolute;
+        bottom: 0;
+      }
+
+      &::after {
+        content: '+';
+        right: 0;
+      }
+
+    }
+
+    > input.touch-spin[data-initval="0"]:not(.ready) + span {
+      &::before {
+        color: desaturate($btn-default-color, 100%);
+        opacity: 0.4;
+      }
+    }
+
+    > input.touch-spin.ready + span {
+      display: none;
+    }
+    */
+
+    input.has-number-spinner {
+      text-align: center;
+    }
+
+  }
+
+  .input-progress {
+
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+    .progress {
+      margin: 0;
+      padding: 0;
+      height: 4px;
+      width: 100%;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: $brand-info;
+    }
+
+    .current-load {
+      font-size: smaller;
+    }
+
+
+  }
+
+  .touch-qnt-unit {
+    position: relative;
+    margin-left: 5px;
+
+    > button.btn-link {
+
+      padding: 0 5px;
+      line-height: 1.1;
+
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+      }
+
+      span:first-child {
+        padding-right: 5px;
+        font-size: smaller;
+      }
+    }
+
+    button:not([data-toggle]):not([data-trigger]) {
+      cursor: default;
+      pointer-events: none;
+    }
+
+  }
+
+  .input-group > .input-group-btn > button {
+    @extend %_spinner-button;
+  }
+
+}
+
+.abs-layout-vertical {
+  > div {
+    &:first-child {
+      margin-bottom: $abs-grid-padding;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .touch-qnt {
+
+    width: 140px;
+    display: inline-block;
+
+    &::after {
+      display: block;
+      content: ' ';
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .input-group-btn {
+      height: 100%;
+    }
+
+    .touch-qnt-unit {
+      margin: 0;
+      text-align: center;
+    }
+
+    .touch-qnt-unit button {
+      font-size: $font-size-small;
+    }
+
+    .abs-spinner-unit {
+      font-size: $font-size-small;
+    }
+
+    .bootstrap-touchspin-up {
+      margin: 0 !important;
+    }
+
+    .bootstrap-touchspin-down {
+      margin: 0 !important;
+    }
+
+    .dropdown-toggle {
+      text-align: right;
+
+      .current-unit {
+        float: left;
+      }
+    }
+  }
+
+}
+
+.number-spinner {
+  justify-content: flex-start;
+  margin: 0;
+
+  .touch-qnt-input {
+    width: 100%;
+    max-width: $abs-form-input-min-width;
+  }
+}
+
+.popover.touch-qnt-unit {
+
+  .popover-content {
+    padding: 0;
+  }
+
+  .dropdown-menu {
+    display: block;
+    position: relative;
+    border: none;
+    box-shadow: none;
+
+    @media #{$media-active-on-mobile} {
+      li.disabled {
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+

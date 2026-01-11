@@ -1,0 +1,8 @@
+.abs-drag-panel {
+  .abs-drag-panel-btn-back,
+  .abs-drag-panel-btn-forward {
+    &:hover {
+      background-color: $nav-tabs-active-link-hover-bg;
+    }
+  }
+}

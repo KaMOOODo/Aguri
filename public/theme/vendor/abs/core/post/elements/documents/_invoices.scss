@@ -1,0 +1,282 @@
+@include abs-active-on-mobile-width {
+
+  #invoiceList, #tabOrderInvoices, .invoice-epayment-compensation-modal {
+
+    @include abs-grid-wrap-mode(true, true, true);
+
+  }
+
+}
+
+@include abs-grid-allow-nowrap-mode('#invoiceList, #tabOrderInvoices');
+
+@include abs-active-on-desktop-width {
+  #invoiceList {
+    @include abs-grid-fix-columns-width((8:100, 9:100), 9);
+    @include abs-grid-fix-columns-align((1:left, 2:left, 3:left, 4:left, 5:left, 6:left, 7:left, 8:left, 9:center));
+  }
+}
+
+#tabOrderInvoices {
+  .subgrid .abs-grid .abs-grid-row > .abs-grid-col {
+
+    &::before {
+      content: counter(line-number-sub) ")";
+      padding-right: 5px;
+      opacity: 0.5;
+    }
+  }
+}
+
+@include abs-active-on-desktop-width {
+  #tabOrderInvoices .abs-col-filters {
+    > {
+      @include abs-grid-fix-columns-width((1:80, 8:100, 9:100), 9);
+      @include abs-grid-fix-columns-align((1:center, 2:left, 3:left, 4:left, 5:left, 6:left, 7:left, 8:left, 9:center));
+    }
+  }
+}
+
+.abs-balance-panel {
+  font-size: large;
+  text-align: right;
+
+  .balanceLabel {
+    font-weight: bold;
+  }
+}
+
+#invoiceList {
+  #filtersShowResultButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .abs-grid-col .abs-labels {
+    .abs-label {
+      text-align: left;
+      white-space: break-spaces;
+      font-weight: normal;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+
+  .invoice-epayment-panel {
+    margin: 10px 0;
+  }
+}
+
+.abs-invoice-left-to-pay .abs-list-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.invoice-epayment-wrapper, .invoice-epayment-compensation-wrapper {
+  .invoice-epayment-summary {
+    display: flex;
+    justify-content: space-between;
+    border-radius: $border-radius-large;
+    background-color: $abs-cart-panels-bg-color;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    .invoice-epayment-chooser {
+      @media #{$media-active-on-desktop} {
+        flex: 0 1 400px;
+      }
+
+      .abs-col-payment .abs-panel .panel-body {
+        padding: 0;
+        border-right: 1px solid $table-border-color;
+        border-radius: 0;
+
+        @media #{$media-active-on-mobile} {
+          border-right: none;
+        }
+      }
+    }
+
+    .invoice-epayment-summary-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      gap: 15px;
+      margin-top: $padding-base-vertical + 2;
+
+      .abs-item-price-box {
+
+        align-items: center;
+
+        .abs-item-price-final {
+          font-size: clamp(1.2em, 2vw, 1.8em);
+        }
+
+        .abs-item-price-breakdown {
+          font-size: 1.0em;
+          align-self: end;
+        }
+
+        &:has(.slider-section) {
+          .abs-item-price-breakdown {
+            @media #{$media-active-on-mobile} {
+              align-self: center;
+            }
+          }
+        }
+
+        button.do-payment {
+          margin-top: 15px;
+          border-radius: 20px;
+          width: 80%;
+          @media #{$media-active-on-mobile} {
+            width: 100%;
+          }
+
+          font-size: clamp(1em, 2vw, 1.2em);
+        }
+      }
+
+      @media #{$media-active-on-mobile} {
+        align-items: flex-start;
+      }
+
+      .amount-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        @media #{$media-active-on-mobile} {
+          justify-content: space-between;
+        }
+      }
+
+      .slider-section {
+        @media #{$media-active-on-mobile} {
+          margin-top: 15px;
+        }
+        width: 100%;
+
+        .abs-layout-range-slider {
+          margin: 0;
+          max-width: none;
+
+          .abs-col-max input {
+            font-size: clamp(1em, 2vw, 1.2em);
+            text-align: center;
+          }
+        }
+      }
+
+      .amount-section .i-label {
+        font-size: clamp(1em, 2vw, 1.6em);
+
+        font-weight: normal;
+        color: $text-color;
+
+        &:after {
+          content: ':';
+        }
+      }
+
+      .slider-section .price-slider {
+
+
+        .horizontal {
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 20px;
+
+          .abs-col-slider {
+
+            height: 10px;
+            flex-grow: 1;
+            top: 0;
+            margin: 0;
+            padding: 0;
+
+            .noUi-handle {
+              height: 18px;
+              width: 18px;
+              top: -5px;
+              right: -5px; /* half the width */
+              border-radius: 9px;
+
+              &:before, &:after {
+                display: none;
+              }
+            }
+
+            @media #{$media-active-on-mobile} {
+              width: 100%;
+              flex: 1 0 auto;
+            }
+          }
+
+          .abs-col-max {
+            flex: 0 1 130px;
+
+            @media #{$media-active-on-mobile} {
+              flex: 0 1 auto;
+              width: 65%;
+            }
+
+            .input-group-addon {
+              padding-left: 3px;
+              padding-right: 3px;
+              font-size: clamp(0.75em, 2vw, 1em);
+            }
+          }
+
+          @media #{$media-active-on-mobile} {
+            flex-direction: column;
+          }
+
+        }
+      }
+    }
+
+    @media #{$media-active-on-mobile} {
+      flex-direction: column;
+    }
+  }
+}
+
+
+.invoice-epayment-compensation-modal {
+
+  .abs-grid-col .abs-item-price-box {
+    align-items: flex-start;
+
+  }
+
+  .abs-item-price-box .abs-item-price-final {
+    font-weight: normal;
+  }
+
+  .invoice-epayment-compensation-wrapper {
+    margin-top: 20px;
+  }
+
+  .amount-section .payment-not-available {
+    @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+    display: block;
+    padding: 8px;
+  }
+
+  .min-amount-hint {
+    align-self: flex-end;
+    color: $alert-danger-bg;
+  }
+}

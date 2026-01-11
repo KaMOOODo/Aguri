@@ -1,0 +1,25 @@
+.abs-pagination-panel {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .abs-pagination-combo, .abs-pagination-steps {
+    display: flex;
+    margin: 20px 0;
+
+    ul.pagination {
+      margin: 0;
+    }
+  }
+}
+
+.order-history {
+  .abs-pagination-panel {
+    align-items: self-end;
+
+    .abs-pagination-steps {
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.container {
+
+  flex-basis: $container-md;
+
+  @if ($container-md == 1350px) { // hack for not influencing custom customers' skins that have overridden default containers dimensions
+
+    @media (min-width: $screen-md-min) {
+      max-width: $container-lg;
+      width: 100%;
+    }
+
+  }
+}
+
+#referenceContainer.container {
+  flex-basis: 0!important;
+  height: 0!important;
+}
+
+
+.abs-layout-site-three-column {
+  @include abs-make-container;
+  @include abs-make-layout-row-base;
+
+  > .abs-row {
+    > .abs-col-left-sidebar,
+    > .abs-col-right-sidebar {
+      @include make-md-column(3);
+      padding-bottom: $abs-grid-padding * 3;
+    }
+
+    > .abs-col-content {
+      @include make-md-column(6);
+      padding-bottom: $abs-grid-padding * 3;
+    }
+  }
+}
+
+.abs-layout-site-two-column {
+  @include abs-make-container;
+  @include abs-make-layout-row-base;
+
+  > .abs-row {
+    > .abs-col-left-sidebar,
+    > .abs-col-right-sidebar {
+      @include make-md-column(3);
+      padding-bottom: $abs-grid-padding * 3;
+    }
+
+    > .abs-col-content {
+      @include make-md-column(9);
+      padding-bottom: $abs-grid-padding * 3;
+    }
+  }
+}
+
+.abs-layout-site-one-column {
+  @include abs-make-container;
+  @include abs-make-layout-row-base;
+
+  > .abs-row {
+    > .abs-col-content {
+      @include make-md-column(12);
+      padding-bottom: $abs-grid-padding * 3;
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .abs-layout-site-one-column,
+  .abs-layout-site-two-column,
+  .abs-layout-site-three-column {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+
+    > .abs-row {
+      margin-left: 0;
+      margin-right: 0;
+
+      .abs-col-content,
+      .abs-col-left-sidebar,
+      .abs-col-right-sidebar {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media #{$media-active-on-desktop} {
+  .abs-display-on-mobile {
+    display: none !important;
+  }
+}
+
+@media #{$media-active-on-mobile} {
+  .abs-display-on-desktop {
+    display: none !important;
+  }
+}
+

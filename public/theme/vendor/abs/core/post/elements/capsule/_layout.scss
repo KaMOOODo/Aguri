@@ -1,0 +1,54 @@
+.abs-offer-gallery {
+  @include abs-make-grid(150px, 10px, 10px);
+}
+
+.panel-body {
+  padding: 5px !important;
+}
+
+.abs-categories-intro {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 1rem;
+
+  li {
+    flex: 0 0 auto !important;
+
+    a {
+      scroll-snap-align: start;
+      min-height: auto;
+      text-align: center;
+      background: $gray-lighter;
+      border-radius: $border-radius-base;
+      padding: 10px 20px !important;
+      margin: 0 !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      .abs-subcategory-name {
+        margin-top: 0;
+
+        h2 {
+          font-weight: 400;
+
+          .abs-count {
+            color: #777;
+          }
+        }
+      }
+    }
+  }
+
+  .abs-subcategory {
+    display: none;
+  }
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+

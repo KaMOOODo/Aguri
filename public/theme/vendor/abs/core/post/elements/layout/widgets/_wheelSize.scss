@@ -1,0 +1,24 @@
+#wheel-size-section {
+  .panel-body {
+    .abs-form-input {
+      width: 30%;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  #wheel-size-search-by-model-panel {
+    .panel-wheel {
+      width: 100%
+    }
+
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+}

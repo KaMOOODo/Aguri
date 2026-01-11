@@ -1,0 +1,34 @@
+.labels-list-panel {
+  
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
+  height: auto;
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  line-height: 170%;
+  font-size: $font-size-base;
+  overflow: hidden;
+
+
+  .product-label {
+    padding: 2px 5px 2px 0;
+
+    .abs-label {
+      padding: 6px 10px 4px 10px;
+      font-size: 13px;
+      font-weight: normal;
+      border: 1px solid;
+    }
+  }
+
+  .badge {
+    background-color: $body-bg;
+    margin-left: 5px;
+    vertical-align: top;
+  }
+
+}

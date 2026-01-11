@@ -1,0 +1,79 @@
+.abs-oauth-providers {
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-top: 25px;
+  align-items: center;
+
+  > a.btn-default {
+
+    flex: 0 0 calc(50% - 10px);
+    margin: 0 0 10px 10px;
+    padding-left: 35px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 7px center;
+    background-size: 22px;
+    line-height: 1.7;
+    font-size: 0.9em;
+    overflow: hidden;
+
+    &:focus, &:active, &:hover {
+      background-repeat: no-repeat;
+      background-position: 7px center;
+      background-size: 22px;
+    }
+
+    &.abs-oauth-button-facebook {
+      background-color: #4064AC;
+      border-color: #4064AC;
+      background-image: url('//static.connector-b2b.com/design/graphics/common/icons/fb-icon.png');
+      color: #fff;
+      padding-left: 35px;
+      font-size: 0.8em;
+    }
+
+    &.abs-oauth-button-google {
+      background-color: #fff;
+      border-color: #adadad;
+      background-image: url('//static.connector-b2b.com/design/graphics/common/icons/google-icon.png');
+      color: #555;
+      padding-left: 35px;
+      font-size: 0.8em;
+    }
+
+    &.abs-oauth-button-asseco {
+      background-color: #00a4e0;
+      border-color: #00a4e0;
+      background-image: url('//static.connector-b2b.com/design/graphics/common/icons/abs-icon.png');
+      color: #fff;
+    }
+
+
+  }
+
+}
+
+.suggestion-oauth .abs-oauth-providers {
+  flex-direction: column;
+  align-content: center;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+@media #{$media-active-on-non-large-desktop} {
+
+  .abs-oauth-providers > a.btn-default {
+    white-space: normal;
+  }
+
+}
+
+@include abs-active-on-phone-width {
+  .abs-oauth-providers > a.btn-default {
+    flex-basis: 100%;
+  }
+}
+

@@ -1,0 +1,34 @@
+.no-select-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.selectable {
+  .selectable-icon {
+    top: 3px !important;
+    font-size: 1.3em;
+    margin-right: 10px;
+    @extend .glyphicon;
+    @extend .glyphicon-unchecked;
+  }
+
+  &.it-slctd {
+    .selectable-icon {
+      @extend .glyphicon;
+      @extend .glyphicon-check;
+      color: $brand-success;
+    }
+  }
+}
+
+.it-slctd {
+  border: 5px $brand-success solid;
+}
+
+.it-disabled {
+  opacity: 0.4;
+}

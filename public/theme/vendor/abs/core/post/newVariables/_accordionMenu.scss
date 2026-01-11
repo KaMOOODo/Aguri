@@ -1,0 +1,14 @@
+/**
+DEPRECATED!!
+ */
+//== Accordion menu
+//
+//##
+$abs-accordion-menu-item-inner-padding: $padding-base-horizontal 0;
+$abs-accordion-menu-item-left-padding: $padding-base-horizontal;
+$abs-accordion-menu-bullet-content: "\e117";
+$abs-accordion-menu-bullet-content-active: "\e118";
+$abs-accordion-menu-bullet-content-dropdown: "\e080" + " " + $abs-accordion-menu-bullet-content;
+$abs-accordion-menu-bullet-content-dropdown-active: "\e114" + " " + $abs-accordion-menu-bullet-content-active;
+$abs-accordion-menu-bullet-content-dropdown-current: "\e080" + " " + $abs-accordion-menu-bullet-content-active;
+$abs-accordion-menu-border-color: $gray-lighter;

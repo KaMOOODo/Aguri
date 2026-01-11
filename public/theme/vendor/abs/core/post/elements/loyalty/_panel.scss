@@ -1,0 +1,135 @@
+.loyalty-program-header {
+
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+
+  .loyalty-program-voucher-rule {
+    flex: 1 0 30%;
+    margin: 40px 0;
+    padding: 10px 15px;
+    border-left: 1px solid $gray-light;
+    min-width: 220px;
+
+    .loyalty-program-voucher-header {
+      color: $brand-primary;
+      text-align: center;
+    }
+
+    .loyalty-program-voucher-input {
+      padding: 20px 15px;
+      max-width: 280px;
+      margin: auto;
+    }
+
+    & + .loyalty-program-balance-container {
+      width: 100%;
+      flex: 1 0 70%;
+    }
+
+  }
+
+}
+
+@include abs-active-on-phone-width {
+  .loyalty-program-header {
+    flex-direction: column-reverse;
+
+    .loyalty-program-voucher-rule {
+      border-left: 0;
+      margin: 0;
+    }
+  }
+}
+
+.loyalty-program-balance-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 40px auto;
+
+  .loyalty-program-balance {
+    flex: 1 0 50%;
+    padding: 10px 0;
+
+    & + .loyalty-program-balance {
+      border-left: 1px solid $gray-light;
+    }
+
+    &:first-child .loyalty-program-balance-points {
+      color: $brand-primary;
+    }
+
+  }
+
+  .loyalty-program-balance-header {
+    opacity: 0.4;
+  }
+
+  .loyalty-program-balance-points {
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: -2px;
+
+    span {
+      font-size: 0.5em;
+      letter-spacing: 0;
+      font-weight: normal;
+      opacity: 0.5;
+      margin-left: -10px;
+    }
+  }
+
+}
+
+.enum-loyaltyprogrampointschangetype-add + div {
+  color: $brand-success;
+  span[title]::before {
+    content: "+";
+  }
+}
+
+.enum-loyaltyprogrampointschangetype-spend + div {
+  color: $brand-danger;
+  span[title]::before {
+    content: "\2212";
+  }
+}
+
+@include abs-active-on-phone-width {
+
+  .loyalty-program-balance-container {
+    width: 100%;
+    .loyalty-program-balance-points {
+      font-size: 3em;
+      span {
+        margin-left: -5px;
+      }
+    }
+  }
+
+}
+
+@include abs-active-on-mobile-width {
+
+  #loyaltyPointsHistory {
+    @include abs-grid-wrap-mode(true, false, false);
+
+    #sortBox {
+      display: block;
+      > .panel {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        .panel-heading {
+          background-color: transparent;
+        }
+        .panel-body {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@media #{$media-active-on-mobile} {
+  #_opineo_container {
+      display: var(--opineo-slider-on-mobile-display)!important;
+  }
+  #ceneo-widget {
+      display: var(--ceneo-slider-on-mobile-display)!important;
+  }
+}
+
+.opineo-side-slider-widget {
+  z-index: 1000000000!important;
+}
+
+

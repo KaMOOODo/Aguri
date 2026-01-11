@@ -1,0 +1,32 @@
+.abs-offer-light-view {
+  .abs-offer-light-view-item {
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+      padding: 10px;
+    }
+
+    .abs-catalog-index {
+      margin: 0;
+    }
+
+    .abs-col-name-index {
+      flex-grow: 1;
+    }
+
+    .abs-col-select {
+      align-content: center;
+    }
+
+    .abs-col-qty {
+      font-size: 0.9em;
+    }
+
+    .abs-col-img {
+      img {
+        width: 46px;
+      }
+    }
+  }
+}

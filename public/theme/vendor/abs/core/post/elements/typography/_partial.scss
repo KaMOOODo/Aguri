@@ -1,0 +1,28 @@
+.abs-description-on-hover {
+   border-bottom: 1px dashed $text-muted;
+}
+
+.abs-emphasis {
+   font-weight: bold;
+}
+
+.abs-muted {
+   font-size: 0.75em;
+   opacity: 0.8;
+}
+
+.abs-inset {
+   margin-bottom: $abs-default-margin-bottom;
+
+   &:empty {
+      display: none;
+   }
+}
+
+.abs-textify-link {
+   cursor: default;
+}
+
+a.htmlAttributeValue {
+  text-decoration: underline;
+}

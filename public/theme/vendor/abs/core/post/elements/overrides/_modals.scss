@@ -1,0 +1,142 @@
+$abs-modals-transition: none !default;
+
+.modal, .modal-backdrop {
+  &.fade {
+    transition-property: $abs-modals-transition;
+  }
+}
+
+.modal-backdrop {
+  z-index: 10009;
+
+  &.in {
+    opacity: 0.8;
+  }
+}
+
+.modal-backdrop.fade.in + .modal-backdrop.fade.in {
+  display: none;
+}
+
+.modal {
+  z-index: 10010;
+}
+
+.modal-footer .btn {
+  //margin: 5px 0;
+}
+
+@media (min-width: $screen-sm-min) {
+  .modal-dialog {
+    margin: 80px auto;
+  }
+
+  .popup-dialog {
+    min-width: min-content;
+  }
+}
+
+#popups {
+  .modal.fade.in {
+    padding: 0 !important;
+
+    & + .modal.fade.in {
+      display: none !important;
+    }
+  }
+
+  .modal-dialog.popup-dialog {
+    width: 1%;
+    min-width: min-content;
+  }
+}
+
+
+.modal-dialog.modal-dialog-wide {
+  width: 800px;
+  max-width: var(--window-width);
+}
+
+.modal-dialog.modal-dialog-xl {
+  width: 70vw;
+  max-width: var(--window-width);
+  @media #{$media-active-on-mobile} {
+    width: 100vw;
+    max-width: var(--container-width);
+  }
+}
+
+.modal-dialog.popup-dialog {
+
+  img, iframe {
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  .modal-content {
+    background-color: transparent;
+    border: 0;
+    box-shadow: 0 0;
+    border-radius: 0;
+  }
+
+  .modal-header {
+
+    padding: 15px 0;
+    text-align: center;
+    border: 0;
+
+    .modal-title {
+      color: #fff;
+      min-height: 21px;
+    }
+
+    button.close {
+      position: absolute;
+      right: -15px;
+      top: 37px;
+      color: #000;
+      opacity: 1;
+      font-size: 2em;
+      z-index: 5;
+      background: #fff;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 0.7em;
+    }
+
+  }
+
+  .modal-body {
+    background-color: #fff;
+    padding: 0;
+
+    * {
+      max-width: var(--window-width);
+
+      @media #{$media-active-on-mobile} {
+        max-width: var(--container-width);
+      }
+    }
+
+    .newsletter-form {
+      min-width: 400px;
+      padding: 10px;
+    }
+  }
+
+  .modal-footer {
+    display: none;
+  }
+
+}
+
+#modals {
+  .modal-dialog {
+    #absModalButtons {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

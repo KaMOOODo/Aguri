@@ -1,0 +1,14 @@
+body[data-is-capsule="true"] {
+  @import "layout";
+  @import "product";
+  @import "modals";
+  @import "search";
+
+  &[data-ios-device="true"] {
+    @import "_ios";
+  }
+
+  &[data-android-device="true"] {
+    @import "_android";
+  }
+}

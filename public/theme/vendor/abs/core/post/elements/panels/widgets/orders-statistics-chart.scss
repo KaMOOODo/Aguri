@@ -1,0 +1,20 @@
+.orders-statistics-chart {
+  .panel-body {
+    width: 100%;
+
+    .chart-options {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+
+      .multiselect-native-select {
+        flex-basis: 215px;
+      }
+    }
+
+    .chart-wrapper {
+      float: left;
+      width: 100%;
+    }
+  }
+}

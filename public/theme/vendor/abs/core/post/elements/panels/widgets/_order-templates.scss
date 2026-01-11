@@ -1,0 +1,36 @@
+.widget-view.order-templates {
+
+  .w-body {
+    gap: 6px
+  }
+
+  .load-template-header::before {
+    font-family: 'Glyphicons Halflings';
+    opacity: 0.3;
+  }
+
+  .order-template-private .load-template-header::before {
+    content: '\e008';
+  }
+
+  .order-template-public .load-template-header::before {
+    content: '\e135';
+  }
+
+  .load-order-template {
+    margin: 0;
+    padding: 0;
+
+    a > p {
+      margin: 0;
+      padding: 0;
+      color: $brand-primary;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+
+}
+

@@ -1,0 +1,99 @@
+/**
+DEPRECATED!
+ */
+
+$abs-accordion-menu-bullet-content-root-link: "\e204";
+
+ul.abs-accordion-menu {
+  padding: 0;
+  list-style-type: none;
+
+  ul {
+    /* by default hide all sub menus */
+    display: none;
+    padding-left: 0px;
+  }
+
+  /* Left-padding for items */
+  > li > ul {
+    /* First level */
+    label, > li > a {
+      padding-left: $abs-accordion-menu-item-left-padding;
+    }
+
+    /* Second level */
+    > li > ul {
+      label, > li > a {
+        padding-left: 2 * $abs-accordion-menu-item-left-padding;
+      }
+    }
+  }
+
+  li {
+    display: block;
+
+    &.abs-accordion-menu-root-link a::before {
+      @include abs-make-bullet-point($abs-accordion-menu-bullet-content-root-link);
+      margin-top: -2px;
+    }
+
+    input[type=checkbox] {
+      /* hide native checkbox */
+      position: absolute;
+      opacity: 0;
+
+      &:checked {
+        +label + ul, +label:nth-of-type(n) + ul {
+          /* use label:nth-of-type(n) to fix a bug on safari (<= 8.0.8) with multiple adjacent-sibling selectors*/
+          /* show children when item is checked */
+          display: block;
+        }
+
+        +label {
+          &:before{
+            @include abs-make-bullet-point($abs-accordion-menu-bullet-content-dropdown-active);
+          }
+        }
+      }
+
+      +label {
+        &:before{
+          @include abs-make-bullet-point($abs-accordion-menu-bullet-content-dropdown);
+        }
+      }
+    }
+
+    &.abs-accordion-menu-current {
+      > a::before {
+        @include abs-make-bullet-point($abs-accordion-menu-bullet-content-active);
+      }
+      > input[type=checkbox] {
+        &:checked {
+          +label::before {
+            @include abs-make-bullet-point($abs-accordion-menu-bullet-content-dropdown-active);
+          }
+        }
+        +label::before {
+          @include abs-make-bullet-point($abs-accordion-menu-bullet-content-dropdown-current);
+        }
+      }
+    }
+
+    a {
+      &:before{
+        @include abs-make-bullet-point($abs-accordion-menu-bullet-content);
+      }
+    }
+
+    label, a {
+      position: relative;
+      display: block;
+      font-weight: normal;
+      padding: $abs-accordion-menu-item-inner-padding;
+      border-bottom: 1px solid $abs-accordion-menu-border-color;
+
+      color: $brand-primary;
+      cursor: pointer;
+    }
+  }
+}

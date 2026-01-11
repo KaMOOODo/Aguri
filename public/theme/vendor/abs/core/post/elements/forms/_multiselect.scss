@@ -1,0 +1,93 @@
+.multiselect-wrapper {
+  width: 100%;
+  max-width: calc(100vw - 20px);
+  position: relative;
+
+  .btn .caret {
+    margin-left: 5px;
+  }
+
+}
+
+.multiselect {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .multiselect-selected-text {
+    text-align: left;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  b.caret {
+    flex: 0 0 0;
+  }
+
+  &.dropdown-toggle.btn.btn-default {
+    @extend .form-control;
+    text-align: left;
+    display: flex;
+    text-transform: none;
+
+    #divisionsListModalBody &, #createAccountForm & {
+      height: $input-height-base + 15;
+    }
+  }
+
+}
+
+.multiselect-wrapper {
+  .multiselect-container {
+
+    max-width: 300px;
+
+    &.dropdown-menu {
+      min-width: 100%;
+    }
+
+    > li > a {
+
+      padding: 0;
+
+      > label {
+        padding: 6px 15px 6px 30px;
+        white-space: normal;
+        line-height: 1.4;
+      }
+    }
+
+    .multiselect-group-header {
+
+      > a > label {
+        color: $text-color;
+        padding-left: 10px;
+      }
+    }
+
+    .multiselect-group-alert {
+
+      padding: 5px;
+
+      > a > label {
+        color: $alert-success-text;
+        background-color: $alert-success-bg;
+        border: 0;
+        border-radius: 5px;
+        width: 100%;
+        padding-left: 10px;
+      }
+    }
+
+    .multiselect-reset {
+      .input-group {
+        width: 98%;
+        margin: 5px auto auto;
+      }
+    }
+  }
+}

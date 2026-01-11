@@ -1,0 +1,128 @@
+@mixin abs-make-split-layout() {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin: -$abs-grid-padding/2;
+  margin-bottom: -$abs-grid-padding/2 + $line-height-computed;
+  flex-wrap: wrap;
+
+  > div {
+    padding: $abs-grid-padding/2;
+
+    .btn {
+      margin-bottom: $padding-base-vertical;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: -$abs-grid-padding/2;
+  }
+}
+
+.abs-split-layout {
+  @include abs-make-split-layout();
+}
+
+.abs-split-layout-center {
+  @include abs-make-split-layout();
+  align-items: center;
+}
+
+.abs-split-layout-simple {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.abs-split-layout-simple-centered {
+  @extend .abs-split-layout-simple;
+  align-items: center;
+  > *:first-child {
+    flex-grow: 1;
+  }
+  > *:last-child {
+    flex-grow: 5;
+    text-align: right;
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+.abs-split-layout-simple-smaller {
+  @extend .abs-split-layout-simple;
+  font-size: smaller;
+}
+
+.abs-split-layout-attributes {
+
+  @include abs-make-split-layout();
+  justify-content: center;
+
+  > div {
+
+    flex: 0 1 50%;
+
+    @at-root body.ie .abs-split-layout-attributes > div {
+      flex-basis: calc(50% - #{$abs-grid-padding});
+    }
+
+    > div {
+      display: flex;
+      margin: 0 -10px 5px;
+
+      div {
+
+        flex-grow: 0;
+        flex-shrink: 0;
+        padding: 0 10px;
+
+        &.abs-elem-label {
+          text-align: right;
+          white-space: nowrap;
+          flex-basis: 65%;
+        }
+        &.abs-elem-input {
+          flex-basis: 35%;
+        }
+
+      }
+
+    }
+
+    & + div {
+      div.abs-elem-label {
+        flex-basis: 35%;
+      }
+      div.abs-elem-input {
+        flex-basis: 65%;
+      }
+    }
+
+  }
+
+}
+
+@include abs-active-on-phone-width {
+
+  .abs-split-layout-attributes > div {
+
+    flex-basis: 100%;
+
+    > div {
+      div.abs-elem-label {
+        flex-basis: 35%;
+        label {
+          white-space: normal;
+          opacity: 0.7;
+        }
+      }
+      div.abs-elem-input {
+        flex-basis: 65%;
+      }
+    }
+  }
+
+}

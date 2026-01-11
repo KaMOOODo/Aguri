@@ -1,0 +1,27 @@
+.abs-op-attr-panel {
+  padding: 0 0 20px 0;
+
+  .abs-form-input {
+    margin-bottom: 0px;
+  }
+
+  .abs-op-attr-panel-content {
+    .abs-offer-light-view-item {
+      &:has(.abs-col-select) {
+        opacity: 0.3;
+      }
+
+      &:has(.abs-col-select input:checked) {
+        opacity: 1;
+      }
+
+      .abs-col-img {
+        min-width: 100px;
+      }
+    }
+  }
+}
+
+.product-ldesc-popover {
+  width: 800px;
+}

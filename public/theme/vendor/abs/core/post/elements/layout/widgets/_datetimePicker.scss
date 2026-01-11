@@ -1,0 +1,86 @@
+.picker {
+  font-size: $font-size-base;
+}
+
+.picker__day--infocus:hover, .picker__day--outfocus:hover {
+  background-color: transparent;
+  border-color: $btn-primary-border;
+  color: $text-color;
+}
+
+.picker__day--highlighted:hover, .picker--focused .picker__day--highlighted {
+  background-color: transparent;
+  border-color: $btn-primary-border;
+  color: $text-color;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+  background-color: $btn-primary-bg;
+  color: $btn-primary-color;
+  border-color: $btn-primary-border;
+}
+
+.picker__day--today::before {
+  border-top-color: $brand-primary;
+}
+
+.picker__day--today.picker__day--selected::before {
+  border-top-color: $btn-primary-color;
+}
+
+.picker__day--highlighted {
+  border-color: darken($btn-primary-bg, 25%);
+}
+
+.picker__box {
+  .picker__nav--prev,
+  .picker__nav--next,
+  .picker__button--today,
+  .picker__button--clear,
+  .picker__button--close {
+    background-color: transparent;
+    border-color: transparent;
+
+    @extend %_btn-link;
+  }
+}
+
+.picker__nav--next:hover::before {
+  border-left-color: $brand-primary;
+}
+
+.picker__nav--prev:hover::before {
+  border-right-color: $brand-primary;
+}
+
+$__pickerBgColor: transparentize(adjust_color($brand-primary, $saturation: +5%, $lightness: +15%), 0.85);
+
+.picker__list-item:hover, .picker__list-item--highlighted:hover, .picker--focused .picker__list-item--highlighted {
+  background-color: $__pickerBgColor;
+  border-color: $btn-primary-border;
+  color: inherit;
+}
+
+/*
+.has-pickadate + div .picker__holder {
+  overflow: hidden;
+}
+*/
+
+@media #{$media-active-on-desktop} {
+  //https://github.com/amsul/pickadate.js/issues/1243#issuecomment-1302542717
+
+  body[data-mobile-device="false"] {
+
+    .abs-timerange-layout, .abs-advancedcalendar-layout {
+      .picker__holder {
+        transform: translate(0, 0);
+      }
+
+      .picker--opened .picker__holder {
+        transform: translateY(35px);
+      }
+    }
+  }
+
+}

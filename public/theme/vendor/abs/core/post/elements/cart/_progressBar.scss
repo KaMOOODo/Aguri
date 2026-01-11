@@ -1,0 +1,85 @@
+$abs-cart-progress-default-color: $gray-light;
+$abs-cart-progress-default-text-color: #fff;
+
+.abs-cart-progress {
+  display: inline-block;
+  width: 100%;
+
+  padding: 30px 0;
+  padding-top: 50px;
+
+  > ol {
+    max-width: $screen-sm-max;
+    margin: auto;
+    padding: 0;
+
+    counter-reset: item;
+  }
+
+  li {
+    float: left;
+    text-align: center;
+    display: block;
+    width: 33.33%;
+
+    color: $abs-cart-progress-default-color;
+
+    span {
+      display: block;
+      margin-top: 5px;
+    }
+
+    position: relative;
+
+    /**
+    Counter bubbles
+     */
+    &:before {
+      position: relative;
+      content: counter(item);
+      counter-increment: item;
+
+      padding: 10px 0;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      top: -11px;
+
+      border-radius: 50%;
+
+      background-color: $abs-cart-progress-default-color;
+      color: $abs-cart-progress-default-text-color;
+      z-index: 2;
+    }
+
+    &.abs-current {
+      color: $brand-primary;
+      &:before {
+        border: 2px solid $brand-primary;
+        background-color: $body-bg;
+        color: $brand-primary;
+
+        content: "\e116";
+        font-family: 'Glyphicons Halflings';
+
+        padding: 9px 10px;
+      }
+    }
+
+    /**
+    Connecting lines
+     */
+    &:not(:last-of-type) {
+      &:after {
+        position: absolute;
+        content: '';
+        background-color: $abs-cart-progress-default-color;
+        height: 3px;
+        width: 100%;
+        top: 8px;
+        left: 50%;
+        z-index: 1;
+      }
+    }
+  }
+}

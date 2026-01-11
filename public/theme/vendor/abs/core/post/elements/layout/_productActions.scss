@@ -1,0 +1,43 @@
+.abs-layout-product-actions {
+  @include abs-make-layout-row-base;
+
+  > .abs-row {
+    margin-bottom: $abs-default-margin-bottom;
+
+    .abs-col-cart-btn {
+      @include make-md-column(6);
+    }
+
+    .abs-col-extra-btns {
+      @include make-md-column(6);
+    }
+
+    .abs-col-all-btns {
+      @include make-md-column(12);
+    }
+  }
+}
+
+.abs-locked-sale-info {
+
+  &.value-is-plain-text {
+    border: 1px solid $btn-success-bg;
+    color: $text-color;
+    border-radius: $border-radius-base;
+    font-size: 0.75em;
+    line-height: 1.2;
+    padding: 8px;
+    text-align: center!important;
+  }
+}
+
+.abs-add-to-compare {
+  &.active {
+    > .comparison-label-active.hidden {
+      display: inline!important;
+    }
+    > .comparison-label-inactive {
+      display: none;
+    }
+  }
+}

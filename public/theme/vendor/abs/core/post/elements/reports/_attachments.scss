@@ -1,0 +1,29 @@
+.report-details {
+
+  .abs-grid-of-cols-2 {
+
+    .abs-grid-row-header {
+      .abs-grid-col-header {
+        width: 70%;
+      }
+
+      .abs-grid-col-header:last-of-type {
+        width: 30%;
+      }
+    }
+
+    .abs-grid-row {
+      .abs-grid-col {
+        width: 70%;
+      }
+
+      .attachments-column {
+        width: 30%;
+      }
+
+      .attachment-button-std {
+        padding-right: 25px;
+      }
+    }
+  }
+}

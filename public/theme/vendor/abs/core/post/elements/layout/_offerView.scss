@@ -1,0 +1,118 @@
+$abs-view-change-toggle-dropdown: false !default;
+
+.abs-layout-offer-view {
+  @include abs-make-flex($justify-content: space-between, $align-items: baseline);
+
+  > * {
+    flex: initial;
+  }
+
+  padding: $abs-grid-padding 0;
+
+  .abs-column-header {
+    font-weight: bold;
+    margin-bottom: $padding-base-vertical;
+    margin-right: 10px;
+  }
+
+  .abs-col-views {
+    margin-bottom: $abs-grid-padding;
+  }
+
+  .abs-col-options {
+    @include abs-make-flex();
+
+    > div {
+      margin-bottom: $abs-grid-padding;
+      margin-left: $abs-grid-padding;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+    }
+  }
+
+  .multiselect-wrapper .multiselect-container > li > a > label {
+    white-space: nowrap;
+  }
+}
+
+#viewChangeFormId , #storageViewChangeIndicator{
+
+  .view-change-dropdown {
+    display: none;
+  }
+  .view-change-buttons {
+    display: block;
+  }
+
+}
+
+$_scopingSelector: '';
+@if (not $abs-view-change-toggle-dropdown) {
+  $_scopingSelector: '[data-mobile-viewport="true"]';
+}
+
+#{$_scopingSelector} .abs-layout-offer-view {
+  justify-content: flex-start;
+  .abs-col-views {
+    margin-right: $abs-grid-padding;
+  }
+  .abs-col-options {
+    flex-direction: row-reverse;
+    > div {
+      &:first-child {
+        margin-left: $abs-grid-padding;
+      }
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media #{$media-active-on-phone} {
+
+    justify-content: center;
+    gap: 15px;
+
+    .abs-col-views {
+      flex-grow: 1;
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    .abs-col-options {
+      flex-grow: 1;
+      gap: 15px;
+
+      .abs-col-per-page, .abs-col-sort-by {
+        flex-grow: 1;
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+    }
+
+    .abs-column-header {
+      text-align: center;
+      margin-bottom: $padding-base-vertical / 2;
+      margin-right: 0;
+    }
+
+  }
+
+  #viewChangeFormId, #storageViewChangeIndicator {
+
+    .view-change-dropdown {
+      display: block !important;
+    }
+    .view-change-buttons {
+      display: none;
+    }
+
+  }
+}
+
+.abs-offer-full .abs-layout-purchase .touch-qnt {
+  align-items: flex-end;
+}

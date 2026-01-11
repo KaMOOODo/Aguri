@@ -1,0 +1,9 @@
+.abs-availability-dot {
+  @include abs-make-circle($abs-availability-dot-available-color);
+  width: 2 * $abs-availability-dot-radius;
+  height: 2 * $abs-availability-dot-radius;
+
+  &.abs-unavailable {
+    @include abs-make-circle($abs-availability-dot-unavailable-color);
+  }
+}

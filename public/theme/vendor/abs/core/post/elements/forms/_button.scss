@@ -1,0 +1,32 @@
+.abs-btn-special {
+  border: 1px solid $gray-lighter;
+  background-color: $body-bg;
+  padding: $abs-grid-padding*2;
+  width: 100%;
+  border-radius: 0;
+  color: $text-color;
+}
+
+.btn.btn-edit-disable {
+  border-left: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  padding: 13px 14px;
+  background-color: white;
+  opacity: 1;
+
+  &.disabled {
+    background-color: #f2f5fa;
+    opacity: 1;
+    cursor: pointer;
+
+    .glyphicon {
+      color: lightgray;
+    }
+
+  }
+
+  .glyphicon {
+    color: gray;
+  }
+}

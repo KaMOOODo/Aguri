@@ -1,0 +1,22 @@
+/// Adjusts the lightness of a color based on the provided rate.
+/// @param {Color} $color - The base color to be adjusted.
+/// @param {Number} $rate - The percentage rate at which the color should be lightened or darkened.
+/// @return {Color} - The adjusted color after applying the lightening or darkening process.
+/// @description - This function takes a color and a rate as inputs and adjusts the color's lightness.
+///                If the color's lightness is greater than the rate, it returns a darker shade of the color.
+///                If the color's lightness is less than or equal to the rate, it returns a lighter shade of the color.
+/// @example - Using abs-makecolor to adjust color lightness:
+///            $primary-color: #336699;
+///            $adjusted-color: abs-adjustcolor($primary-color, 20%);
+///            This will lighten or darken the $primary-color by 20%, depending on its lightness.
+@function abs-adjustcolor($color, $rate) {
+  $lightness: lightness($color); //eg, for #FFF is 100%, and for #000000 is 0%
+  @if ($lightness > $rate) {
+    //@return mix($color, #000, $rate);
+    @return darken($color, $rate);
+  }
+  //@return mix($color, #fff, $rate);
+  @return lighten($color, $rate);
+}
+
+

@@ -1,0 +1,30 @@
+.abs-pickup-address-list {
+
+  .abs-pickup-address-list-info {
+    padding-bottom: 10px;
+    font-style: italic;
+  }
+
+  .receipt-point-firm-name {
+    display: flex;
+    justify-content: space-between;
+
+    .receipt-point-distance {
+      opacity: 0.65;
+      font-size: 0.85em;
+    }
+  }
+}
+
+
+.abs-receipt-point-list-wrapper {
+
+  .abs-receipt-point-list-info {
+    padding-top: 10px;
+    font-style: italic;
+  }
+}
+
+.user-zip-code-info {
+  font-style: italic;
+}

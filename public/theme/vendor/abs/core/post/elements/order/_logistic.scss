@@ -1,0 +1,174 @@
+.abs-order-parts-container {
+
+  .logistics-details-info {
+    text-align: center;
+
+  }
+
+}
+
+.logistic-details-ratio {
+
+  font-weight: bold;
+  font-size: xxx-large;
+
+}
+
+.header-name[data-header-id='spinner-col'] {
+  text-align: center;
+}
+
+.header-name[data-header-id='value-price-col'],
+.header-name[data-header-id='price-col'] {
+  text-align: right;
+}
+
+
+.abs-offer-list-system-b2b {
+
+  &.abs-sticky-categories.feedify-horizontal.abs-collapsible-categories .abs-inv-offer-category {
+    display: flex;
+    flex-direction: column;
+
+    &.feedify-item {
+
+      .abs-inv-category-data .feedify-item-header {
+        width: calc(var(--feedify-width) - 2 * 15px);
+        height: auto;
+        z-index: 101;
+      }
+
+      &.fixed {
+        .abs-inv-category-data .feedify-item-header {
+          padding-top: var(--feedify-row-header-height);
+        }
+      }
+    }
+  }
+
+}
+
+.slot-cell {
+  .value-name {
+    font-weight: normal;
+  }
+
+  .value-label {
+    font-weight: bold;
+  }
+
+  .switch-container {
+
+    > label {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .slot-switcher-label {
+      font-size: small;
+      opacity: 0.6;
+    }
+
+    &.checkbox-checked .slot-switcher-label {
+      opacity: unset;
+    }
+
+    .slider:before {
+      transition: 0s;
+    }
+
+  }
+
+
+}
+
+.abs-offer-list-system-b2b {
+
+  .hidden-column {
+    display: none !important;
+  }
+
+  .filter-by-labels {
+    width: 200px;
+  }
+
+}
+
+.abs-logistics-load-info-number {
+  $invalidColor: #ce2b37;
+  $validColor: #25b959;
+
+  p {
+    text-align: center;
+    font-size: 0.78em;
+    opacity: 0.6;
+    margin: 4px 0 0;
+
+    & + p {
+      font-weight: 600;
+      font-size: 0.7em;
+      margin-top: -1px;
+      opacity: 0.75;
+    }
+  }
+
+  & + .abs-logistics-load-info-number {
+    margin-top: 40px;
+  }
+
+  &.abs-logistics-load-info-number-dynamic {
+    height: 100px;
+    padding-top: 74px;
+    position: relative;
+    margin: 20px 0;
+  }
+
+  > div {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    line-height: 24px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    letter-spacing: -2px;
+    text-shadow: 7px 0 5px rgba(255, 255, 255, .23);
+
+    span {
+      font-size: 0.6em;
+      opacity: 0.5;
+      letter-spacing: -1px;
+      padding-left: 4px;
+    }
+  }
+
+  &.abs-logistics-load-info-number-dynamic > div {
+
+    font-size: 90px;
+    line-height: 75px;
+    height: 74px;
+    color: transparent;
+    background-image: linear-gradient(to top, $validColor 0%, $validColor var(--logistics-current-pallets-percentage-load), lighten($validColor, 40%) 0%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    .abs-logistics-load-invalid & {
+      background-image: linear-gradient(to top, $invalidColor 0%, $invalidColor var(--logistics-current-pallets-percentage-load), lighten($invalidColor, 40%) 0%);
+    }
+
+  }
+
+  .hint {
+    color: $validColor;
+    &.abs-logistics-load-invalid {
+      color: $invalidColor;
+    }
+  }
+
+}

@@ -1,0 +1,25 @@
+.right.carousel-control, .left.carousel-control, .stop.carousel-control, .start.carousel-control {
+  //display: none;
+  background-image: none;
+  text-shadow: none;
+  color: $text-color;
+  width: 8%;
+  z-index: 1;
+}
+
+.carousel-indicators li {
+  background-color: $abs-slider-indicator-color;
+}
+
+.carousel-indicators .active, .carousel-indicators .slick-active {
+  background-color: $abs-slider-indicator-active-color;
+}
+
+.carousel-indicators {
+  bottom: $abs-slider-indicator-bottom-offset;
+  margin-bottom: $abs-slider-indicator-bottom-margin;
+}
+.carousel-inner-nav {
+  margin-bottom: $abs-slider-inner-bottom-offset;
+}
+

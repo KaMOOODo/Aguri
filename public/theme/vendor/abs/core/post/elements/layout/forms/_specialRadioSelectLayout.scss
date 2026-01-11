@@ -1,0 +1,28 @@
+.abs-special-radio-select-layout {
+  @media(min-width: $screen-md-min) {
+    @include abs-make-flex($justify-content: space-between);
+  }
+  margin: 0;
+
+  > * {
+
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-width: 250px;
+    flex-basis: calc(50% - #{$abs-grid-padding});
+    padding-bottom: 15px;
+
+  }
+
+  > .half {
+    min-width: 49%;
+  }
+}
+
+.abs-layout-site-three-column {
+  .abs-special-radio-select-layout {
+    > * {
+      flex-basis: 100%;
+    }
+  }
+}

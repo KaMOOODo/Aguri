@@ -1,0 +1,289 @@
+$orderDiscountPresentationCollapsible: true !default;
+$orderVoucherPresentationCollapsible: false !default;
+
+@if ($orderDiscountPresentationCollapsible) {
+
+  .abs-cart-notice-layout > div {
+
+    &#abs-discount-info-details {
+      margin-bottom: 0;
+
+      > div {
+        padding-left: $abs-grid-padding;
+        margin-bottom: $abs-default-margin-bottom;
+        color: $text-muted;
+      }
+    }
+
+    &.abs-col-discount-info {
+
+      > span:first-child {
+        border-bottom: 1px dotted $gray-light;
+      }
+    }
+
+  }
+
+}
+
+@if (not $orderDiscountPresentationCollapsible) {
+
+  .abs-cart-notice-layout {
+
+    .abs-data-combo {
+      border: 0;
+      padding: 0;
+      margin: 0;
+
+      > :first-child {
+
+        margin-right: 0;
+        cursor: default;
+
+        &::after {
+          content: '';
+          display: none;
+        }
+      }
+
+      #abs-discount-info-details {
+        display: block !important;
+        height: inherit !important;
+
+        > div {
+          margin-bottom: $abs-default-margin-bottom;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+@if (not $orderVoucherPresentationCollapsible) {
+  .abs-voucher-code.abs-data-combo {
+    border-width: 1px 0;
+    padding: 0;
+
+    .abs-col-voucher-code-info {
+      display: none;
+    }
+
+    &.abs-voucher-code-applied .abs-col-voucher-code-info {
+      display: flex;
+    }
+
+    > :first-child {
+
+      margin-right: 0;
+      cursor: default;
+
+      &::after {
+        content: '';
+        display: none;
+      }
+    }
+
+    .abs-col-voucher-code-details {
+      display: block !important;
+      height: inherit !important;
+      text-align: center;
+      font-size: 0.9em;
+
+      .abs-voucher-data-info {
+        padding-bottom: $abs-default-margin-bottom;
+        display: block;
+      }
+
+    }
+
+  }
+}
+
+.abs-voucher-code {
+
+  &.abs-voucher-code-applied {
+    .abs-icon-voucher {
+      @extend .abs-icon-selected;
+    }
+
+    .abs-col-voucher-code-info {
+      opacity: 1;
+      color: $brand-success;
+    }
+
+    &.abs-voucher-code-no-match {
+      .abs-icon-voucher {
+        @extend .abs-icon-important;
+      }
+
+      .abs-col-voucher-code-info {
+        opacity: 1;
+        color: $brand-danger;
+      }
+    }
+  }
+}
+
+.abs-col-voucher-code-info {
+  cursor: pointer;
+  opacity: 0.7;
+
+  .abs-icon-voucher {
+    padding-right: 10px;
+  }
+
+}
+
+.abs-col-voucher-code-details {
+
+  .input-group {
+    width: 100%;
+    margin: $abs-default-margin-bottom 0;
+  }
+}
+
+.voucher-code-input input {
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.abs-voucher-code-label {
+  display: none;
+}
+
+.abs-cart-notice-layout {
+
+  display: flex;
+  flex-direction: column;
+
+  > div {
+
+    clear: both;
+    margin-bottom: $abs-default-margin-bottom + 5;
+
+    &.abs-col-final-price {
+      @include abs-make-flex($justify-content: space-between, $align-items: baseline);
+      color: $brand-primary;
+      font-weight: bold;
+      margin-top: $abs-grid-padding;
+
+      .abs-value {
+        float: none;
+        font-size: $font-size-h4;
+      }
+    }
+  }
+
+  .abs-money-discount {
+    > div:first-child {
+      color: $brand-success;
+
+      span.abs-icon-selected {
+        padding-right: 10px;
+      }
+    }
+
+    .abs-discount-panel {
+      margin-top: $abs-default-margin-bottom + 5;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $abs-default-margin-bottom;
+        padding-bottom: $abs-default-margin-bottom;
+        text-align: left;
+
+        > span:first-child {
+          padding-right: 5px;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .abs-money-product-discount-value {
+      flex-direction: column;
+      padding-bottom: $abs-default-margin-bottom;
+      margin-left: 15px;
+      color: $gray;
+      font-size: 0.85em;
+
+      & > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  .abs-money-vat {
+
+    .abs-money-vat-body {
+      padding-top: 6px;
+    }
+
+    .abs-price-vat-items {
+      padding: 4px 0;
+      font-size: 0.8em;
+    }
+
+    .abs-price-vat-line {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      border-bottom: 1px dotted $gray;
+      margin-bottom: 10px;
+      padding: 0 10px 1px;
+    }
+  }
+}
+
+.abs-value {
+  white-space: nowrap;
+}
+
+.abs-promo-name {
+  cursor: help;
+  border-bottom: 1px dotted $btn-default-border;
+}
+
+.abs-data-combo span.abs-value {
+  font-weight: bold;
+}
+
+.abs-money-saved {
+  order: 1;
+  border-top: 1px solid $brand-success;
+  color: $brand-success;
+  font-size: 0.9em;
+  text-align: center;
+  padding-top: $abs-default-margin-bottom;
+
+  span {
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
+
+.abs-min-logistic-info-box {
+
+  color: $brand-danger;
+  border: 1px solid $brand-danger;
+  padding: $abs-default-margin-bottom $abs-default-margin-bottom #{$abs-default-margin-bottom - 2};
+  margin-bottom: $abs-default-margin-bottom;
+
+  span.abs-value {
+    font-weight: bold;
+  }
+}
+
+.order-parts .order-part-minimum {
+  color: $brand-danger;
+  font-size: 0.95em;
+}

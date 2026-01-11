@@ -1,0 +1,128 @@
+@mixin floating-top {
+  width: 100%;
+  @include box-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+}
+
+.floating-top {
+
+  &.top-light {
+    background-color: $navbar-default-bg;
+    color: $navbar-default-color;
+  }
+
+  &.affix {
+    @include floating-top;
+  }
+
+}
+
+
+#siteFloatingHeader {
+
+  display: none;
+  z-index: 30;
+  @include floating-top;
+
+  @media #{$media-active-on-desktop} {
+    visibility: hidden;
+    display: block;
+    position: absolute;
+
+    &.affix {
+      visibility: visible;
+      position: fixed;
+      z-index: 2000;
+    }
+  }
+
+  @media #{$media-active-on-mobile} {
+    &.abs-bottom-only-app {
+      display: block;
+    }
+  }
+
+  .abs-search-options-links {
+    display: none;
+  }
+
+  .abs-floating-msg-outer + & {
+    top: 30px;
+  }
+
+  &.abs-floatingheader-mode-pin {
+
+    min-height: 0 !important;
+    height: 0;
+    margin: 0;
+
+    body[data-module='cart'] &, body[data-module='order'] & {
+      display: none;
+    }
+
+    .abs-header-content-row {
+      position: relative;
+
+      .abs-header-content-logo, .abs-header-content-search {
+        display: none;
+      }
+
+    }
+
+    .abs-header-content-buttons {
+      position: absolute;
+      right: 0;
+      width: auto;
+
+      ul li {
+        display: none;
+
+        &.abs-btn-cart {
+          background-color: $brand-primary;
+          border-radius: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 2px solid #fff;
+          box-shadow: 0 0 7px -3px #000;
+          width: 88px;
+          height: 88px;
+
+          &.abs-btn-cart-no-value {
+            width: 68px;
+            height: 68px;
+          }
+
+          &:hover {
+            background-color: lighten($brand-primary, 3%);
+          }
+
+          a {
+            padding-left: 0;
+            padding-right: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #fff;
+
+            &:hover, &:active, &:focus {
+              background-color: transparent;
+            }
+
+            .abs-btn-cart-value {
+              padding: 0;
+              text-align: center;
+              flex-basis: 100%;
+              font-size: 0.8em;
+              margin-top: -5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+

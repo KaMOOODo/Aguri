@@ -1,0 +1,16 @@
+@mixin abs-make-attribute-table($left-column-size, $right-column-size) {
+  > div {
+    @include make-row();
+
+    > div {
+      @include make-md-column($right-column-size);
+      &:first-of-type {
+        @include make-md-column($left-column-size);
+        @media (min-width: $screen-md-min) {
+          text-align: right;
+        }
+      }
+    }
+    margin-bottom: $abs-attribute-table-margin;
+  }
+}

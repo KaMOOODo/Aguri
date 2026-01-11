@@ -1,0 +1,11 @@
+.abs-no-img-icon {
+  @include abs-make-icon;
+  @extend .glyphicon-camera;
+
+  &:before {
+    font-size: 150px;
+
+    color: $gray;
+    opacity: 0.15;
+  }
+}

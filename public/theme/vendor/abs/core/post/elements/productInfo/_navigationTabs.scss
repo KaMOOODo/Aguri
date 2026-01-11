@@ -1,0 +1,44 @@
+#productPanels .floating-navigation-tabs,  .abs-offer-condition-element {
+
+  &.affix-top {
+    margin-bottom: 15px;
+  }
+
+  &.affix {
+    top: var(--floating-top-height);
+    width: calc(var(--main-width) - 10px);
+    z-index: 999;
+    margin-bottom: 0;
+    background: #fff;
+    border-radius: 12px;
+
+    ~ .abs-product-tab-panel {
+      position: relative;
+      top: var(--floating-product-panels-navigation-tabs-height);
+
+      &:last-of-type {
+        margin-bottom: var(--floating-product-panels-navigation-tabs-height);
+      }
+    }
+  }
+
+  &.affix-bottom {
+    position: absolute;
+    width: calc(var(--main-width) - 10px);
+  }
+
+  .tab-no-data {
+    display: none;
+  }
+}
+
+.abs-offer-condition-element {
+  &.affix {
+    width: calc(var(--main-width) - 1px);
+    @include box-shadow( 0px 0px 3px 0px rgba(0, 0, 0, 0.3));
+
+    @media #{$media-active-on-mobile} {
+      margin-top: -12px;
+    }
+  }
+}

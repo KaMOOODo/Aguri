@@ -1,0 +1,98 @@
+$bootstrap-sass-asset-helper: false !default;
+$abs-font-path: '../../../../fonts/';
+$icon-font-path: if($bootstrap-sass-asset-helper, 'bootstrap/', '#{$abs-font-path}bootstrap/') !default;
+
+@use "sass:list";
+
+@mixin abs-custom-font($font-name, $supported-styles-list) {
+
+  @each $style in $supported-styles-list {
+
+    @font-face {
+      font-display: swap;
+      font-family: '#{$font-name}#{$style}';
+      src: url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.eot');
+      src: url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.eot?#iefix') format('embedded-opentype'),
+      url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.woff2') format('woff2'),
+      url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.woff') format('woff'),
+      url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+  }
+
+}
+
+@mixin abs-custom-font-woff($font-name, $supported-styles-list) {
+
+  @each $style in $supported-styles-list {
+
+    @font-face {
+      font-display: swap;
+      font-family: '#{$font-name}#{$style}';
+      src: url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.woff2') format('woff2'),
+      url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+  }
+
+}
+
+@mixin abs-custom-font-explicit($font-name, $supported-styles-list, $supported-formats) {
+
+  @each $style in $supported-styles-list {
+
+    @font-face {
+      font-display: swap;
+      font-family: '#{$font-name}#{$style}';
+
+      $src: '';
+
+
+      @if (index($supported-formats, 'eot')) {
+        src: url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.eot');
+        $src: $src url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.eot?#iefix') format('embedded-opentype');
+      }
+      @if (index($supported-formats, 'svg')) {
+        @if ($src != '') {
+          $src: "#{$src},"
+        }
+        $src:$src url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.svg') format('svg');
+      }
+      @if (index($supported-formats, 'woff')) {
+        @if ($src != '') {
+          $src: "#{$src},"
+        }
+        $src: $src url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.woff') format('woff');
+      }
+      @if (index($supported-formats, 'woff2')) {
+        @if ($src != '') {
+          $src: "#{$src},"
+        }
+        $src: $src url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.woff2') format('woff2');
+      }
+      @if (index($supported-formats, 'ttf')) {
+        @if ($src != '') {
+          $src: "#{$src},"
+        }
+        $src: $src url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.ttf') format('truetype');
+      }
+      @if (index($supported-formats, 'otf')) {
+        @if ($src != '') {
+          $src: "#{$src},"
+        }
+        $src: $src url('#{$abs-font-path}#{$font-name}/#{$font-name}-#{$style}.otf') format('opentype');
+      }
+
+      src: #{$src};
+
+      font-weight: normal;
+      font-style: normal;
+    }
+
+  }
+
+}

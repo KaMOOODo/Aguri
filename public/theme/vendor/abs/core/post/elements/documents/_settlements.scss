@@ -1,0 +1,18 @@
+@include abs-active-on-mobile-width {
+
+  #settlementList {
+
+    @include abs-grid-wrap-mode(true, true, false);
+
+  }
+
+}
+
+
+@include abs-grid-allow-nowrap-mode('#settlementList', false);
+
+@include abs-active-on-desktop-width {
+  #settlementList {
+    @include abs-grid-fix-columns-width((10:90), 10);
+  }
+}

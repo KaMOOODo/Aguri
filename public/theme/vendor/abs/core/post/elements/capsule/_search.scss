@@ -1,0 +1,142 @@
+.abs-capsule-search-modal {
+  .modal-header {
+    border: none;
+  }
+
+  .abs-capsule-search-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 15px;
+    padding: 0 10px;
+
+    .abs-capsule-search-wrapper {
+      flex: 1;
+
+      .search-wrapper {
+        .input-group {
+          width: 100%;
+        }
+
+        .input-group-btn {
+          display: none;
+        }
+
+        .searchInputClass {
+          padding: 20px 5px 20px 20px;
+          background-color: $gray-lighter;
+          border: none;
+          border-radius: 12px;
+        }
+
+        .form-control-feedback {
+          top: 3px !important;
+        }
+      }
+
+      .abs-suggestion-panel {
+        position: relative;
+        width: 100%;
+        max-height: 100vh;
+        margin-top: 10px;
+        overflow: hidden;
+
+        & > .panel-heading {
+          border-color: transparent;
+          border-radius: $border-radius-large;
+        }
+
+        .abs-products-media {
+          position: relative;
+          overflow-y: auto;
+          scroll-snap-type: y mandatory;
+          -webkit-overflow-scrolling: touch;
+          padding-bottom: 100px;
+        }
+
+        .list-group:not(.abs-products-media) {
+          display: none;
+        }
+
+        .panel-heading:not(:first-of-type) {
+          display: none;
+        }
+
+        .list-group-item {
+          border: none;
+          padding: 5px 15px 5px 5px;
+
+          .media {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+          }
+
+          .media-body {
+            .list-group-item-heading {
+              line-height: normal;
+            }
+
+
+            .avail-block {
+              float: left;
+            }
+
+            .abs-catalog-index {
+              margin: 0;
+            }
+          }
+        }
+
+        .suggestion-show-all-values {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  #mobileMenuScanBtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    display: block;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid $gray-lighter;
+
+    a {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      @include button-variant($text-color, $gray-lighter, $gray-lighter);
+      @include button-size(10px, 15px, 14px, 1.4, $border-radius-large);
+
+      margin: 30px;
+
+      .m-ico {
+        &:before {
+          color: $brand-success;
+        }
+      }
+    }
+  }
+}
+
+.abs-capsule-search-purchase {
+  .cart-button {
+    .abs-icon-cart {
+      display: block;
+
+      &:before {
+        height: 20px;
+        width: 25px;
+      }
+    }
+  }
+}

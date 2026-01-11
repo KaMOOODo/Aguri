@@ -1,0 +1,23 @@
+// reset bg for body - cockpit preview issues
+
+body.cke_ltr::before, body:not([class])::before {
+  background-image: none;
+  display: none;
+}
+
+body.cke_ltr, body:not([class]), body.preserveFormatting { background: #fff none; }
+
+.abs-events-none {
+  pointer-events: none;
+}
+
+.abs-disable-links a {
+  pointer-events: none;
+  cursor: default;
+  color: $text-color;
+  text-decoration: none;
+}
+
+body .tooltip {
+  z-index: 999999;
+}

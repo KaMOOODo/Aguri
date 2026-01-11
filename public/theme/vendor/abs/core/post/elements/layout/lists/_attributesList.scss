@@ -1,0 +1,141 @@
+
+.a-v-group-name {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: $gray-lighter;
+  font-weight: bold;
+}
+
+.a-v-pager {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: center;
+  padding: 20px;
+  font-size: 1.4em;
+
+  .a-v-page {
+    a {
+      padding: 10px;
+      transition: color 200ms ease-in 0ms;
+
+      &:active, &:focus, &:hover {
+        text-decoration: none;
+      }
+
+      &:hover, &:active, .active {
+        color: $brand-secondary;
+      }
+    }
+  }
+}
+
+.attribute-product-presentation-grouped-mode {
+  display: grid;
+
+  ul.abs-attributes-values-list {
+    columns: auto 4;
+    margin-bottom: 50px;
+
+    &:not(.abs-attributes-colors-list) {
+      li {
+        height: 50px;
+      }
+    }
+
+    li {
+      display: flex;
+      text-transform: uppercase;
+      -moz-box-align: center;
+      align-items: center;
+      -moz-box-pack: justify;
+      justify-content: space-between;
+      margin-bottom: 0.75em;
+
+      a {
+        width: 100%;
+      }
+
+    }
+  }
+}
+
+.attribute-product-presentation-default-mode, .attribute-product-presentation-pager-mode {
+  .abs-attributes-values-page {
+    .abs-attributes-values-list {
+      li {
+        height: 245px;
+
+        a {
+          border: 1px solid $gray-lighter;
+          border-radius: $border-radius-base;
+
+          &.abs-att-val-txt {
+            letter-spacing: 2px;
+            font-size: 2.5em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.attribute-product-presentation-default-mode, .attribute-product-presentation-pager-mode {
+  .abs-attributes-values-page {
+    .abs-attributes-values-list {
+      &.abs-attributes-colors-list {
+        li {
+          height: 180px;
+        }
+      }
+    }
+  }
+}
+
+
+.abs-attributes-values-page {
+  .abs-attributes-values-list {
+    justify-content: space-between;
+    padding: 50px;
+
+    li {
+      flex: 0 0 245px;
+
+      a {
+
+        &.abs-att-val-txt {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.abs-attributes-colors-list {
+
+      li {
+        flex-basis: 180px;
+
+        a {
+          text-decoration: none;
+          border: 0;
+        }
+
+      }
+
+      .attr-color-mask {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: flex-end;
+        padding: 9px 12px;
+        background-image: linear-gradient(185deg, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.133) 100%);
+
+        .attr-color-name {
+          color: #fff;
+        }
+      }
+
+    }
+
+  }
+
+}

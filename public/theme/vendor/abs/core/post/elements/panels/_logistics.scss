@@ -1,0 +1,138 @@
+@mixin logistics-progress {
+  cursor: help;
+  align-self: center;
+
+  .indicator {
+    width: 70px;
+    height: 30px;
+    border: 1px solid $brand-success;
+    font-size: 12px;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+
+    @media #{$media-active-on-mobile} {
+
+      &.navbar-toggle {
+        height: 40px;
+        width: 80px;
+        border: none;
+      }
+
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #f4db68;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transition: width 0.3s;
+      margin: 0;
+      border-radius: 0;
+    }
+
+    .progress-text {
+      position: relative;
+      z-index: 2;
+      color: $brand-success;
+      font-weight: bold;
+    }
+
+    &.success {
+      border: 1px solid #377921;
+
+      .progress {
+        background-color: #377921;
+      }
+
+      .progress-text {
+        transform: rotate(45deg);
+        height: 18px;
+        width: 10px;
+        margin: 2px 0 auto;
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+      }
+
+    }
+  }
+}
+
+
+@media #{$media-active-on-desktop} {
+
+  .lmin-indicator-pp {
+    display: none !important;
+  }
+
+}
+
+
+.logistics-popover, .lmin-indicator-pp {
+  .logistics-popover-content {
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+
+    @media #{$media-active-on-mobile} {
+      padding: 25px 0 0 0;
+    }
+
+    .ico {
+      scale: 0.7;
+      font-size: 32px;
+      font-weight: lighter;
+
+      &:before {
+        color: $brand-success;
+      }
+    }
+
+    & > div.msg {
+
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+
+      border-top: 1px solid #f5f5f5;
+      padding-top: 15px;
+
+      &:first-child {
+        border-top: unset;
+        padding-top: 0;
+      }
+
+      .details {
+        font-size: 1.1em;
+      }
+
+      i {
+        font-size: 0.8em;
+        display: block;
+      }
+
+      .strong {
+        font-weight: bold;
+
+        &:after {
+          content: ', ';
+        }
+      }
+
+    }
+
+  }
+}

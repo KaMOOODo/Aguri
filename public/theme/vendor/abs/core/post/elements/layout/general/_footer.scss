@@ -1,0 +1,170 @@
+#footer-inset {
+  @include abs-make-container();
+  margin-top: $abs-grid-padding;
+  margin-bottom: $abs-grid-padding;
+}
+
+footer {
+  background-color: $gray-darker;
+
+  .abs-footer-items-wrapper {
+    margin: #{$abs-grid-padding * 2} auto;
+    padding: 0 15px;
+
+    .abs-footer-items {
+      @include abs-make-flex(null, null, stretch);
+      margin: -$abs-grid-padding;
+
+      > * {
+        padding: $abs-grid-padding/2 $abs-grid-padding;
+        $_abs-footer-item-width: 100%;
+
+        flex: 1 0 $_abs-footer-item-width;
+
+        @mixin abs-make-footer-item-width($flex-basis, $min-width) {
+          flex-basis: calc(#{$flex-basis} - #{$abs-grid-padding * 2});
+          @media #{$media-active-on-phone} {
+            flex-basis: 100%;
+          }
+          @media (min-width: $screen-md-min) {
+            min-width: $min-width;
+          }
+        }
+
+        &.abs-footer-item-width-full {
+          @include abs-make-footer-item-width(100%, 100%);
+        }
+
+        &.abs-footer-item-width-third {
+          @include abs-make-footer-item-width(75%, (($screen-sm-max / 4) * 3) - $grid-gutter-width);
+        }
+
+        &.abs-footer-item-width-half {
+          @include abs-make-footer-item-width(50%, ($screen-sm-max / 2) - $grid-gutter-width);
+        }
+
+        &.abs-footer-item-width-quarter {
+          @include abs-make-footer-item-width(25%, ($screen-sm-max / 4) - $grid-gutter-width);
+        }
+
+        > .panel {
+          margin-bottom: 0;
+          height: 100%;
+          overflow: auto;
+        }
+
+      }
+    }
+  }
+
+  .abs-footer-bottom-text, .abs-footer-bottom-no-text {
+    text-align: center;
+    margin: $padding-base-vertical auto;
+    padding-left: $abs-grid-padding/2;
+    padding-right: $abs-grid-padding/2;
+    color: $text-muted;
+    font-size: 0.75em;
+
+    .cookie-settings-btn {
+      padding-left: 4px;
+    }
+  }
+
+  .abs-footer-bottom-no-text {
+    padding: 0;
+  }
+}
+
+// Footer =====================================================================
+
+@media #{$media-active-on-mobile}{
+  .abs-panel-footer > .panel-body a.list-group-item {
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+}
+
+.abs-panel-footer > .panel-body a.list-group-item, footer .abs-footer-bottom-text a {
+
+  color: $gray-light;
+
+  &:hover, &:focus, &:active {
+    color: #fff;
+  }
+}
+
+footer .abs-footer-bottom-text a {
+  color: $gray-lighter;
+}
+
+.bottom-messages-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  z-index: 2001;
+
+  > div {
+    flex-grow: 1;
+  }
+}
+
+.bottom-messages-container .alert + .alert {
+  border-top: solid 1px $gray-light;
+}
+
+#unsupported-browser {
+
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2001;
+  margin: 0;
+  border-radius: 0;
+  font-size: 0.75em;
+  padding: 15px;
+
+  > div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      > span {
+        flex-grow: 1;
+
+        > a {
+          padding-right: 15px;
+        }
+
+      }
+
+    }
+
+    > button {
+      flex-basis: 80px;
+    }
+  }
+
+}
+
+// Scroll indicator
+
+#footer-scroll-indicator {
+  position: fixed;
+  bottom: 0;
+
+  &.affix-bottom {
+    position: absolute;
+  }
+}

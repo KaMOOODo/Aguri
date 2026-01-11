@@ -1,0 +1,23 @@
+.last-order.widget-view {
+
+  .abs-icon-selected {
+    color: green;
+
+    & + span {
+      font-size: larger;
+    }
+
+  }
+
+  .order-number {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+}

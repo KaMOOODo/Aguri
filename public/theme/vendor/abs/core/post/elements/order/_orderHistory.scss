@@ -1,0 +1,117 @@
+.abs-children-offer-content:not(.not-ready) {
+
+  padding: 0;
+  margin-bottom: 0;
+  counter-increment: order-children;
+
+  .orderConfirmationNumber {
+    border-top: 5px dashed $gray-light;
+    border-bottom: 5px dashed $gray-light;
+    position: relative;
+    z-index: 60;
+  }
+
+  .offerPanel {
+    .abs-grid {
+
+      padding-top: 10px;
+
+      > .abs-panel {
+        position: relative;
+        z-index: 60;
+      }
+    }
+  }
+
+  & + .abs-children-offer-content {
+    border-top: 0;
+  }
+
+}
+
+.abs-order-header-data-content::before {
+  content: counter(order-children);
+  display: block;
+  font-size: 2.1em;
+  margin: 0 0 0 30px;
+  background: $gray-lighter;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2em;
+  color: #fff;
+}
+
+@include abs-active-on-desktop-width {
+
+  .order-history, #order-history-short {
+    @include abs-grid-fix-columns-width((6:230), 6);
+    @include abs-grid-fix-columns-align((1:left, 2:left, 3:left, 4:left, 5:right, 6:center));
+  }
+}
+
+@include abs-active-on-desktop-width {
+
+  .order-history, #order-history-short {
+    @include abs-grid-fix-columns-width((7:230), 7);
+    @include abs-grid-fix-columns-align((1:left, 2:left, 3:left, 4:left, 5:left, 6:right, 7:center));
+  }
+}
+
+.abs-grid-col-header .actual-label {
+  &:has(.cbx-inline-label) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.bulk-order-status-transition-trigger {
+
+  font-size: clamp(0.9em, 2vw, 1em);
+  //position: fixed;
+  //top: 75%;
+  //right: 5px;
+  //z-index: 99;
+
+  .well {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  button.select-status {
+    border-radius: 15px;
+    padding: 6px 16px;
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.bulk-order-status-change-modal {
+  
+  .form-panel {
+    margin-bottom: 15px;
+  }
+  
+  .abs-label-muted {
+    opacity: 0.3;
+    cursor: help;
+  }
+  
+  .selected-orders span {
+    &:after {
+      content: ', ';
+    }
+    &:last-child:after {
+      content: '';
+    }
+  }
+}

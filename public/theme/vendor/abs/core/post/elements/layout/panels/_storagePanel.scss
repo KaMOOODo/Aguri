@@ -1,0 +1,137 @@
+.abs-layout-storage-panel {
+  @include abs-make-layout-row-base;
+
+  > .abs-row {
+    > .abs-col-img {
+      @include make-lg-column(3);
+
+      padding-right: 0;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    > .abs-col-content {
+      @include make-lg-column(9);
+
+      .well {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+#perm-link-wrapper {
+  margin-bottom: 1em;
+}
+
+#perm-link {
+  width: 100%;
+  display: block;
+}
+
+#storage-share {
+
+}
+
+#perm-link-details {
+  margin-top: 1em;
+}
+
+.abs-perm-link-body {
+  @include abs-word-wrap;
+
+  @media #{$media-active-on-mobile} {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.abs-storage-actions {
+  padding-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > div {
+    padding: 0 0 10px 0;
+  }
+}
+
+.storage-actions {
+  display: flex;
+}
+
+@if ($abs-storage-btn-visible-on-image) {
+
+  .abs-icon-storage, .abs-icon-storage-rm {
+    font-size: 1.6em;
+    margin: 0 !important;
+  }
+
+  .abs-layout-product-full, .abs-layout-product-list, .abs-layout-product-gallery, .abs-product-header-img {
+    .storage-actions {
+      justify-content: end;
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      z-index: 1;
+
+      .abs-storage-action-label {
+        display: none;
+      }
+
+      .abs-storage-btn {
+        padding: 0;
+      }
+    }
+
+    .abs-extra-btns {
+      .abs-storage-btn {
+        display: none;
+      }
+    }
+  }
+
+  .view-kind-grid {
+    .abs-img-wrapper {
+      position: relative;
+    }
+
+    .abs-storage-btn {
+      .abs-icon-storage, .abs-icon-storage-rm {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  .abs-product-header-img {
+    .storage-actions {
+      top: 10px;
+      right: $abs-grid-padding + 10px;
+    }
+
+    .abs-storage-btn {
+      .abs-icon-storage, .abs-icon-storage-rm {
+        font-size: 2em;
+      }
+    }
+  }
+
+  .abs-product-header-actions {
+    .abs-storage-btn {
+      display: none;
+    }
+  }
+
+} @else {
+
+  .abs-img-wrapper, .abs-product-header-img, .abs-col-img {
+    .storage-actions {
+      display: none;
+    }
+  }
+
+}

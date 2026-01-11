@@ -1,0 +1,116 @@
+@media #{$media-active-on-desktop} {
+
+  #mainMenu .abs-root-link {
+    display: none;
+  }
+}
+
+li.abs-root-link a {
+
+  .abs-all-cat-label {
+    display: block;
+    font-size: 0.75em;
+    font-weight: normal;
+  }
+
+  .abs-all-cat-name {
+    font-weight: bold;
+  }
+
+}
+
+.abs-header-menu-main nav > ul > li > a > span.abs-items-count {
+  display: none;
+}
+
+a span.abs-items-count {
+  font-size: 0.75em;
+  opacity: 0.8;
+}
+
+
+.abs-side-menu {
+  z-index: auto!important;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+
+  ul {
+    display: none;
+    margin-bottom: $abs-default-margin-bottom;
+  }
+
+  .caret {
+    transform: rotate(-90deg);
+    margin-top: 6px;
+    float: right;
+  }
+
+  .highlighted .caret {
+    transform: rotate(0deg);
+  }
+
+  @if ($abs-show-category-icons) {
+
+    .abs-root-link {
+
+      a:hover, a:focus, a:active {
+        background-color: transparent;
+      }
+    }
+  } @else  {
+    li > a {
+      margin: 1px 0;
+    }
+  }
+
+  > li {
+    > ul {
+      padding-left: $abs-grid-padding;
+      > li {
+        > ul {
+          padding-left: $abs-grid-padding;
+        }
+      }
+    }
+  }
+
+  li {
+    position: relative;
+    display: block;
+    clear: both;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      word-wrap: break-word;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+
+    }
+    &.abs-slctd {
+      > a {
+        background-color: $nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: $cursor-disabled;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,41 @@
+.lp-pts-val {
+  font-weight: bold;
+  padding-right: 2px;
+}
+
+.lp-pts-uni {
+  font-size: 0.9em;
+  opacity: 0.75;
+  font-weight: normal;
+}
+
+.lp-earning-pts {
+
+  display: block;
+  font-size: 1em;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1;
+
+  .lp-earn-intro {
+    display: none;
+  }
+
+  .abs-offer-table td & {
+
+    color: $text-color;
+    font-size: 0.8em;
+    opacity: 0.6;
+    padding-top: 7px;
+
+    .lp-earn-intro {
+      display: inline;
+      text-transform: none;
+      font-weight: normal;
+    }
+    .lp-earn-plus {
+      display: none;
+    }
+
+  }
+}

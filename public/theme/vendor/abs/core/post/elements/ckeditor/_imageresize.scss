@@ -1,0 +1,17 @@
+.preserveFormatting img.image_resized {
+  height: auto;
+}
+
+.preserveFormatting .image.image_resized {
+  max-width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.preserveFormatting .image.image_resized img {
+  width: 100%;
+}
+
+.preserveFormatting .image.image_resized > figcaption {
+  display: block;
+}

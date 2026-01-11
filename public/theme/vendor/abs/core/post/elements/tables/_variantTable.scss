@@ -1,0 +1,19 @@
+.abs-variant-table {
+  //@include abs-make-attribute-table(4, 8);
+
+  > div {
+    margin-bottom: $abs-default-margin-bottom;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
+}

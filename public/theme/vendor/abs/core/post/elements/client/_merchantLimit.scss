@@ -1,0 +1,124 @@
+/* merchant limit knobs graphs */
+
+#knobNeutralColor {
+  display: none;
+  background-color: $gray-lighter;
+}
+
+#knobActiveColor {
+  display: none;
+  background-color: $brand-success;
+}
+
+#knobAlertColor {
+  display: none;
+  background-color: $brand-danger;
+}
+
+.abs-knobs {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .abs-knob-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 1;
+    margin: 30px 0;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    input {
+      pointer-events: none;
+    }
+
+  }
+
+}
+
+.abs-knob-tip {
+  position: relative;
+  top: -63px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.abs-knob-text-value {
+  position: relative;
+  top: -92px;
+  text-align: center;
+  font: bold 20px Arial;
+}
+
+.abs-knob-title {
+  text-align: center;
+  font-weight: bold;
+  opacity: 0.75;
+  max-width: 180px;
+  min-height: 50px;
+}
+
+.abs-knob-title > span {
+  display: block;
+  & + span {
+    font-weight: normal;
+    font-size: 0.75em;
+    font-style: italic;
+    opacity: 0.75;
+  }
+}
+
+.abs-knob-subtitle {
+  font-weight: normal;
+  opacity: 0.75;
+  margin-top: 3px;
+}
+
+.abs-knob-exceeded .abs-knob-subtitle {
+  color: $brand-danger;
+}
+
+.abs-knob-inactive {
+  .abs-knob-subtitle {
+    display: none;
+  }
+  .always-visible .abs-knob-subtitle {
+    display: block;
+  }
+}
+
+
+.balance-info {
+
+  align-items: center;
+  border-bottom: 1px solid $gray-lighter;
+  padding: 10px 0 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .balance-info-details {
+    text-align: center;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    span {
+      display: block;
+
+      &:last-child {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+    }
+  }
+
+}
+
+.abs-balance-plus {
+  color: $brand-success;
+}
+
+.abs-balance-minus {
+  color: $brand-danger;
+}
+

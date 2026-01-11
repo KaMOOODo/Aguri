@@ -1,0 +1,29 @@
+.preserveFormatting .table {
+  margin: 0.9em auto;
+  display: table;
+}
+
+.preserveFormatting .table table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preserveFormatting .table table td,
+.preserveFormatting .table table th {
+  min-width: 2em;
+  padding: .4em;
+}
+
+.preserveFormatting .table table th {
+  font-weight: bold;
+}
+
+.preserveFormatting[dir="rtl"] .table th {
+  text-align: right;
+}
+
+.preserveFormatting[dir="ltr"] .table th {
+  text-align: left;
+}

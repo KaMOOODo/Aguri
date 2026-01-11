@@ -1,0 +1,11 @@
+//== Header
+//
+//##
+$media-active-on-phone: '(max-width: #{$screen-xs-max})';
+$media-active-on-mobile: '(max-width: #{$screen-sm-max})';
+$media-active-on-desktop: '(min-width: #{$screen-md-min})';
+$media-active-on-large-desktop: '(min-width: #{$screen-lg-min})';
+$media-active-on-non-large-desktop: '(max-width: #{$screen-md-max})';
+$media-active-only-on-non-large-desktop: '(min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})';
+
+$media-active-on-mobile-and-larger: '(min-width: #{$screen-sm-min})';

@@ -1,0 +1,18 @@
+.contract-details-card {
+  
+  form {
+      float: right;
+  }
+  
+}
+
+.abs-item-price-reference.abs-item-contract-term {
+  font-weight: 300;
+  font-size: 12px;
+  background: $btn-info-bg;
+  color: $btn-info-color;
+  border-radius: 4px;
+  padding: 5px 8px;
+  line-height: 12px;
+  margin: 5px 0;
+}

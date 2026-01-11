@@ -1,0 +1,139 @@
+@mixin pickadate-open-to-top {
+  @media #{$media-active-on-desktop} {
+    .picker__holder {
+      transform: translateY(-100%);
+      transition-duration: unset;
+    }
+
+  }
+}
+
+.summary-standard, #orderDetailsCard {
+  .abs-cart-lower-layout {
+    @include abs-make-flex($justify-content: space-between);
+
+    margin: 0 0 $grid-gutter-width;
+
+    > div {
+      margin-bottom: 0 !important;
+    }
+
+    > div:first-child {
+      flex: 1 0 auto;
+      max-width: calc(100% - #{$abs-cart-summary-column-width} - #{$grid-gutter-width});
+      padding: 0;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    > div:last-child {
+      flex: 0 0 $abs-cart-summary-column-width;
+      background-color: $abs-cart-panels-bg-color;
+    }
+
+    @media #{$media-active-on-phone} {
+      > div:first-child {
+        max-width: none;
+        flex-basis: 100%;
+      }
+      > div:last-child {
+        flex-basis: 100%;
+      }
+    }
+
+    @media (min-width: $screen-md-min) {
+      > * {
+        //max-width: 400px;
+      }
+    }
+
+    @media (max-width: $screen-sm-max) {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: $screen-md-max) {
+      > .abs-col-notice {
+        order: 999;
+      }
+    }
+
+    .abs-col-payment-delivery {
+
+      > div {
+        > .panel.abs-panel {
+          margin-bottom: $grid-gutter-width;
+        }
+
+        &:last-child > .panel.abs-panel {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .abs-col-receipt-points {
+      min-width: 100%;
+      max-width: inherit;
+    }
+
+    @include pickadate-open-to-top;
+  }
+}
+
+@include abs-make-for-three-column {
+  .abs-cart-lower-layout {
+    > * {
+      max-width: inherit;
+      min-width: 100%;
+    }
+  }
+}
+
+a.btn.abs-collapse-delivery, a.btn.abs-collapse-payment, .pickup-delivery-panel .delivery-chooser-button {
+  min-width: inherit;
+  float: right;
+  @include clearfix();
+}
+
+.pickup-modal-dialog {
+  width: 90%;
+}
+
+#inpostModal {
+  .easypack-widget.mobile .point-details .details-wrapper .details-content {
+
+    .point-box, .description {
+      padding-right: 335px;
+    }
+
+    .description-photo {
+      top: 33px;
+      left: auto;
+      right: 0;
+      max-width: 335px;
+    }
+  }
+}
+
+#dhlMapModal .modal-body {
+  iframe {
+    width: 100%;
+    min-height: 75vh;
+  }
+}
+
+.abs-cart-lower-layout {
+  .abs-timerange-layout {
+    @include pickadate-open-to-top;
+  }
+
+  .abs-advancedcalendar-layout {
+    @include pickadate-open-to-top;
+  }
+}
+
+
+
+
+

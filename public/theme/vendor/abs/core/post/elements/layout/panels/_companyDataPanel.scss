@@ -1,0 +1,22 @@
+.abs-company-data-intro {
+
+  text-align: center;
+  margin-bottom: 15px;
+
+  & > img {
+    max-width: 100%;
+  }
+}
+
+
+.abs-simple-panel-header .abs-simple-panel-icon {
+
+  .abs-company-address & { @extend .glyphicon-home; }
+  .abs-company-email & { @extend .glyphicon-envelope; }
+  .abs-company-phone & { @extend .glyphicon-phone-alt; }
+  .abs-company-fax & { @extend .glyphicon-print; }
+  .abs-company-bank & { @extend .glyphicon-usd; }
+  .abs-company-data & { @extend .glyphicon-briefcase; }
+
+}
+

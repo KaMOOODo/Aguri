@@ -1,0 +1,30 @@
+.panel-heading {
+  a:not(.btn) {
+    display: block;
+    width: 100%;
+  }
+}
+
+.caret {
+  border-top-style: solid;
+}
+
+.list-group {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.pager li {
+  > a, > span {
+    color: $pagination-color;
+  }
+}
+
+caption {
+  color: $text-color;
+}
+
+.popover {
+  max-width: none;
+}

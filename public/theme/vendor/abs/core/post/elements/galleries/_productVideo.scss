@@ -1,0 +1,22 @@
+.video-gallery {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+
+  .video {
+    flex: 0 1 300px;
+
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    a {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .video a {
+    pointer-events: none;
+  }
+}

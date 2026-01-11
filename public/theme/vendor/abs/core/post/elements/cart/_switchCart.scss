@@ -1,0 +1,18 @@
+#switch-cart-modal {
+  .current-cart-name {
+    margin-bottom: 10px;
+  }
+  @media #{$media-active-on-desktop} {
+    #cart-switch-form {
+      flex-wrap: nowrap;
+    }
+
+    #switch-cart-select-form-input {
+      max-width: 75%;
+    }
+
+    .switch-cart-btn-container {
+      flex: 0 0 auto;
+    }
+  }
+}

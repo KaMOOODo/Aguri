@@ -1,0 +1,10 @@
+.widget-view.orders-in-status {
+
+  [id^='order-history-widget-'].order-history .abs-grid {
+    .abs-grid-row > .abs-grid-col {
+      padding: 8px 10px;
+    }
+  }
+
+}
+

@@ -1,0 +1,43 @@
+.abs-session-expiration-info {
+  position: fixed;
+  padding: 5px 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  z-index: 999999999;
+  background-color: $btn-danger-bg;
+  color: $btn-danger-color;
+  border-top-color: $btn-danger-border;
+  text-align: center;
+  font-size: 15px;
+
+  @media #{$media-active-on-mobile} {
+    height: 58px;
+  }
+
+  & > div {
+    display: inline;
+  }
+
+  .counter {
+    font-weight: bold;
+  }
+
+  .refresh-btn {
+    text-decoration: underline;
+    cursor: pointer;
+
+    @media #{$media-active-on-mobile} {
+      display: block;
+      margin-top: 5px;
+    }
+  }
+
+  &.show {
+    display: block !important;
+  }
+
+  &.hide {
+    display: none !important;
+  }
+}

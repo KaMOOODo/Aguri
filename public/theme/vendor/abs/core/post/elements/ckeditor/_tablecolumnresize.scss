@@ -1,0 +1,13 @@
+.preserveFormatting .table .ck-table-resized {
+  table-layout: fixed;
+}
+
+.preserveFormatting .table table {
+  overflow: hidden;
+}
+
+.preserveFormatting .table td,
+.preserveFormatting .table th {
+  overflow-wrap: break-word;
+  position: relative;
+}

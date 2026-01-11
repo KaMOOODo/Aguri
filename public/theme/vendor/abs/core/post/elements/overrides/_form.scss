@@ -1,0 +1,67 @@
+.input-group-addon {
+  //padding: $padding-xs-vertical $padding-xs-horizontal;
+}
+
+input[type="number"] {
+  padding-right: $padding-xs-horizontal;
+}
+
+.disabled {
+  label {
+    color: $text-muted;
+  }
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+.checkbox {
+  padding: 0;
+  margin-bottom: 0;
+
+  &.switch-container {
+    label {
+      padding: 0;
+      line-height: 23px;
+      height: 24px;
+    }
+  }
+}
+
+.abs-form-input.required {
+  .control-label:after {
+    content: " *";
+    color: red;
+  }
+
+  .checkbox label:after {
+    content: " *";
+    color: red;
+  }
+  
+  .checkbox.switch-container label:after {
+    content: none;
+  }
+}
+
+.form-group {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.radio, .checkbox {
+  margin-top: 0;
+  //margin-bottom: 0;
+}
+
+.has-feedback .form-control {
+  padding-right: 30px;
+}
+
+input.form-control[type="text"], input.form-control[type="email"] {
+  & + .input-group-btn > .btn, & + .input-group-btn + .input-group-btn > .btn {
+    height: $input-height-base;
+  }
+}

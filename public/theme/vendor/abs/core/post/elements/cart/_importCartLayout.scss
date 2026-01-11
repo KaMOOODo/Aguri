@@ -1,0 +1,150 @@
+.abs-layout-import-cart {
+  @include abs-make-flex($justify-content: center, $align-items: center);
+
+  margin-left: -$abs-grid-padding;
+  margin-right: -$abs-grid-padding;
+
+  > div {
+    padding: $abs-grid-padding;
+  }
+
+  .abs-layout-import-cart-btns {
+    @include abs-make-flex($justify-content: space-around);
+
+    margin-left: -$abs-grid-padding;
+    margin-right: -$abs-grid-padding;
+    padding: 0;
+
+    > div {
+      padding: $abs-grid-padding;
+    }
+  }
+
+  .scrollable {
+    height: inherit;
+    max-height: 50vh;
+    overflow: auto;
+    padding: 0;
+  }
+
+  .dropdown-menu li a {
+    font-size: 0.9em;
+  }
+
+  .template-header {
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+
+  .load-order-template {
+
+    max-width: 220px;
+    overflow-y: hidden !important;
+
+    a {
+      padding: 7px 25px 7px 10px;
+      min-height: 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .load-template-header {
+      font-weight: 600;
+      margin-bottom: 0;
+      font-size: 1.11em;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &::after {
+        font-family: 'Glyphicons Halflings';
+        font-size: 0.75em;
+        font-weight: normal;
+        opacity: 0.5;
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 7px;
+      }
+    }
+
+    .load-template-description {
+      max-width: 220px;
+      font-size: 0.75em;
+      line-height: 1em;
+      opacity: 0.8;
+      margin-bottom: 0;
+      white-space: normal;
+    }
+
+    &.order-template-private {
+      .load-template-header::after {
+        content: '\e008';
+      }
+    }
+
+    &.order-template-public {
+      .load-template-header::after {
+        content: '\e135';
+      }
+    }
+  }
+
+  #replaceTemplateForm {
+    display: none;
+  }
+
+  .load-order-template:not(:last-child) {
+    border-bottom: 1px dashed lightgrey;
+  }
+}
+
+.checkbox-group {
+
+  padding-bottom: 15px;
+
+  .checkbox-inline:first-child {
+    padding-left: 0;
+  }
+}
+
+.order-template-modal-footer {
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+.template-type-desc {
+  font-size: 0.75em;
+  opacity: 0.7;
+  font-style: italic;
+  display: block;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
+#cartImportModal {
+
+  .import-mapper-modal-dialog {
+    width: 90vw;
+    max-width: 1950px;
+  }
+
+  .import-mapper-modal-body {
+    max-height: 80vh;
+  }
+}
+
+#loadableTemplatesDropdown {
+  @media #{$media-active-on-mobile} {
+    ul {
+      width: 100%;
+
+      li.load-order-template {
+        max-width: none;
+      }
+    }
+  }
+}

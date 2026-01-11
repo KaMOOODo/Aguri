@@ -1,0 +1,71 @@
+@mixin epayment-icon($url) {
+  background-image: url($url);
+}
+
+[data-provider] .icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+}
+
+[data-provider="BLIK"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/blik-s.svg");
+}
+
+[data-provider="PAYU"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/payu-black.svg");
+}
+
+[data-provider="DOTPAY"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/dotpay.png");
+}
+
+[data-provider="P24"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/p24.png");
+}
+
+[data-provider="TRANSFERUJ_PL"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/tpay.png");
+}
+
+[data-provider="PAYBYNET"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/paybynet.png");
+}
+
+[data-provider="PAYPAL"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/paypal.png");
+}
+
+[data-provider="SANTANDER"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/santander.png");
+}
+
+[data-provider="ESERVICE"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/eservice.png");
+}
+
+[data-provider="BLUE_MEDIA"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/autopay.png");
+}
+
+[data-provider="BLUE_MEDIA"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/autopay.png");
+}
+
+[data-provider="IMOJE"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/imoje.png");
+}
+
+[data-provider="PAYPO"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/paypo.png");
+}
+
+[data-provider="PAYNOW"] .icon {
+  @include epayment-icon("//static.connector-b2b.com/design/graphics/common/logo/epay/mbank.png");
+}

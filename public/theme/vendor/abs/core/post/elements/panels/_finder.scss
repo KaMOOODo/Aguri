@@ -1,0 +1,255 @@
+.findermode {
+
+  form.fts-main-filter .abs-filters.panel {
+    flex-direction: column;
+  }
+
+  .finder-panel {
+
+    //border: 1px solid red;
+
+    .nav {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav li {
+      flex-basis: auto;
+      width: 100%;
+      text-align: center;
+
+      &:last-child > a {
+        margin-right: 0;
+      }
+
+      &:first-child:last-child {
+        display: none;
+      }
+    }
+
+    .multi-combo.native-select {
+      display: none;
+    }
+
+    .more-filters-wrapper .abs-icon-loading {
+      margin: 0 auto;
+      display: block;
+    }
+
+    .tab-pane {
+      background-color: #fff;
+      border-radius: 0 0 $panel-border-radius $panel-border-radius;
+
+      &:first-child:last-child {
+        border-radius: $panel-border-radius;
+      }
+    }
+
+    .finder-body {
+      display: flex;
+      flex-direction: column-reverse;
+
+      .abs-search-core-filters {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .more-filters-wrapper {
+        &.in {
+          display: flex;
+        }
+
+        &:not(.in) {
+          display: none;
+        }
+      }
+
+    }
+
+    .finder-filters-loading .abs-filter-toggle-panel {
+      visibility: hidden;
+    }
+
+    form.ajax-history-off {
+
+      .abs-filter-toggle-panel {
+
+        .hidden-sm {
+          display: inline-block !important;
+        }
+
+        .hidden-lg {
+          display: none !important;
+        }
+
+      }
+    }
+
+    // multiselect Icons
+    .multiselect-container {
+      li a {
+        label {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+    }
+
+    .multiselect-item-image {
+      order: 0;
+      width: 20px;
+      height: 20px;
+    }
+
+    .multiselect-selected-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+
+  @media #{$media-active-on-mobile} {
+
+    aside.abs-col-left-sidebar, aside.abs-col-right-sidebar {
+      .abs-filters-panel {
+        > .panel-heading {
+          display: none;
+        }
+        > .panel-body {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+
+  &.filters-expanded {
+
+    @media #{$media-active-on-mobile} {
+
+      .finder-search-btn {
+
+        @include filtersShowResultButton;
+
+        align-self: center;
+        border: none;
+
+      }
+
+
+      aside.abs-col-left-sidebar, aside.abs-col-right-sidebar {
+
+        display: flex !important;
+        flex-flow: column nowrap;
+        align-items: stretch;
+
+        > :not(.abs-filters-panel) {
+          display: none;
+        }
+
+        .abs-filters-panel {
+          flex: 100vw 1 0;
+        }
+
+        & + main .abs-panel-main {
+          .panel-heading {
+            display: none;
+          }
+
+          .finder-layout {
+            padding: 0;
+          }
+        }
+      }
+
+      &:not([data-module="offer"]) #controllerContent {
+        display: none;
+      }
+
+      .abs-layout-category-products.finder-layout {
+        top: -40px;
+        padding: 10px;
+        position: relative;
+      }
+
+    }
+  }
+
+
+  .finder-footer-buttons {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    .more-filters-toggle {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .abs-icon-expandable, .abs-icon-collapse {
+      margin-right: 5px;
+    }
+
+    .more-filters-btn.in {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  aside {
+
+    .panel-body[data-cmp='Finder_Search'] {
+      padding: 0;
+
+      @media #{$media-active-on-desktop} {
+        .panel-heading {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+    }
+
+    @media #{$media-active-on-mobile} {
+
+      &.abs-col-left-sidebar, &.abs-col-right-sidebar {
+
+        .finder-panel {
+
+          .abs-filter-toggle-panel {
+            display: block;
+          }
+
+        }
+
+      }
+
+    }
+
+    .finder-footer-buttons {
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .finder-body {
+      padding: 0;
+    }
+
+    .abs-filters.panel {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+.finder-panel {
+  .finder-header {
+    display: none;
+    margin: 10px 0;
+  }
+}
+
+

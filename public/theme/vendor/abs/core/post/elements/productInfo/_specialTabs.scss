@@ -1,0 +1,101 @@
+.abs-tabs-panel-mode {
+
+  > * {
+    margin-bottom: 40px;
+  }
+}
+
+.abs-tabs-tab-mode {
+
+}
+
+.abs-special-tabs-content {
+  margin-bottom: $abs-special-tabs-margin;
+}
+
+.abs-special-tabs {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 3px;
+
+  li {
+    flex: 1 1 auto;
+
+    a {
+      text-align: center;
+      text-transform: uppercase;
+
+      > span:first-child {
+        display: block;
+        font-size: $font-size-h3;
+        margin-bottom: $abs-default-margin-bottom;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.abs-special-tabs-few {
+    justify-content: flex-start;
+
+    li {
+      flex: initial;
+    }
+  }
+}
+
+.product-delivery-tab-details {
+  margin-top: 20px;
+}
+
+.subgroup-default {
+  display: none;
+}
+
+#productPanels {
+  #seeAlso .subgroup-default {
+    display: block;
+  }
+}
+
+.abs-product-tab-panel, .abs-special-tabs-content {
+  .panel-body > div {
+    @include panel-variant($gray-lighter, $brand-primary, transparent, transparent);
+    border-color: transparent;
+
+    .panel-heading {
+      @include make-abs-panel-heading();
+      text-transform: none;
+    }
+  }
+}
+
+.abs-offer-gallery .abs-layout-product-list {
+  .abs-col-img {
+    min-width: 100%;
+    max-height: $abs-offer-gallery-item-width;
+    position: relative;
+    padding: 0;
+    margin-bottom: 5px;
+
+    .abs-img-wrapper a {
+      width: 100%;
+      height: $abs-offer-gallery-item-width;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $abs-offer-gallery-item-img-bg-color;
+      padding: $abs-offer-gallery-item-img-padding;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        flex: 0 0 auto;
+        margin: 0; // IE-fix: Photos not centered
+      }
+    }
+  }
+}

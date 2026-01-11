@@ -1,0 +1,24 @@
+.abs-timerange-layout {
+  @include abs-make-flex($justify-content: flex-start, $align-items: center);
+  flex-wrap: nowrap;
+
+  max-width: $abs-form-input-max-width;
+
+  .input-group {
+    width: 115px;
+
+    @media #{$media-active-on-phone} {
+      width: 100px;
+      .form-control {
+        padding: $padding-base-vertical 5px $padding-base-vertical 10px;
+      }
+    }
+
+  }
+
+  .abs-col-spacing {
+    margin: 0 10px;
+  }
+
+}
+

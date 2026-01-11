@@ -1,0 +1,11 @@
+.preserveFormatting .table > figcaption {
+  display: table-caption;
+  caption-side: top;
+  word-break: break-word;
+  text-align: center;
+  color: var(--ck-color-selector-caption-text);
+  background-color: var(--ck-color-selector-caption-background);
+  padding: .6em;
+  font-size: .75em;
+  outline-offset: -1px;
+}

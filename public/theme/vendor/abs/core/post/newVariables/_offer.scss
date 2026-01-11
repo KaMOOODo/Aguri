@@ -1,0 +1,50 @@
+$abs-media-mobile-min: "min-width:" + $screen-md-min !default;
+$abs-media-mobile-max: "max-width:" + $screen-sm-max !default;
+$abs-media-desktop-min: "min-width:" + $screen-md-min !default;
+
+$abs-item-border-color: $gray-lighter !default;
+
+$abs-category-item-width: 230px !default;
+$abs-category-item-spacing: 10px !default;
+$abs-category-item-bg-color: transparent !default;
+$abs-category-item-img-padding: 20px !default;
+
+$abs-offer-gallery-item-width: 260px !default;//260px ;
+$abs-offer-gallery-item-spacing: 10px !default;
+$abs-offer-gallery-item-padding: 10px !default;
+$abs-offer-gallery-item-border-color: $abs-item-border-color !default;
+$abs-offer-gallery-item-img-padding: 20px !default;
+$abs-offer-gallery-item-img-bg-color: transparent !default;
+$abs-offer-gallery-item-img-border-color: transparent !default;
+$abs-offer-gallery-item-img-border-width: 1px !default;
+
+$abs-offer-full-item-img-col-width: 300px !default;
+$abs-offer-full-item-img-padding: 10px !default;
+$abs-offer-full-item-img-bg-color: $abs-offer-gallery-item-img-bg-color !default;
+$abs-offer-full-item-img-border-color: $abs-offer-gallery-item-img-border-color !default;
+$abs-offer-full-item-img-border-width: $abs-offer-gallery-item-img-border-width !default;
+
+$abs-offer-list-item-img-col-width: 90px !default;
+$abs-offer-list-item-img-padding: 5px !default;
+$abs-offer-list-item-img-bg-color: $abs-offer-gallery-item-img-bg-color !default;
+$abs-offer-list-item-img-border-color: $abs-offer-gallery-item-img-border-color !default;
+$abs-offer-list-item-img-border-width: $abs-offer-gallery-item-img-border-width !default;
+
+$abs-offer-box-item-width: 160px !default;
+$abs-offer-box-item-spacing: 20px !default;
+$abs-offer-box-item-padding: 5px !default;
+$abs-offer-box-item-border-color: $abs-offer-gallery-item-border-color !default;
+$abs-offer-box-item-img-padding: 5px !default;
+$abs-offer-box-item-img-bg-color: $abs-offer-gallery-item-img-bg-color !default;
+$abs-offer-box-item-img-border-color: $abs-offer-gallery-item-img-border-color !default;
+$abs-offer-box-item-img-border-width: $abs-offer-gallery-item-img-border-width !default;
+$abs-offer-box-text-max-width: $abs-offer-box-item-width - $abs-grid-padding !default;
+
+$abs-offer-table-media-desktop: "min-width:" + $screen-sm-min !default; //$abs-media-desktop-min
+$abs-offer-table-media-mobile: "max-width:" + $screen-xs-max !default; //$abs-media-mobile-max
+$abs-offer-table-img-size: 60px !default;
+$abs-offer-table-quantity-col-width: 140px !default;
+$abs-offer-table-row-height: 120px !default;
+
+
+

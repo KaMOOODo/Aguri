@@ -1,0 +1,230 @@
+.abs-external-quotation {
+
+  .abs-special-tabs-content {
+    min-height: 450px;
+  }
+
+  .files-download-panel {
+    margin: 50px;
+
+    .checkbox.switch-container label {
+      display: flex;
+      margin: 10px 0;
+
+      @media #{$media-active-on-phone} {
+        display: inline-block;
+        width: 100%;
+
+        & > span{
+          margin-right: 15px;
+        }
+      }
+    }
+    .checkbox-group {
+      display: flex;
+      padding: 15px 0;
+
+      .checkbox-inline{
+        padding-left: 15px;
+
+        & + .checkbox-inline{
+          margin-left: 0;
+        }
+      }
+    }
+
+    @media #{$media-active-on-phone} {
+      display: block;
+      margin: 25px 0;
+    }
+  }
+
+}
+
+.abs-external-quotation-header {
+
+  display: grid;
+  margin: 50px;
+  grid-template-columns: 1fr 1fr 2fr;
+  height: 100%;
+  grid-template-areas: "exq-number exq-date exq-desc" "exq-address exq-address exq-desc" "exq-tpl-switch exq-tpl-switch exq-tpl-switch" "exq-tpl-name exq-tpl-name exq-tpl-name";
+  align-items: start;
+  grid-column-gap: 50px;
+
+  flex-wrap: wrap;
+
+  #number-form-input {
+    grid-area: exq-number;
+  }
+  #expirationDate-form-input {
+    grid-area: exq-date;
+  }
+  #addressInfo-form-input {
+    grid-area: exq-address;
+    textarea {
+      height: 100px;
+    }
+  }
+  #description-form-input {
+    grid-area: exq-desc;
+    height: 100%;
+    .abs-elem-input {
+      display: flex;
+      padding-bottom: 45px;
+    }
+  }
+  #saveAsTemplate-form-input {
+    grid-area: exq-tpl-switch;
+    grid-column-end: 1;
+    label {
+      display: flex;
+    }
+  }
+  #templateName-form-input {
+    grid-area: exq-tpl-name;
+    grid-column-end: 1;
+  }
+
+  @media ($media-active-on-mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+
+    #description-form-input {
+      textarea {
+        height: 150px;
+      }
+    }
+  }
+}
+
+#abs-external-quotation-header {
+  @media ($media-active-on-mobile) {
+    .abs-item-price-box.abs-item-price-left-aligned {
+      align-items: center !important;
+    }
+  }
+}
+
+
+.abs-external-quotation-positions-container {
+  table {
+
+    th {
+      line-height: 1.1;
+    }
+
+    td {
+      @media ($media-active-on-desktop) {
+        .abs-elem-label {
+          display: none;
+        }
+      }
+
+      @media ($media-active-on-mobile) {
+        .number-spinner .touch-qnt-input {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    @media ($media-active-on-mobile) {
+      .abs-col-margin {
+        margin-top: 7px;
+      }
+    }
+
+    .abs-col-name {
+      min-width: 280px;
+    }
+
+    .abs-col-quantity,
+    .abs-col-margin,
+    .abs-col-customer-discount {
+      width: 150px;
+      text-align: center;
+    }
+
+    .abs-col-discount-info {
+      text-align: center;
+    }
+
+    .abs-col-quantity {
+
+      position: relative;
+
+      .external-quotation-unit {
+        position: absolute;
+        margin-left: -#{$abs-grid-padding - 2};
+        font-size: 0.9em;
+      }
+
+      .abs-form-input {
+        margin: 0;
+      }
+    }
+
+
+    @media ($media-active-on-mobile) {
+      &.abs-cart-table {
+        td.abs-col-price {
+          display: block;
+        }
+
+        td:last-of-type {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media ($media-active-on-mobile) {
+    .abs-suggestion-panel {
+      right: 10px;
+    }
+  }
+
+  .btn.btn-link.eq-edit-pos-btn {
+    padding: 0;
+    font-size: 0.9em;
+    font-style: italic;
+  }
+
+  .abs-products-media .list-group-item .media-left > div {
+    height: 60px;
+  }
+
+}
+
+.abs-ext-pos-adding {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 0;
+
+  > div:first-child {
+    flex-grow: 1;
+    padding-right: 5px;
+  }
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+.abs-external-quotation-footer {
+}
+
+body[data-action="addExternalPosition"] {
+
+  .abs-panel-main .panel-body form {
+    max-width: 600px;
+    margin: 30px auto;
+
+    .touch-qnt {
+      align-items: flex-start;
+    }
+
+  }
+}

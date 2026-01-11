@@ -1,0 +1,31 @@
+.feedify .feedify-item {
+  position: relative;
+}
+.feedify .feedify-item .feedify-item-header {
+  z-index: 50;
+  position: relative;
+}
+.feedify .feedify-item.fixed .feedify-item-header {
+  position: fixed;
+  top: 0;
+}
+.feedify .feedify-item.bottom .feedify-item-header {
+  position: absolute;
+  bottom: 0;
+}
+
+.collapsed > .feedify-item-header-rotated {
+  transform: rotate(0) translateX(0)!important;
+}
+
+@include abs-active-on-phone-width {
+  .feedify .feedify-item.fixed .feedify-item-header {
+    top: 120px;
+    z-index: 250;
+    width: 100% !important;
+    margin: 0px -10px;
+    border-bottom: 1px solid $gray-lighter;
+    padding: 2px 10px;
+    background-color: #fff;
+  }
+}

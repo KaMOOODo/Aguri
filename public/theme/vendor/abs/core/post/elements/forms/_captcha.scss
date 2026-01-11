@@ -1,0 +1,28 @@
+#captcha_img_id {
+  border: 1px solid $input-border;
+  border-radius: $input-border-radius;
+  margin-top: $abs-grid-padding;
+}
+
+.abs-captcha-refresh {
+  padding-top: 18px;
+  padding-bottom: 17px;
+  margin-top: $abs-grid-padding;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.g-recaptcha-message {
+  font-size: 0.9em;
+  color: $text-color;
+
+  a {
+    font-weight: bold;
+  }
+}
+
+#form-recaptcha {
+  margin: 15px 0;
+}

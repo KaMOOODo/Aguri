@@ -1,0 +1,95 @@
+.loyalty-button {
+  margin-top: 5px;
+
+  .abs-icon-loyalty {
+    display: none;
+  }
+
+  & .cart-point-btn-text {
+    .text {
+      display: block;
+    }
+    .spending-points {
+      margin-top: -2px;
+      display: block;
+    }
+  }
+}
+
+.abs-cart-preview {
+
+  .abs-item-price-box.lp-price-box .loyalty-program-price {
+
+   // @extend .abs-item-price-base;
+
+  //  &.abs-item-price-box {
+  //    .abs-item-price-amount {
+   //     text-decoration: none !important;
+   //     color: inherit !important;
+   //   }
+  //  }
+  }
+}
+
+.loyalty-program-price {
+  font-size: 1.2em;
+
+  .abs-item-price-amount {
+    font-size: 0.75em;
+  }
+
+  .abs-icon-info {
+    font-size: 0.75em;
+    color: $brand-danger;
+  }
+
+}
+
+.abs-cart-preview .loyalty-program-price {
+  font-size: 1em;
+
+  br { display: none }
+}
+
+.abs-loyalty-program-summary {
+
+  > div + div {
+    margin-top: 10px;
+  }
+
+  .abs-loyalty-summary-part {
+
+    font-size: 0.9em;
+    text-align: center;
+
+    & + .abs-loyalty-summary-part {
+      border-top: 1px solid $brand-success;
+      margin-top: $abs-default-margin-bottom;
+      padding-top: $abs-default-margin-bottom;
+    }
+
+    &.summary-part-balance {
+      border-top-color: $brand-danger;
+      color: $brand-danger;
+    }
+
+    .lp-pts-val {
+      font-size: 1.2em;
+    }
+
+    .lp-pts-uni {
+      font-size: 1em;
+    }
+
+  }
+
+  .abs-icon-loyalty {
+    padding-right: 10px;
+  }
+
+  > :first-child::after {
+    display: none;
+  }
+
+}
+

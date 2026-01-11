@@ -1,0 +1,812 @@
+.abs-unavailable-product-pos {
+  background-color: transparentize($brand-danger, 0.95);
+}
+
+#orderHeaderContainerReadOnly .abs-form-input {
+  margin: 0;
+}
+
+// Delivery & pickup points ===========================================================
+
+.pickup-delivery-panel {
+  > .panel-body {
+    padding: 0;
+  }
+
+  .abs-panel > .panel-heading {
+    margin-bottom: 0;
+  }
+}
+
+.show-if-pickup-delivery-empty {
+  display: none;
+}
+
+.pickup-delivery-empty {
+
+  .hide-if-pickup-delivery-empty {
+    display: none;
+  }
+
+  .show-if-pickup-delivery-empty {
+    display: initial;
+  }
+
+}
+
+#orlen-paczka-modal {
+  .modal-content {
+    width: 800px;
+  }
+
+  @media #{$media-active-on-mobile} {
+    .modal-content {
+      width: 600px;
+    }
+  }
+
+
+  @media #{$media-active-on-phone} {
+    .modal-content {
+      width: 340px;
+    }
+  }
+}
+
+// register order b2b (offers) ========================================================
+.to-cart-button-wrap {
+  display: inline-block;
+  margin-right: 5px;
+
+}
+
+.grid-header {
+  @extend .hidden-xs;
+  @extend .hidden-sm;
+}
+
+$_live-search-panel-height: 62px;
+.offers-grid {
+  @include make-xs-column(12);
+
+  &.fluent-affix {
+    padding-top: $_live-search-panel-height;
+  }
+}
+
+.offers-grid-internal {
+  @include make-xs-column(12);
+}
+
+#orderOffersAndSplitWrapper .offers-grid-internal {
+  min-height: 400px;
+}
+
+$_rows-padding-vertical: 7px;
+
+.subbrand-name-col {
+  @include make-xs-column(12);
+  margin-bottom: 1px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+
+  .row > div {
+    @include make-xs-column(12);
+  }
+}
+
+// products columns
+
+.product-col {
+  @include make-md-column(4);
+  padding-top: $_rows-padding-vertical;
+  padding-bottom: $_rows-padding-vertical;
+
+  @media (max-width: $screen-sm-max) {
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .offer-category & {
+    @include ellipsis();
+  }
+}
+
+.package-col {
+  @include make-md-column(2);
+
+  .offers-read-only & {
+    @include make-md-column(2);
+  }
+
+  padding-top: $_rows-padding-vertical;
+  padding-bottom: $_rows-padding-vertical;
+
+  @media (max-width: $screen-sm-max) {
+    padding-top: 0;
+    opacity: 0.6;
+    margin-top: -8px;
+  }
+
+  .offer-category & {
+    @include ellipsis();
+  }
+
+}
+
+$_input-col-height: 30px;
+
+input.touch-spin.form-control {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.cell-label {
+  //@extend .visible-xs-inline;
+  display: none;
+}
+
+.cell-hint {
+  display: inline;
+}
+
+.addOfferToOrder,
+.removeOfferFromOrder,
+.truck-filter {
+  cursor: pointer;
+}
+
+.this-truck {
+}
+
+.other-truck {
+  @extend .disabled;
+  display: none !important;
+}
+
+.category-empty {
+  display: none;
+}
+
+// order header
+
+#orderHeaderContentEdit {
+  margin-top: 45px;
+}
+
+#header-buttons {
+  margin: 15px 0;
+}
+
+.abs-order-header-data-content {
+
+  > div {
+
+    margin: 8px 30px;
+
+    > p:first-child {
+
+      color: #ccc;
+      padding-left: 45px;
+      margin: 0;
+      position: relative;
+      top: 3px;
+
+      &:before {
+        @extend %_glyphicon;
+        color: $brand-info;
+        font-size: 35px;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    > p:last-child {
+      padding-left: 45px;
+      margin: 0;
+      font-size: 20px;
+      white-space: nowrap;
+    }
+  }
+
+  .abs-ord-number > p:first-child:before {
+    @extend .glyphicon-tag;
+  }
+
+  .abs-ord-status > p:first-child:before {
+    @extend .glyphicon-flag;
+  }
+
+  .abs-ord-distributionpoint > p:first-child:before {
+    @extend .glyphicon-map-marker;
+  }
+}
+
+/* Order history -------------------------------------------------------------------- */
+
+.order-history , #order-history-short {
+  .abs-grid-col:last-child {
+    overflow: visible !important;
+
+    div.button-std {
+      display: flex;
+    }
+  }
+}
+
+@include abs-active-on-mobile-width {
+
+  .order-history , #order-history-short {
+    @include abs-grid-wrap-mode(true, false, false);
+  }
+
+  .order-history  {
+
+    .abs-grid .abs-grid-row > .abs-grid-col {
+      > span:first-child {
+        flex-basis: 40%;
+      }
+
+      > span:last-child {
+        flex-basis: 60%;
+      }
+    }
+  }
+
+  #order-history-short {
+    #sortBox {
+      display: none;
+    }
+  }
+
+}
+
+@include abs-grid-allow-nowrap-mode('.order-history , #order-history-short');
+
+.badge-status {
+  font-weight: normal;
+  background-color: $brand-primary;
+  color: $btn-primary-color;
+  font-size: $font-size-base;
+}
+
+#orderDetailsCard {
+  .header-readonly {
+    margin-bottom: 2*$abs-grid-padding;
+  }
+
+  .abs-addresses-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2*$abs-grid-padding;
+    gap: 15px;
+
+    > div {
+      flex: 1 1 auto;
+    }
+  }
+
+  .offerSearch {
+    display: none;
+  }
+
+  .abs-order-header-data {
+    padding: 15px 0;
+    background-color: $gray-lighter;
+  }
+
+  .abs-order-header-data-content {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    & > div {
+      position: relative;
+      text-align: left;
+    }
+
+  }
+}
+
+.children-offer-content {
+
+  padding-top: 10px;
+  border-top: 3px dotted $gray-lighter;
+
+  &.not-ready {
+    border: 0;
+  }
+
+  & + .children-offer-content {
+    margin-top: 45px;
+  }
+}
+
+.attribute-value-container-col {
+
+  .form-field .formInputDiv {
+    width: 100%;
+
+    input {
+      max-width: inherit;
+    }
+  }
+}
+
+.order-history  {
+
+  .positionsList {
+    margin-top: 20px;
+  }
+
+  .grid-client-details {
+    font-size: 85%;
+    font-style: italic;
+  }
+}
+
+.abs-order-history-buttons {
+  text-align: center;
+  margin-bottom: 15px;
+
+  > .btn-group {
+    @include abs-btn-group-one-line(4);
+  }
+}
+
+.source-vmi span[title]::after {
+  position: relative;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  content: "VMI";
+  margin-left: 5px;
+  color: $brand-info;
+  border: 1px solid $brand-info;
+  padding: 2px 3px;
+  border-radius: 2px;
+  font-size: 0.7em;
+}
+
+/* Advices ---------------------------------------- */
+
+.advice-info {
+  margin: 20px 0 50px;
+  max-height: 160px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.advice-info-row {
+  @include make-row();
+}
+
+.advice-info-row + .advice-info-row {
+  border-top: 1px solid $gray-lighter;
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+/* Attachments ------------------------------------ */
+
+.files-not-supported {
+  opacity: 0.3;
+
+  .file-remove {
+    display: none;
+  }
+}
+
+.files-download-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.attachments-list {
+  .file-download-tile {
+    margin: 14px auto;
+  }
+}
+
+.paperclip-download-tile {
+  .glyphicon-paperclip::after {
+    display: block;
+    position: absolute;
+    font-size: 7px;
+    font-family: Arial, sans-serif;
+    border-radius: 3px;
+    padding: 3px 4px;
+    top: 13px;
+    left: 12px;
+    background-color: $gray-light;
+    color: #555;
+    z-index: 20;
+  }
+
+  &.filetype-xlsx .glyphicon-paperclip::after, &.filetype-xls .glyphicon-paperclip::after {
+    content: "XLS";
+    background-color: #5CB85C;
+    color: #fff;
+  }
+
+  &.filetype-xml .glyphicon-paperclip::after, &.filetype-xml .glyphicon-paperclip::after {
+    content: "XML";
+    background-color: #179536;
+    color: #fff;
+  }
+
+  &.filetype-ppt .glyphicon-paperclip::after, &.filetype-pptx .glyphicon-paperclip::after {
+    content: "PPT";
+    background-color: #ca4830;
+    color: #fff;
+  }
+
+  &.filetype-doc .glyphicon-paperclip::after, &.filetype-docx .glyphicon-paperclip::after {
+    content: "DOC";
+    background-color: #205396;
+    color: #fff;
+  }
+
+  &.filetype-pdf .glyphicon-paperclip::after {
+    content: "PDF";
+    background-color: #ED5755;
+    color: #fff;
+  }
+
+  &.filetype-html .glyphicon-paperclip::after {
+    content: "HTML";
+    background-color: #6058c7;
+    color: #fff;
+  }
+
+  &.filetype-txt .glyphicon-paperclip::after {
+    content: "TXT";
+    background-color: #10c7a5;
+    color: #fff;
+  }
+
+  &.filetype-csv .glyphicon-paperclip::after {
+    content: "CSV";
+    background-color: #5CB85C;
+    color: #fff;
+  }
+
+  &.filetype-proforma .glyphicon-paperclip::after {
+    content: "PROFORMA";
+    background-color: #09003d;
+    color: #fff;
+  }
+
+  &.filetype-jpg, &.filetype-png, &.filetype-jpeg, &.filetype-gif {
+    .glyphicon-paperclip::after {
+      content: "IMG";
+      background-color: #e89818;
+      color: #fff;
+    }
+  }
+}
+
+.file-download-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 0 1 auto;
+  height: 200px;
+  width: 200px;
+  border: 1px solid $gray-lighter;
+  margin: 14px 28px 14px 0;
+  text-align: center;
+  padding: 55px 0 0 0;
+  position: relative;
+
+  &:hover {
+    text-decoration: none;
+    @extend %box-shadow;
+
+    .glyphicon-file {
+      color: rgba(204, 204, 204, 1);
+    }
+
+  }
+
+  &.file-download-tile-compact {
+    padding: unset;
+    height: 120px;
+    width: 100px;
+    font-size: 0.8em;
+  }
+
+  .glyphicon-file {
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    color: rgba(204, 204, 204, 0.8);
+    z-index: 5;
+    opacity: 1;
+  }
+
+  .glyphicon-file::after {
+    content: "?";
+    display: block;
+    position: absolute;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    border-radius: 3px;
+    padding: 3px 4px;
+    top: 55%;
+    left: 47%;
+    background-color: $gray-light;
+    color: #555;
+    z-index: 20;
+  }
+
+  &.filetype-xls .glyphicon-file::after, &.filetype-xlsx .glyphicon-file::after {
+    content: "XLS";
+    background-color: #5CB85C;
+    color: #fff;
+  }
+
+  &.filetype-xml .glyphicon-file::after, &.filetype-xml .glyphicon-file::after {
+    content: "XML";
+    background-color: #179536;
+    color: #fff;
+  }
+
+  &.filetype-ppt .glyphicon-file::after, &.filetype-pptx .glyphicon-file::after {
+    content: "PPT";
+    background-color: #ca4830;
+    color: #fff;
+  }
+
+  &.filetype-doc .glyphicon-file::after, &.filetype-docx .glyphicon-file::after {
+    content: "DOC";
+    background-color: #205396;
+    color: #fff;
+  }
+
+  &.filetype-pdf .glyphicon-file::after {
+    content: "PDF";
+    background-color: #ED5755;
+    color: #fff;
+  }
+
+  &.filetype-html .glyphicon-file::after {
+    content: "HTML";
+    background-color: #6058c7;
+    color: #fff;
+  }
+
+  &.filetype-txt .glyphicon-file::after {
+    content: "TXT";
+    background-color: #10c7a5;
+    color: #fff;
+  }
+
+  &.filetype-csv .glyphicon-file::after {
+    content: "CSV";
+    background-color: #5CB85C;
+    color: #fff;
+  }
+
+  &.filetype-proforma .glyphicon-file::after {
+    content: "PROFORMA";
+    background-color: #09003d;
+    color: #fff;
+  }
+
+  &.filetype-jpg, &.filetype-png, &.filetype-jpeg, &.filetype-gif {
+    .glyphicon-file::after {
+      content: "IMG";
+      background-color: #e89818;
+      color: #fff;
+    }
+  }
+
+  .file-tag-icon {
+    position: relative;
+    top: -45px;
+    left: -10px;
+    padding: 0;
+    z-index: 6;
+    font-size: 13px;
+    color: #eee;
+  }
+
+  .file-filename {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Cutoff timer ----------------------------------- */
+
+:root {
+  --cutoff-timer-height: 0px; //default hidden
+}
+
+
+.cutoff-timer {
+
+  background-color: transparentize($brand-primary, 0.85);
+  color: $brand-primary;
+  padding: 5px 0;
+  width: 100%;
+  text-align: center;
+  //position: fixed;
+  z-index: 998 !important;
+  left: var(--container-offset-left);
+  border-radius: 0;
+  top: 0;
+  font-size: 0.9em;
+  display: none;
+
+  &.minutes, &.seconds {
+    display: block;
+  }
+
+  &.minutes-10, &.seconds {
+    background-color: transparentize($brand-danger, 0.85);
+    color: $brand-danger;
+  }
+
+  & ~ #siteFloatingHeader, & ~ #header {
+
+    &.abs-header .abs-header-mobile-menu {
+      top: var(--cutoff-timer-height);
+      transition: top 0.2s;
+    }
+
+    @media #{$media-active-on-mobile} {
+      &.navbar-static-top {
+        top: var(--cutoff-timer-height);
+        transition: top 0.2s;
+      }
+    }
+
+  }
+
+}
+
+@media #{$media-active-on-mobile} {
+
+  .cutoff-timer {
+
+    position: relative;
+    padding: 2px 0;
+
+  }
+
+  //body[data-mobile-bottom-menu="true"] {
+  //  .cutoff-timer {}
+  //}
+}
+
+//@media #{$media-active-on-phone} {
+//  .cutoff-timer {}
+//}
+
+
+.navbar-root .cutoff-timer {
+  background-color: transparent;
+  color: $text-color;
+
+  @media (min-width: $screen-sm-min) {
+    float: left;
+  }
+}
+
+.total-qty-col .client-sale-unit {
+  display: none;
+}
+
+.total-qty-col.empty-unit-qty {
+  top: 4px;
+}
+
+.scrollable {
+  height: 20vh;
+  overflow-y: scroll;
+  border-radius: 4px;
+  border: 1px solid #dce4ec;
+  margin-bottom: 2%;
+  color: #566566;
+
+  div {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px 10px;
+
+    &:hover {
+      background: lightgrey;
+    }
+
+    &.selected {
+      background: lightgrey;
+    }
+
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #687b7c;
+  }
+}
+
+.scrollable-preview {
+  padding: 5px 10px;
+}
+
+
+.processtype-items {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+// Order attributes ===========================================================
+
+#panel-order-attributes .panel-body, .panel-attributes {
+
+  @media #{$media-active-on-desktop} {
+    width: calc(50% - #{$abs-grid-padding});
+  }
+
+  .abs-form-input {
+    display: flex;
+    justify-content: flex-start;
+
+    > * {
+      display: flex;
+      align-items: center;
+      flex: 0 1 50%;
+    }
+
+    .number-spinner .touch-qnt-input {
+      max-width: 100%;
+    }
+
+    .multiselect-native-select {
+      width: 100%;
+    }
+
+  }
+}
+
+.order-status-change-modal {
+  #order-attachments {
+    margin-top: 15px;
+
+    .panel-heading {
+      text-transform: none;
+      border: none;
+      margin-bottom: unset;
+      font-weight: normal;
+
+      h2:after {
+        content: ':';
+      }
+    }
+  }
+}

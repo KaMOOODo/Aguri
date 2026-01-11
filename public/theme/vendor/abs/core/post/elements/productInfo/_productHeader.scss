@@ -1,0 +1,65 @@
+.product-header {
+  .abs-product-name {
+    font-size: $font-size-h3;
+    line-height: 1;
+    color: $brand-primary;
+    overflow-wrap: break-word;
+  }
+
+  .product-subname {
+    font-size: 0.8em;
+    margin-bottom: 0;
+    line-height: 1.5em;
+    overflow-wrap: break-word;
+    opacity: 0.8;
+  }
+
+  .abs-locked-sale-info {
+    max-width: 250px;
+  }
+}
+
+
+@mixin abs-make-dot() {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  align-self: center;
+  margin-right: 3px;
+  border: 1px solid #ccc;
+  position: relative;
+  top: -1px;
+}
+
+.attr-color-dot {
+  @include abs-make-dot();
+}
+
+.attr-color {
+  font-weight: normal;
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.abs-layout-filters-search-info {
+
+  .attr-color {
+    margin: 0;
+  }
+}
+
+.multiselect-container > li.option-attr-color > a {
+
+  label {
+    padding: 6px;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+  }
+
+
+}

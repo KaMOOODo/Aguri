@@ -1,0 +1,89 @@
+.abs-attribute-table, .abs-table {
+  width: 100%;
+  position: relative;
+
+  caption {
+    text-align: center;
+    color: inherit;
+    font-weight: bold;
+  }
+
+  tr {
+    &:nth-of-type(odd) {
+      background-color: $table-bg-accent;
+    }
+
+    td {
+      padding: $abs-attribute-table-margin / 2;
+
+      &.abs-horizontal-layout {
+
+        > div {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          > div {
+            padding-right: 5px;
+            .btn {
+              font-size: smaller;
+              min-width: inherit;
+              padding: 1px 4px;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+.abs-attribute-table {
+  tr {
+    td {
+      width: 50%;
+
+      &:first-child {
+        text-align: right;
+        color: $gray-light;
+      }
+
+      &:last-child {
+        font-weight: bold;
+      }
+
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    margin: auto;
+    max-width: $abs-attribute-table-max-width;
+  }
+
+  .stock-info .abs-avail-label {
+    display: none;
+  }
+  
+  ul.tracking {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@include abs-active-on-phone-width {
+  .abs-attribute-table, .abs-table {
+    tr {
+      display: block;
+      td {
+        text-align: center;
+        &:first-child {
+          text-align: center;
+        }
+
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

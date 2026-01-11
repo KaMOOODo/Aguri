@@ -1,0 +1,115 @@
+.abs-offer-gallery.abs-offer-gallery-box {
+
+  justify-content: flex-start;
+  gap: $abs-offer-box-item-spacing;
+
+  .abs-layout-product-gallery {
+    flex-basis: #{$abs-offer-box-item-width};
+    flex-grow: 1;
+    flex-shrink: 0;
+    overflow: hidden;
+
+    @at-root .see-also-products .abs-offer-gallery.abs-offer-gallery-box .abs-layout-product-gallery {
+      flex-grow: 1;
+    }
+
+    border: 1px solid $abs-offer-box-item-border-color;
+    margin: 0;
+    padding: $abs-offer-box-item-padding;
+
+    .abs-col-img {
+      max-height: $abs-offer-box-item-width;
+
+      .abs-img-wrapper {
+        height: $abs-offer-box-item-width;
+        background-color: $abs-offer-box-item-img-bg-color;
+        border-width: $abs-offer-box-item-img-border-width;
+        border-color: $abs-offer-box-item-img-border-color;
+        padding: $abs-offer-box-item-img-padding;
+
+        @media #{$media-active-on-mobile} {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .abs-purchase-details {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex-wrap: nowrap;
+
+      .abs-item-price-box {
+        align-items: center;
+        text-align: center;
+        font-size: small;
+        padding-bottom: $abs-grid-padding;
+
+        @media #{$media-active-on-mobile} {
+          padding-top: 5px;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .abs-product-name {
+      text-align: center;
+      font-size: $font-size-h4;
+    }
+
+    .abs-product-category, .abs-catalog-index, .abs-product-name-attr {
+      text-align: center;
+      font-size: 0.75em;
+    }
+
+    .abs-product-category {
+      @include ellipsis;
+      padding: 5px 0;
+    }
+
+  }
+
+  .abs-col-details-description-attributes {
+
+    .offer-main-panel-content & {
+      display: none;
+    }
+
+    .list-group-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 5px;
+      .abs-icon-bullet {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$media-active-on-mobile} {
+
+    .abs-layout-product-gallery {
+      flex-grow: 1;
+    }
+
+  }
+
+  .abs-product-header-right-column & {
+    gap: 5px;
+    .abs-layout-product-gallery-thumbnails {
+      flex-basis: 100px;
+      .abs-col-img {
+        margin: 0;
+        .abs-img-wrapper {
+          height: 73px;
+        }
+      }
+    }
+  }
+
+  .abs-col-info > a {
+    display: none !important;
+  }
+
+}
+

@@ -1,0 +1,57 @@
+body { // added to improve specificity and
+
+  .navbar-default .navbar-toggle:hover,
+  .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+  }
+
+  .navbar-nav.sm-collapsible {
+    a > .caret {
+      border: none;
+      &:before {
+        @include abs-make-caret();
+
+        content: "";
+        transform: rotate(-90deg);
+      }
+    }
+
+    .open > a > .caret {
+      &:before {
+        content: "";
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  @media #{$media-active-on-mobile} {
+
+    .navbar-nav li {
+      border-bottom: 1px solid $gray-lighter;
+    }
+
+    .navbar-nav .open ul.dropdown-menu {
+
+      padding-top: 0;
+      padding-bottom: 0;
+
+      > li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+
+  }
+
+  .nav {
+
+    .open > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $dropdown-link-hover-color;
+      }
+    }
+  }
+
+}

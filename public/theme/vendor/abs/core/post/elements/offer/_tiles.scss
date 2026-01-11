@@ -1,0 +1,397 @@
+.abs-personal-offers-tiles {
+
+  .abs-offer-tag {
+    display: none;
+  }
+
+  .abs-offer-gallery {
+
+    .abs-layout-product-gallery {
+      border: 1px solid $brand-primary;
+      flex-basis: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .subgrid {
+    .abs-layout-product-gallery {
+      flex-basis: 340px;
+    }
+  }
+
+
+  .cell-label {
+    display: none;
+  }
+
+  .abs-col-img-name { // ------------------------------------------------ base + normal mode
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+
+    > div {
+      margin-top: 20px;
+    }
+
+    .abs-offer-name {
+
+      flex-grow: 0;
+
+      a, div.cell-value {
+        font-size: 1.1em;
+        line-height: 1.1em;
+        display: inline-block;
+        color: $link-color;
+        @media #{$media-active-on-mobile} {
+          font-size: 0.85em;
+        }
+      }
+    }
+
+    .abs-offer-leadin {
+      flex-grow: 0;
+    }
+
+    .abs-offer-tag {
+
+      text-align: left;
+      margin: 5px 0 0;
+
+      div.cell-value {
+        display: inline-block;
+        padding: 1px 6px;
+        border-radius: 2px;
+        background-color: $brand-primary;
+        color: #fff;
+        font-size: 0.9em;
+        font-weight: 500;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+    }
+
+    .abs-offer-footer {
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      width: 100%;
+
+      .abs-offer-exp-date {
+        text-align: left;
+
+        em {
+          font-style: normal;
+          font-weight: bold;
+          line-height: 1.2em;
+        }
+      }
+
+      .abs-offer-actions {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        row-gap: 5px;
+
+        > * + * {
+          margin-left: 5px;
+        }
+      }
+
+      .abs-offer-product-placeholder {
+        flex: 0 0 100%;
+
+        &.abs-offer-is-default {
+          margin-top: -20px;
+        }
+      }
+    }
+
+    .abs-offer-product {
+
+      border: 1px dashed $gray-light;
+      padding: 10px;
+      max-height: 152px;
+      width: 100%;
+      margin: 10px 0;
+      bottom: 0;
+
+      &:hover, &:active {
+        box-shadow: 0 0 8px $gray-light;
+      }
+
+      a.abs-offer-product-link {
+        text-decoration: none;
+      }
+
+      .abs-offer-product-title {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.75em;
+        margin-bottom: 3px;
+        color: $text-color;
+      }
+
+      .abs-offer-product-price {
+
+        display: flex;
+        width: 100%;
+
+        > .abs-offer-product-img {
+          flex-basis: 120px;
+          max-height: 120px;
+
+          img {
+            padding: 10px 20px 10px 10px;
+            width: auto;
+            max-width: 100%;
+            max-height: 120px;
+          }
+
+          > .abs-no-img {
+            width: auto;
+            height: auto;
+
+            .abs-no-img-icon::before {
+              font-size: 80px;
+            }
+          }
+        }
+
+        > .abs-purchase-details {
+          flex-direction: column;
+          flex-grow: 1;
+          align-items: center;
+          justify-content: center;
+
+          .abs-item-price-box {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  // ----------------------------------------- Style 1 ------------------------------------
+
+  .abs-layout-product-gallery.abs-offer-tile-style-1 {
+
+    position: relative;
+
+    .abs-col-img-name {
+
+      .abs-offer-name {
+
+        text-align: left;
+        position: absolute;
+        bottom: 0;
+
+        a, div.cell-value {
+          background-color: $brand-primary;
+          color: #fff;
+          font-size: 1.5em;
+          line-height: 1.4em;
+          padding: 2px 6px;
+          display: inline-block;
+        }
+
+      }
+
+      .abs-offer-leadin {
+
+        padding-top: 0;
+
+        .tile-style-1 {
+
+          img {
+            width: 100%;
+            min-height: 200px;
+            max-height: 220px;
+            object-fit: cover;
+          }
+
+          p {
+            text-align: left;
+            line-height: 1.1em;
+            margin: 5px 0 0 0;
+          }
+
+        }
+      }
+
+      .abs-offer-footer {
+        .abs-offer-footer-cart {
+          > button {
+            margin: 0 0 20px 0;
+          }
+        }
+      }
+    }
+
+  }
+
+  .abs-col-img-name.abs-offer-img-banner { // -------------------------- banner mode
+
+    .abs-offer-name {
+
+    }
+
+    .abs-offer-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+
+  }
+
+}
+
+// ----------------------------------------- Style 2 ------------------------------------
+
+.abs-layout-product-gallery.abs-offer-tile-style-2 {
+
+  position: relative;
+  padding: 0;
+
+  .abs-col-img-name {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .abs-offer-name, .abs-offer-tag {
+      padding: 0 12px;
+      margin: 0;
+      text-align: left;
+    }
+
+    .abs-offer-name {
+
+      padding: 12px;
+      line-height: 1.1em;
+
+      a, div.cell-value {
+        font-size: 0.9em;
+        font-weight: 500;
+        display: inline-block;
+        color: $text-color;
+      }
+    }
+
+
+    .abs-offer-leadin {
+
+      order: -1;
+      padding-top: 0;
+      margin-top: 0;
+
+      .tile-style-2 {
+
+        img {
+          width: 100%;
+          min-height: 120px;
+          max-height: 120px;
+          object-fit: cover;
+        }
+
+        p {
+          text-align: left;
+          line-height: 1.1em;
+          margin: 5px 0 0 0;
+        }
+
+      }
+    }
+
+    .abs-offer-footer {
+
+      padding: 12px;
+      margin: 0;
+
+      .abs-offer-footer-cart {
+        > button {
+          display: none;
+        }
+      }
+
+      .abs-offer-exp-date {
+        em {
+          padding: 0 0 0 3px;
+        }
+
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+.abs-col-img-name.abs-offer-img-banner { // -------------------------- banner mode
+
+  .abs-offer-name {
+
+  }
+
+  .abs-offer-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+// ============== Offer details page====================================================//
+
+.abs-offer-details-panel {
+
+  // ----------------------------------------- Style 1 ------------------------------------
+
+  .tile-style-1 {
+    img {
+      max-width: 100%;
+      max-height: 210px;
+      float: left;
+      padding-right: 15px;
+
+      & + p {
+        font-size: 1.5em;
+      }
+    }
+
+  }
+
+  .tile-style-2 {
+    img {
+
+      max-height: 210px;
+      object-fit: cover;
+
+    }
+
+  }
+}
+
+// ========== Offer groups ============== //
+
+.abs-offer-group-header {
+  width: 100%;
+}
+
+.btn.offer-group-toggle-btn:not(.btn-link) {
+  width: 100%;
+  padding: $padding-large-vertical $padding-large-horizontal;
+  text-align: left;
+  font-size: 1.2em;
+  text-transform: none;
+}

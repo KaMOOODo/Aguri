@@ -1,0 +1,50 @@
+.abs-drag-panel {
+  overflow: hidden;
+  position: relative;
+
+  .abs-drag-panel-container {
+    white-space: nowrap;
+  }
+
+  &.abs-drag-nav-panel {
+    &:before {
+      content: '';
+      border-bottom: 1px solid $nav-tabs-border-color;
+      display: block;
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    @media (max-width: $screen-md-max) {
+      ul {
+        li {
+          float: none;
+          display: inline-block;
+          flex: none;
+        }
+      }
+    }
+  }
+
+  .abs-drag-panel-btn-back,
+  .abs-drag-panel-btn-forward {
+    padding: 0 $padding-base-horizontal;
+    background-color: $nav-tabs-active-link-hover-bg;
+    cursor: pointer;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+
+    &:hover {
+      color: $nav-tabs-active-link-hover-color;
+      background-color: $nav-link-hover-bg;
+    }
+  }
+}

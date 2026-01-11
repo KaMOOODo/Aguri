@@ -1,0 +1,55 @@
+.abs-order-confirmation-layout {
+
+  > div {
+    margin-bottom: $padding-large-vertical;
+  }
+
+  .abs-order-conf-number {
+    margin-bottom: $line-height-computed;
+
+    > * {
+      display: block;
+    }
+
+    > .abs-value {
+      font-size: $font-size-h3;
+      font-weight: bold;
+    }
+  }
+
+  .abs-order-info {
+    color: $text-muted;
+    font-size: $font-size-small;
+  }
+
+  .abs-order-thank-you,
+  .abs-order-payment-info,
+  .abs-order-make-another-one {
+    font-weight: bold;
+  }
+
+  .abs-cart-switch{
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+#order-register-create-account {
+
+  margin-top: 50px;
+
+  form {
+    max-width: 400px;
+    margin: 10px auto 20px;
+
+    & + div {
+      max-width: 410px;
+      margin: auto;
+    }
+  }
+}
+
+
+#instant-epayment-redirect-msg{
+  margin-top: 15px;
+}

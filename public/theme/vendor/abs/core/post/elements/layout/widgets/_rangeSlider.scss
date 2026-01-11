@@ -1,0 +1,62 @@
+.abs-layout-range-slider {
+  @include abs-make-flex($justify-content: space-between);
+  flex-wrap: nowrap;
+  max-width: 400px;
+  margin: auto;
+
+  .abs-col-min,
+  .abs-col-max {
+    flex: 0 0 70px;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .abs-col-slider {
+
+    flex: 1 0 50px;
+
+
+    .slider.slider-horizontal {
+      width: 100%;
+      position: relative;
+      top: 7px;
+    }
+
+  }
+
+  &.vertical {
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .abs-col-slider {
+
+      width: 10px;
+      flex: 1 0 110px;
+      top: 0;
+      margin: 0;
+      padding: 0;
+
+      .noUi-handle {
+        height: 18px;
+        width: 18px;
+        top: -5px;
+        right: -5px; /* half the width */
+        border-radius: 9px;
+        &:before, &:after {
+          display: none;
+        }
+      }
+    }
+    
+    .abs-col-max {
+      flex: 0 0 40px;
+    }
+
+  }
+
+}
+
