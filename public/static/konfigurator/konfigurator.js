@@ -139,15 +139,66 @@
       if (el[key]?.style) el[key].style.display = '';
     }
 
+    function ensureMultiselect(sel) {
+      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
+        const $sel = global.jQuery(sel);
+        if (!$sel.data('multiselect')) {
+          $sel.multiselect();
+        }
+      }
+    }
+
+    function syncMultiselect(sel) {
+      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
+        const $sel = global.jQuery(sel);
+        $sel.multiselect('rebuild');
+        $sel.multiselect('enable');
+      }
+      const wrapper = sel.closest('.multiselect-native-select') || sel.parentElement;
+      if (wrapper) {
+        const btn = wrapper.querySelector('button.multiselect, button.dropdown-toggle');
+        if (btn) {
+          btn.disabled = false;
+          btn.classList.remove('disabled');
+        }
+      }
+    }
+
+    function setSelectEnabled(sel, enabled) {
+      sel.disabled = !enabled;
+      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
+        const $sel = global.jQuery(sel);
+        if (enabled) {
+          $sel.multiselect('enable');
+        } else {
+          $sel.multiselect('disable');
+        }
+      }
+      const wrapper = sel.closest('.multiselect-native-select') || sel.parentElement;
+      if (wrapper) {
+        const btn = wrapper.querySelector('button.multiselect, button.dropdown-toggle');
+        if (btn) {
+          btn.disabled = !enabled;
+          btn.classList.toggle('disabled', !enabled);
+        }
+      }
+    }
+
     function populate(sel, arr){
+      ensureMultiselect(sel);
       sel.innerHTML = '<option value="">---</option>';
       arr.forEach(v => sel.append(new Option(v,v)));
-      sel.disabled = false;
+      setSelectEnabled(sel, true);
+      syncMultiselect(sel);
     }
 
     function resetSelect(sel, disabled = true) {
+      ensureMultiselect(sel);
       sel.innerHTML = '<option value="">---</option>';
-      sel.disabled = disabled;
+      setSelectEnabled(sel, !disabled);
+      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
+        global.jQuery(sel).multiselect('rebuild');
+      }
     }
 
     function clearResults() {
@@ -188,8 +239,14 @@
         badge.className = 'cfg-product-badge';
         badge.textContent = item.type[0];
 
+        const term = `${item.type} ${item.code}`;
+        const href = `/search/text%3D${encodeURIComponent(term.toLowerCase())}/pl.html`;
+
         const info = document.createElement('div');
-        info.innerHTML = `<div><strong>${item.type}</strong></div><div>${item.code}</div>`;
+        info.innerHTML = `<a class="cfg-product-link" href="${href}" title="Szukaj: ${term}">
+  <span class="cfg-product-text">${term}</span>
+  <span class="cfg-product-search" aria-hidden="true">🔍</span>
+</a>`;
 
         row.append(badge, info);
         el.cfgproducts.append(row);
@@ -198,8 +255,18 @@
       show('cfgresults');
     }
 
+    function bindChange(sel, handler) {
+      sel.addEventListener('change', handler);
+      if (global.jQuery) {
+        const $sel = global.jQuery(sel);
+        $sel.on('change', handler);
+        $sel.closest('.multiselect-native-select').on('change', 'input', handler);
+        $sel.closest('.multiselect-native-select').on('click', 'li a', handler);
+      }
+    }
+
     function bindEvents() {
-      el.cfgmarka.addEventListener('change', () => {
+      bindChange(el.cfgmarka, () => {
         resetSelect(el.cfgmodel);
         resetSelect(el.cfgwersja);
         resetSelect(el.cfgrok);
@@ -211,7 +278,7 @@
         populate(el.cfgmodel, models);
       });
 
-      el.cfgmodel.addEventListener('change', () => {
+      bindChange(el.cfgmodel, () => {
         resetSelect(el.cfgwersja);
         resetSelect(el.cfgrok);
         resetSelect(el.cfgmontaz);
@@ -224,7 +291,7 @@
         populate(el.cfgwersja, bodies);
       });
 
-      el.cfgwersja.addEventListener('change', () => {
+      bindChange(el.cfgwersja, () => {
         resetSelect(el.cfgrok);
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
@@ -236,7 +303,7 @@
         populate(el.cfgrok, years);
       });
 
-      el.cfgrok.addEventListener('change', () => {
+      bindChange(el.cfgrok, () => {
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
         showForm();
@@ -247,7 +314,7 @@
         populate(el.cfgmontaz, mounts);
       });
 
-      el.cfgmontaz.addEventListener('change', updateSearchEnabled);
+      bindChange(el.cfgmontaz, updateSearchEnabled);
 
       el.cfgsearch.addEventListener('click', (e) => {
         e.preventDefault();
@@ -285,6 +352,7 @@
 
     async function init() {
       cache();
+      [el.cfgmarka, el.cfgmodel, el.cfgwersja, el.cfgrok, el.cfgmontaz].forEach(ensureMultiselect);
       show('cfgloading');
       el.cfgsearch.disabled = true;
       el.cfgmarka.disabled = true;
