@@ -133,7 +133,7 @@
 
 <body>
 
-<div id="cfg-dropdown" class="cfg-dropdown" data-excel-url="https://a.assecobs.com/accounts/aguri/stock/konfigurator/cars.xlsx">
+<div id="cfg-dropdown" class="cfg-dropdown">
   <div class="cfg-dropdown-content">
     <div class="cfg-dropdown-header">
       <h3 class="cfg-dropdown-title">Konfigurator Bagażników</h3>
@@ -152,11 +152,21 @@
 
     <div id="cfg-form" class="cfg-form" style="display:none">
       <div class="cfg-selectors-grid">
-        <select id="cfg-marka"></select>
-        <select id="cfg-model" disabled></select>
-        <select id="cfg-wersja" disabled></select>
-        <select id="cfg-rok" disabled></select>
-        <select id="cfg-montaz" disabled></select>
+        <select id="cfg-marka">
+          <option value="">---</option>
+        </select>
+        <select id="cfg-model" disabled>
+          <option value="">---</option>
+        </select>
+        <select id="cfg-wersja" disabled>
+          <option value="">---</option>
+        </select>
+        <select id="cfg-rok" disabled>
+          <option value="">---</option>
+        </select>
+        <select id="cfg-montaz" disabled>
+          <option value="">---</option>
+        </select>
       </div>
       <button id="cfg-search" class="cfg-btn-primary" disabled>Znajdź produkty</button>
     </div>
@@ -177,7 +187,13 @@
 </div>
 
 <!-- ================== SCRIPT ================== -->
-<script src="konfigurator-loader.js" defer></script>
+<script>
+  window.KonfiguratorConfig = {
+    excelUrl: 'https://a.assecobs.com/accounts/aguri/stock/konfigurator/cars.xlsx'
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="konfigurator.js" defer></script>
 
 </body>
 </html>

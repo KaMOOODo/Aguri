@@ -1,23 +1,6 @@
 (function (global) {
   'use strict';
 
-  const XLSX_CDN = 'https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js';
-
-  function loadXLSX() {
-    if (global.XLSX) return Promise.resolve();
-    return new Promise((resolve, reject) => {
-      const s = document.createElement('script');
-      s.src = XLSX_CDN;
-      s.async = true;
-      s.onload = resolve;
-      s.onerror = () => {
-        console.error('[Configurator] Failed to load XLSX library:', s.src);
-        reject(new Error('Failed to load XLSX'));
-      };
-      document.head.appendChild(s);
-    });
-  }
-
   const ConfiguratorData = (() => {
     let db = null;
 
@@ -107,7 +90,6 @@
     }
 
     async function init(excelUrl) {
-      await loadXLSX();
       const rows = await loadExcel(excelUrl);
       db = buildDatabase(rows);
     }
@@ -134,7 +116,7 @@
     };
   })();
 
-  function createApp(rootId, excelUrl) {
+  function createApp(excelUrl) {
     const el = {};
     let database;
 
@@ -325,10 +307,21 @@
     return { init };
   }
 
-  global.ConfiguratorApp = {
-    init({ excelUrl, rootId }) {
-      const app = createApp(rootId, excelUrl);
-      app.init();
+  function bootstrap() {
+    const excelUrl = global.KonfiguratorConfig?.excelUrl;
+    if (!excelUrl) {
+      const errText = document.getElementById('cfg-error-text');
+      const err = document.getElementById('cfg-error');
+      if (errText) errText.textContent = 'Błąd ładowania danych';
+      if (err) err.style.display = '';
+      return;
     }
-  };
+    createApp(excelUrl).init();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrap);
+  } else {
+    bootstrap();
+  }
 })(window);
