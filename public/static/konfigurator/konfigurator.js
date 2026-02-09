@@ -1,6 +1,8 @@
 (function (global) {
   'use strict';
 
+  const DEFAULT_EXCEL_URL = 'https://a.assecobs.com/accounts/aguri/stock/konfigurator/cars.xlsx';
+
   const ConfiguratorData = (() => {
     let db = null;
 
@@ -308,7 +310,7 @@
   }
 
   function bootstrap() {
-    const excelUrl = global.KonfiguratorConfig?.excelUrl;
+    const excelUrl = DEFAULT_EXCEL_URL;
     if (!excelUrl) {
       const errText = document.getElementById('cfg-error-text');
       const err = document.getElementById('cfg-error');
