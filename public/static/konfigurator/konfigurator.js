@@ -8,14 +8,18 @@
 
     function normalizeYear(value) {
       if (value == null || value === '') return [];
-      if (typeof value === 'string' && value.includes('-')) {
-        const [from, to] = value.split('-').map(v => Number(String(v).trim()));
-        if (!Number.isFinite(from) || !Number.isFinite(to)) return [String(value)];
-        const years = [];
-        for (let y = from; y <= to; y++) years.push(String(y));
-        return years;
-      }
-      return [String(value).trim()];
+      const raw = String(value).trim().replace(/[\u2013\u2014]/g, '-').replace(/\s+/g, '');
+      if (!raw) return [];
+
+      // Keep production year as one selector option (no expansion to separate years).
+      // Supported forms: 2007, 2010-2013, 2014-, -2007
+      if (/^\d{4}$/.test(raw)) return [raw];
+      if (/^\d{4}-\d{4}$/.test(raw)) return [raw];
+      if (/^\d{4}-$/.test(raw)) return [raw];
+      if (/^-\d{4}$/.test(raw)) return [raw];
+
+      // Fallback: keep unknown format as-is to avoid dropping source rows.
+      return [raw];
     }
 
     function normalizeKey(key) {
@@ -25,6 +29,16 @@
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9]+/g, '');
+    }
+
+    function normalizeText(value, { upper = false } = {}) {
+      let out = String(value ?? '')
+        .replace(/[\u00A0]/g, ' ')
+        .replace(/[\u200B-\u200D\uFEFF]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (upper) out = out.toUpperCase();
+      return out;
     }
 
     function getValue(row, aliases) {
@@ -58,10 +72,11 @@
       const root = {};
 
       rows.forEach(row => {
-        const marka = getValue(row, ['MARKA', 'Marka', 'MAKE', 'Make']);
-        const model = getValue(row, ['MODEL', 'Model']);
-        const body  = getValue(row, ['WERSJA NADWOZIA', 'WERSJA NADWOZIA ', 'WERSJA NADWOZIA/']);
-        const mount = getValue(row, ['WERSJA MONTAŻU', 'WERSJA MONTAZU', 'MONTAŻ', 'MONTAZU']) || '_NONE_';
+        const marka = normalizeText(getValue(row, ['MARKA', 'Marka', 'MAKE', 'Make']), { upper: true });
+        const model = normalizeText(getValue(row, ['MODEL', 'Model']));
+        const body  = normalizeText(getValue(row, ['WERSJA NADWOZIA', 'WERSJA NADWOZIA ', 'WERSJA NADWOZIA/']));
+        const mountRaw = normalizeText(getValue(row, ['WERSJA MONTAŻU', 'WERSJA MONTAZU', 'MONTAŻ', 'MONTAZU']));
+        const mount = mountRaw || '_NONE_';
         const years = normalizeYear(getValue(row, ['ROK PRODUKCJI', 'Rok Produkcji', 'ROK']));
 
         if (!marka || !model || !body) return;
@@ -113,6 +128,7 @@
     return {
       init,
       find,
+      clear: () => { db = null; },
       getDB: () => db,
       isReady: () => !!db
     };
@@ -121,6 +137,7 @@
   function createApp(excelUrl) {
     const el = {};
     let database;
+    let eventsBound = false;
 
     function qs(id){ return document.getElementById(id); }
 
@@ -139,66 +156,15 @@
       if (el[key]?.style) el[key].style.display = '';
     }
 
-    function ensureMultiselect(sel) {
-      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
-        const $sel = global.jQuery(sel);
-        if (!$sel.data('multiselect')) {
-          $sel.multiselect();
-        }
-      }
-    }
-
-    function syncMultiselect(sel) {
-      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
-        const $sel = global.jQuery(sel);
-        $sel.multiselect('rebuild');
-        $sel.multiselect('enable');
-      }
-      const wrapper = sel.closest('.multiselect-native-select') || sel.parentElement;
-      if (wrapper) {
-        const btn = wrapper.querySelector('button.multiselect, button.dropdown-toggle');
-        if (btn) {
-          btn.disabled = false;
-          btn.classList.remove('disabled');
-        }
-      }
-    }
-
-    function setSelectEnabled(sel, enabled) {
-      sel.disabled = !enabled;
-      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
-        const $sel = global.jQuery(sel);
-        if (enabled) {
-          $sel.multiselect('enable');
-        } else {
-          $sel.multiselect('disable');
-        }
-      }
-      const wrapper = sel.closest('.multiselect-native-select') || sel.parentElement;
-      if (wrapper) {
-        const btn = wrapper.querySelector('button.multiselect, button.dropdown-toggle');
-        if (btn) {
-          btn.disabled = !enabled;
-          btn.classList.toggle('disabled', !enabled);
-        }
-      }
-    }
-
     function populate(sel, arr){
-      ensureMultiselect(sel);
       sel.innerHTML = '<option value="">---</option>';
       arr.forEach(v => sel.append(new Option(v,v)));
-      setSelectEnabled(sel, true);
-      syncMultiselect(sel);
+      sel.disabled = false;
     }
 
     function resetSelect(sel, disabled = true) {
-      ensureMultiselect(sel);
       sel.innerHTML = '<option value="">---</option>';
-      setSelectEnabled(sel, !disabled);
-      if (global.jQuery && global.jQuery.fn && global.jQuery.fn.multiselect) {
-        global.jQuery(sel).multiselect('rebuild');
-      }
+      sel.disabled = disabled;
     }
 
     function clearResults() {
@@ -255,18 +221,11 @@
       show('cfgresults');
     }
 
-    function bindChange(sel, handler) {
-      sel.addEventListener('change', handler);
-      if (global.jQuery) {
-        const $sel = global.jQuery(sel);
-        $sel.on('change', handler);
-        $sel.closest('.multiselect-native-select').on('change', 'input', handler);
-        $sel.closest('.multiselect-native-select').on('click', 'li a', handler);
-      }
-    }
-
     function bindEvents() {
-      bindChange(el.cfgmarka, () => {
+      if (eventsBound) return;
+      eventsBound = true;
+
+      el.cfgmarka.addEventListener('change', () => {
         resetSelect(el.cfgmodel);
         resetSelect(el.cfgwersja);
         resetSelect(el.cfgrok);
@@ -278,7 +237,7 @@
         populate(el.cfgmodel, models);
       });
 
-      bindChange(el.cfgmodel, () => {
+      el.cfgmodel.addEventListener('change', () => {
         resetSelect(el.cfgwersja);
         resetSelect(el.cfgrok);
         resetSelect(el.cfgmontaz);
@@ -291,7 +250,7 @@
         populate(el.cfgwersja, bodies);
       });
 
-      bindChange(el.cfgwersja, () => {
+      el.cfgwersja.addEventListener('change', () => {
         resetSelect(el.cfgrok);
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
@@ -303,7 +262,7 @@
         populate(el.cfgrok, years);
       });
 
-      bindChange(el.cfgrok, () => {
+      el.cfgrok.addEventListener('change', () => {
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
         showForm();
@@ -314,7 +273,7 @@
         populate(el.cfgmontaz, mounts);
       });
 
-      bindChange(el.cfgmontaz, updateSearchEnabled);
+      el.cfgmontaz.addEventListener('change', updateSearchEnabled);
 
       el.cfgsearch.addEventListener('click', (e) => {
         e.preventDefault();
@@ -352,7 +311,9 @@
 
     async function init() {
       cache();
-      [el.cfgmarka, el.cfgmodel, el.cfgwersja, el.cfgrok, el.cfgmontaz].forEach(ensureMultiselect);
+      stripMultiselect();
+      setTimeout(stripMultiselect, 0);
+      setTimeout(stripMultiselect, 250);
       show('cfgloading');
       el.cfgsearch.disabled = true;
       el.cfgmarka.disabled = true;
@@ -374,7 +335,49 @@
       }
     }
 
-    return { init };
+    async function hardReload() {
+      ConfiguratorData.clear();
+      await init();
+    }
+
+    function getState() {
+      return {
+        ready: ConfiguratorData.isReady(),
+        selected: {
+          marka: el.cfgmarka?.value || '',
+          model: el.cfgmodel?.value || '',
+          wersja: el.cfgwersja?.value || '',
+          rok: el.cfgrok?.value || '',
+          montaz: el.cfgmontaz?.value || ''
+        }
+      };
+    }
+
+    return { init, hardReload, getState };
+  }
+
+  function stripMultiselect() {
+    const selects = document.querySelectorAll('.multiselect-native-select > select');
+    selects.forEach(sel => {
+      const wrapper = sel.closest('.multiselect-native-select');
+      if (!wrapper) return;
+      const parent = wrapper.parentElement;
+      if (!parent) return;
+      sel.style.display = '';
+      sel.style.visibility = 'visible';
+      sel.style.pointerEvents = 'auto';
+      sel.classList.remove('multiselect-hidden', 'hidden');
+      parent.insertBefore(sel, wrapper);
+      wrapper.remove();
+    });
+    document.querySelectorAll('.multiselect-wrapper').forEach(w => w.remove());
+  }
+
+  function observeMultiselectCleanup() {
+    const grid = document.querySelector('.cfg-selectors-grid');
+    if (!grid || !('MutationObserver' in window)) return;
+    const obs = new MutationObserver(() => stripMultiselect());
+    obs.observe(grid, { childList: true, subtree: true });
   }
 
   function bootstrap() {
@@ -386,7 +389,16 @@
       if (err) err.style.display = '';
       return;
     }
-    createApp(excelUrl).init();
+    observeMultiselectCleanup();
+    const app = createApp(excelUrl);
+    app.init();
+
+    global.KonfiguratorDebug = {
+      reload: () => app.hardReload(),
+      clear: () => ConfiguratorData.clear(),
+      db: () => ConfiguratorData.getDB(),
+      state: () => app.getState()
+    };
   }
 
   if (document.readyState === 'loading') {
@@ -395,3 +407,4 @@
     bootstrap();
   }
 })(window);
+
