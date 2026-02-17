@@ -180,10 +180,55 @@
       const ready =
         el.cfgmarka.value &&
         el.cfgmodel.value &&
-        el.cfgwersja.value &&
         el.cfgrok.value &&
+        el.cfgwersja.value &&
         el.cfgmontaz.value;
       el.cfgsearch.disabled = !ready;
+    }
+
+    function getYearsForModel(marka, model) {
+      const modelNode = database?.[marka]?.[model];
+      if (!modelNode) return [];
+      const years = new Set();
+      Object.keys(modelNode).forEach((body) => {
+        Object.keys(modelNode[body] || {}).forEach((yearKey) => years.add(yearKey));
+      });
+      return Array.from(years).sort(compareYearKeys);
+    }
+
+    function getBodiesForYear(marka, model, yearKey) {
+      const modelNode = database?.[marka]?.[model];
+      if (!modelNode) return [];
+      return Object.keys(modelNode).filter((body) => !!modelNode[body]?.[yearKey]);
+    }
+
+    function parseYearKey(raw) {
+      const s = String(raw || '').trim();
+      let m = s.match(/^-(\d{4})$/);
+      if (m) return { rank: 0, start: Number.NEGATIVE_INFINITY, end: Number(m[1]) };
+
+      m = s.match(/^(\d{4})-(\d{4})$/);
+      if (m) return { rank: 1, start: Number(m[1]), end: Number(m[2]) };
+
+      m = s.match(/^(\d{4})$/);
+      if (m) {
+        const y = Number(m[1]);
+        return { rank: 1, start: y, end: y };
+      }
+
+      m = s.match(/^(\d{4})-$/);
+      if (m) return { rank: 2, start: Number(m[1]), end: Number.POSITIVE_INFINITY };
+
+      return { rank: 3, start: Number.POSITIVE_INFINITY, end: Number.POSITIVE_INFINITY };
+    }
+
+    function compareYearKeys(a, b) {
+      const pa = parseYearKey(a);
+      const pb = parseYearKey(b);
+      if (pa.rank !== pb.rank) return pa.rank - pb.rank;
+      if (pa.start !== pb.start) return pa.start - pb.start;
+      if (pa.end !== pb.end) return pa.end - pb.end;
+      return String(a).localeCompare(String(b), 'pl');
     }
 
     function renderProducts(products) {
@@ -227,8 +272,8 @@
 
       el.cfgmarka.addEventListener('change', () => {
         resetSelect(el.cfgmodel);
-        resetSelect(el.cfgwersja);
         resetSelect(el.cfgrok);
+        resetSelect(el.cfgwersja);
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
         showForm();
@@ -238,31 +283,31 @@
       });
 
       el.cfgmodel.addEventListener('change', () => {
-        resetSelect(el.cfgwersja);
         resetSelect(el.cfgrok);
+        resetSelect(el.cfgwersja);
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
         showForm();
 
-        const bodies = Object.keys(
-          database?.[el.cfgmarka.value]?.[el.cfgmodel.value] || {}
+        const years = getYearsForModel(el.cfgmarka.value, el.cfgmodel.value);
+        populate(el.cfgrok, years);
+      });
+
+      el.cfgrok.addEventListener('change', () => {
+        resetSelect(el.cfgwersja);
+        resetSelect(el.cfgmontaz);
+        updateSearchEnabled();
+        showForm();
+
+        const bodies = getBodiesForYear(
+          el.cfgmarka.value,
+          el.cfgmodel.value,
+          el.cfgrok.value
         );
         populate(el.cfgwersja, bodies);
       });
 
       el.cfgwersja.addEventListener('change', () => {
-        resetSelect(el.cfgrok);
-        resetSelect(el.cfgmontaz);
-        updateSearchEnabled();
-        showForm();
-
-        const years = Object.keys(
-          database?.[el.cfgmarka.value]?.[el.cfgmodel.value]?.[el.cfgwersja.value] || {}
-        );
-        populate(el.cfgrok, years);
-      });
-
-      el.cfgrok.addEventListener('change', () => {
         resetSelect(el.cfgmontaz);
         updateSearchEnabled();
         showForm();
